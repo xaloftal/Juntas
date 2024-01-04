@@ -9,9 +9,10 @@ const Login = () => {
               alt="logo"
               className='img' />
       </div>
+      <div style={{ backgroundImage: "url(./background-image.png)" }}>
       <div className="login-card">
         
-        </div></>
+        </div></div></>
   );
 }
 
