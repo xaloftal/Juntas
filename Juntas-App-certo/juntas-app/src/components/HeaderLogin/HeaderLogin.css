@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Manrope');
+
+/*Header*/
+
+.header {
+    display: flex;
+    width: auto;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-bottom: 1px solid #D4D4D4;
+}
