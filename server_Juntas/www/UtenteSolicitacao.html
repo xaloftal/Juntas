@@ -1,59 +1,216 @@
 <!DOCTYPE html>
-    <html lang="en">
+<html lang="en">
 
-    <head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope">
 
-        <link rel="stylesheet" href="./CSS/UtenteSolicitacao.css" media="screen">
-        <link rel="stylesheet" href="./CSS/dropdownMenu.css" media="screen">
+  <link rel="stylesheet" href="./CSS/UtenteSolicitacao.css" media="screen">
+  <link rel="stylesheet" href="./CSS/HeaderUtente.css" media="screen">
+  <link rel="stylesheet" href="./CSS/dropdownMenu.css" media="screen">
+  <link rel="stylesheet" href="./CSS/footer.css" media="screen">
 
-        <title>Simple Page</title>
-    </head>
+  <script class="u-script" type="text/javascript" src="JavaScript/dragAndDrop.js" defer=""></script>
 
-    <body>
-        <header>
-            <div class="header-div">
-                <img src="./imagens/juntas-logo.png" alt="logo" class='img'/> 
-                <div class="dropdown">
-                  <p class="header-content">Solicitações</p>
-                  <div class="dropdown-content">
-                    <a href="">Pedir uma Junta Médica</a>
-                    <a href="">Histórico de solicitações</a>
-                  </div>
-                </div>
-                <img src="./imagens/user.png" alt="logo" class='img-user'/> 
-              </div>
-        </header>
+  <title>Simple Page</title>
+</head>
 
-        <section class="img-section">
-            <div class="title-div">
-              <p class="title-text">Solicitação de Junta Médica</p>
-              <p class="title-subtext">Preencha o formulário e obtenha resposta rápida</p>
-            </div>
-          </section>
+<body>
+  <header>
+    <div class="header-div">
+      <img src="./imagens/juntas-logo.png" alt="logo" class='img' />
+      <div class="dropdown">
+        <div style="display: inline-flex;">
+        <p class="header-content">Solicitações</p>
+        <img src="imagens/Expand Arrow.png" class="dropdown-arrow"></div>
+        <div class="dropdown-content">
+          <a href="">Pedir uma Junta Médica</a>
+          <a href="">Histórico de solicitações</a>
+        </div>
+      </div>
+      <img src="./imagens/user.png" alt="logo" class='img-user' />
+    </div>
+  </header>
 
-          <div class="form-div">
-            <div class="form-header-div">
-              <p>IDENTIFICAÇÃO</p>
-            </div>
-              <p class="form-text">Nome Completo</p>
-              <input type="text" class="form-input"></input>
-              <div class="form-two-inputs">
-                <div class="form-div-two-inputs">
-                <p class="form-text-one">Nº de Utente</p>
-                <input type="text" class="form-input"></input></div>
-                <div class="form-div-two-inputs">
-                <p class="form-text-two">Nº Contribuinte</p>
-                <input type="text" class="form-input"></input></div>
-              </div></div>
-    </body>
+  <section class="img-section">
+    <div class="title-div">
+      <p class="title-text">Solicitação de Junta Médica</p>
+      <p class="title-subtext">Preencha o formulário e obtenha resposta rápida</p>
+    </div>
+  </section>
 
-    </html>
+  <div class="form-div">
+
+    <div class="form-header-div">
+      <p>IDENTIFICAÇÃO</p>
+    </div>
+
+    <p class="form-text">Nome Completo</p>
+    <input type="text" class="form-input"></input>
+
+    <div class="form-two-inputs">
+
+      <div class="form-div-two-inputs">
+        <p class="form-text-one">Nº de Utente</p>
+        <input type="text" class="form-input"></input>
+      </div>
+
+      <div class="form-div-two-inputs">
+        <p class="form-text-two">Nº Contribuinte</p>
+        <input type="text" class="form-input"></input>
+      </div>
+
+    </div>
+
+    <div class="form-two-inputs">
+
+      <div class="form-div-two-inputs">
+        <p class="form-text-one">BI/CC</p>
+        <input type="text" class="form-input"></input>
+      </div>
+
+      <div class="form-div-two-inputs">
+        <p class="form-text-two">Validade</p>
+        <input type="date" class="form-input-date"></input>
+      </div>
+
+    </div>
+
+    <div class="form-header-div">
+      <p>NATURALIDADE</p>
+    </div>
+
+    <p class="form-text">Data de Nascimento</p>
+    <input type="date" class="form-input-date"></input>
+
+    <div class="form-two-inputs">
+
+      <div class="form-div-two-inputs">
+        <p class="form-text-one">Freguesia de</p>
+        <input type="text" class="form-input"></input>
+      </div>
+
+      <div class="form-div-two-inputs">
+        <p class="form-text-two">Concelho</p>
+        <input type="date" class="form-input-date"></input>
+      </div>
+
+    </div>
+
+    <div class="form-header-div">
+      <p>RESIDÊNCIA</p>
+    </div>
+
+    <p class="form-text">Rua</p>
+    <input type="text" class="form-input"></input>
+
+    <p class="form-text">Código Postal</p>
+    <input type="text" class="form-input"></input>
+
+    <div class="form-two-inputs">
+
+      <div class="form-div-two-inputs">
+        <p class="form-text-one">Freguesia de</p>
+        <input type="text" class="form-input"></input>
+      </div>
+
+      <div class="form-div-two-inputs">
+        <p class="form-text-two">Concelho</p>
+        <input type="text" class="form-input"></input>
+      </div>
+
+    </div>
+
+    <div class="form-two-inputs">
+
+      <div class="form-div-two-inputs">
+        <p class="form-text-one">Telefone <span style="color: #2979FF; font-weight: bold;">1</span></p>
+        <input type="text" class="form-input"></input>
+      </div>
+
+      <div class="form-div-two-inputs">
+        <p class="form-text-two">Telefone <span style="color: #2979FF; font-weight: bold;">2</span></p>
+        <input type="text" class="form-input"></input>
+      </div>
+
+    </div>
+
+    <div class="form-header-div">
+      <p>RELATÓRIOS CLÍNICOS</p>
+    </div>
+
+    <div id="drop-area" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)"
+      ondrop="handleDrop(event)">
+      <img src="imagens/Upload.png" style="height:60px">
+      <p class="drag-drop-text">Clique aqui para selecionar os ficheiros ou arraste</p>
+      <input type="file" id="fileInput" multiple style="display: none;">
+      <ul id="file-list" style="font-family: Manrope; color: #2979FF; font-weight: bold;"></ul>
+    </div>
+
+    <p class="term-title">Vem solicitar a V. Exª, que ao abrigo do n.º 1 do Art.º 3.º do Decreto-Lei
+      n.º 202/96, de 23 de outubro seja admitido a Junta Médica para Avaliação de
+      Incapacidade para efeito de:</p>
+
+    <div class="checkbox-div">
+      <input type="checkbox" id="obtencao" name="obtencao" class="checkbox" />
+      <label for="obtencao" class="checkbox-text">Obtenção de Atestado Médico de Incapacidade Multiuso <span
+          class="checkbox-span">(DL. n.º 202/96 de 23/10 com redação dada pelo DL. nº 174/97 de 19/07 e republicado pelo
+          DL. n. º 291/2009 de 12/10).</span></label>
+    </div>
+
+    <div class="checkbox-div">
+      <input type="checkbox" id="obtencao" name="obtencao" class="checkbox" />
+      <label for="obtencao" class="checkbox-text">Isenção do Imposto sobre Veículos <span class="checkbox-span">(Lei n.º
+          22-A/2007 de 29/06).</span></label>
+    </div>
+
+    <p class="term-title">Informa ainda de que:</p>
+
+    <div class="checkbox-div">
+      <input type="checkbox" id="obtencao" name="obtencao" class="checkbox" />
+      <label for="obtencao" class="checkbox-text">Nunca foi submetido a junta médica de avaliação do grau de
+        incapacidade.</label>
+    </div>
+
+    <div class="checkbox-div">
+      <input type="checkbox" id="obtencao" name="obtencao" class="checkbox" />
+      <label for="obtencao" class="checkbox-text">Já foi submetido em<input type="date"
+          class="term-input-date"></input>, pretendendo uma reavaliação.</label>
+    </div>
+
+    <p class="term-title">Compromete-se a ser portador de toda a informação clínica respeitante à(s) doença(s) e/ou deficiência(s) 
+      que justifica(m) este pedido</p>
+
+    <div class="sumbit-div">
+      <center><button class="submit-btn">Submeter</button></center>
+    </div>
+  </div>
+
+  <div class="footer" id="rodape">
+    <p class="footer-intro">A conectar utentes e médicos para cuidados de saúde personalizados desde 2020.</p>
+    <p>Rua Afonso Albuquerque, Nº 9 · Barcelos · Braga</p>
+    <div class="footer-phone-info-div">
+      <img src="imagens/icons8-phone-50 1.png" />
+      <div class="footer-info-letter">+351 253 467 451</div>
+    </div>
+    <div class="footer-email-info-div">
+      <img src="imagens/icons8-email-50 1.png"/>
+      <div class="footer-info-letter">info@saudeonline.pt</div>
+    </div>
+    <div class="footer-logo">
+      <img style="width: 40px"src="imagens/juntas-logo.png"/>
+    </div>
+  </div>
+  <div class="footer-copyright-div">
+    <div class="footer-copyright-letter">© 2023 Saúde On-Line </div>
+  </div> 
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+.wrapper {
+  width: 115%;
+  height: 120px;
+  padding-left: 10%;
+}
+
+.margin-area {
+  position: relative;
+  text-align: center;
+  font-family: "Trebuchet", sans-serif;
+  font-size: 14px;
+  margin: 0 20px;
+}
+
+.dot {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  background: #000;
+  border-radius: 50%;
+  top: 10px;
+  color: #fff;
+  line-height: 30px;
+  z-index: 9999;
+
+  &.one {
+      left: 65px;
+      background: #2979FF;
+  }
+
+  &.two {
+      left: 280px;
+      background: #bbb;
+  }
+
+  &.three {
+      left: 490px;
+      background: #bbb;
+      color: #fff;
+  }
+}
+
+.progress-bar {
+  position: absolute;
+  height: 10px;
+  width: 25%;
+  top: 20px;
+  left: 10%;
+  background: #bbb;
+
+  &.first {
+      background: #2979FF;
+  }
+
+  &.second {
+      left: 37%;
+  }
+}
+
+.message {
+  position: absolute;
+  height: 60px;
+  width: 170px;
+  padding: 10px;
+  margin: 0;
+  left: -8px;
+  top: 0;
+  color: #2979FF;
+  font-family: Manrope;
+  font-size: 1rem;
+  font-weight: 600;
+
+  &.message-1 {
+      top: 40px;
+  }
+
+  &.message-2 {
+      left: 210px;
+      top: 40px;
+  }
+
+  &.message-3 {
+      left: 420px;
+      top: 40px;
+  }
+}
+
+.status {
+  position: absolute;
+  width: 700px;
+  left: -600px;
+  text-align: center;
+  padding: 20px;
+  color: black;
+
+  &.code {
+      top: 70px;
+  }
+}
+
+a {
+  color: #0C84D9;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover,
+  &:focus {
+      text-decoration: underline;
+  }
+}
+
+/* Media Queries for responsiveness */
+@media only screen and (max-width: 768px) {
+  .wrapper {
+      width: 100%;
+      padding-left: 5%;
+  }
+
+  .dot {
+      height: 20px;
+      width: 20px;
+      top: 5px;
+      line-height: 20px;
+
+      &.one {
+          left: 25px;
+      }
+
+      &.two {
+          left: 140px;
+      }
+
+      &.three {
+          left: 250px;
+      }
+  }
+
+  .progress-bar {
+      height: 5px;
+      top: 10px;
+      left: 1%;
+  }
+
+  .message {
+      height: 40px;
+      width: 120px;
+      padding: 5px;
+      left: -4px;
+
+      &.message-1 {
+          top: 30px;
+      }
+
+      &.message-2 {
+          left: 150px;
+          top: 30px;
+      }
+
+      &.message-3 {
+          left: 260px;
+          top: 30px;
+      }
+  }
+
+  .status {
+      width: 100%;
+      left: 0;
+
+      &.code {
+          top: 50px;
+      }
+  }
+}
+
