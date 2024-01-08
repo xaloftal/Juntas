@@ -69,11 +69,12 @@
     color:#2979FF;
     padding-left: 40%;
     font-family: Manrope;
+    font-weight: 700;
 }
 
 @media only screen and (max-width: 600px) {
-    .header-history-span {
-        font-size: 12px;
+    .header-history-div {
+        font-size: 13px;
     }
 
     .history-title {
@@ -89,48 +90,21 @@
     }
 
     .data-med-name {
-        font-size: 11px;
+        font-size: 12px;
     }
 
     .data-med-email {
-        font-size: 9px;
+        font-size: 10px;
     }
 
     .data-date {
-        font-size: 11px;
-        padding-left: 23%;
+        font-size: 12px;
+        padding-left: 18%;
     }
 
     .see-details {
         font-size: 11px;
         padding-left: 13%;
-        width:100%;
-    }
-}
-
-@media only screen and (min-width: 600px) {
-    .history-title {
-        font-size: 1.5rem;
-    }
-    
-    .data-med-div {
-        width: 50%;
-    }
-
-    .data-med-name {
-        font-size: 11px;
-    }
-
-    .data-med-email {
-        font-size: 11px;
-    }
-
-    .data-date {
-        padding-left: 22%;
-    }
-
-    .see-details {
-        padding-left: 22%;
         width:100%;
     }
 }

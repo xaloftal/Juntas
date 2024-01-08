@@ -86,7 +86,7 @@
     font-weight: 700;
     line-height: normal;
     margin-left: 27%;
-    padding: 1% 1% 1% 1%;
+    padding: 1% 2% 1% 2%;
 }
 
 .next-answer {
@@ -100,56 +100,108 @@
 }
 
 @media only screen and (max-width: 600px) {
-    
+    .solicitation-div {
+        width: 100%;
+    }
+
+    .header-solicitation-div {
+        font-size: 13px;
+    }
+
+    .solicitation-title {
+        font-size: 19px;
+        padding-left:3%;
+    }
+
+    .data-patient-name {
+        font-size: 12px;
+    }
+
+    .data-patient-email {
+        font-size: 10px;
+    }
+
+    .answer-btn {
+        font-size: 12px;
+        margin-left: 15%;
+    }
+
+    .data-date {
+        font-size: 12px;
+        padding-left: 15%;
+    }
+
+    .next-answer {
+        font-size: 12px;
+        padding-left: 6%;
+    }
 }
 
 @media only screen and (min-width: 600px) {
-    
-}
-
-
-@media only screen and (min-width: 600px) {
-    
+    .solicitation-div {
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 768px) {
+    .solicitation-div {
+        width: 85%;
+    }
+
+    .solicitation-title {
+        padding-left:3%;
+    }
+
+    .answer-btn {
+        margin-left: 20%;
+    }
+
+    .data-date {
+        padding-left: 18%;
+    }
+
+    .next-answer {
+        padding-left: 13%;
+    }
     
 }
 
 @media only screen and (min-width: 992px) {
+    .solicitation-div {
+        width: 80%;
+    }
+
     .solicitation-title {
-        color: #000;
-        text-align: left;
-        font-family: Manrope;
-        font-size: 1.5rem;
-        padding-left:3ch;
+        padding-left:3%;
     }
 
     .answer-btn {
-        border-radius: 7px;
-        background: #2979FF;
-        border:none;
-        font-size: 1;
-        color: #FFF;
-        font-family: Manrope;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
         margin-left: 27%;
-        padding: 1% 1% 1% 1%;
     }
 
     .data-date {
-        color: black; 
-        font-size: 1rem; 
-        font-family: Manrope; 
-        font-weight: 600; 
-        word-wrap: break-word;
-        padding-left: 30%;
+        padding-left: 22%;
+    }
+
+    .next-answer {
+        padding-left: 22%;
     }
 }
 
 @media screen and (min-width: 1200px) {
-    
+    .solicitation-title {
+        padding-left:3%;
+    }
+
+    .answer-btn {
+        margin-left: 35%;
+    }
+
+    .data-date {
+        padding-left: 26%;
+    }
+
+    .next-answer {
+        padding-left: 32%;
+    }
 }
