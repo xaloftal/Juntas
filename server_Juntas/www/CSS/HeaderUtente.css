@@ -26,3 +26,37 @@
     height:80%;
     padding-top:0.5%;
 }
+
+@media only screen and (max-width: 600px) {
+    .header-div {
+        width:100%;
+        height: 50px; 
+    }
+    
+    .header-content {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    
+}
+
+@media screen and (min-width: 768px) {
+    .header-div {
+        width:100%;
+        height: 80px; 
+    }
+    
+    .header-content {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    
+}
+
+@media screen and (min-width: 1200px) {
+    
+}
