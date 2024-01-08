@@ -10,7 +10,14 @@ create table utente(
 	email_u		varchar(60)		unique,
 	tele_u		int				unique,
 	dat_nasc	date,
-	id_nacionalidade int	
+	id_nacionalidade int,
+	cc_num varchar(12),
+	cc_val date,
+	
+	id_morada int,
+	id_freguesia int, -- naturalidade
+	constraint mor_fk foreign key (id_morada) references morada(id_morada),
+	constraint fre_fk foreign key (id_freguesia) references freguesia(id_freguesia)
 );
 
 
