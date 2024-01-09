@@ -12,12 +12,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope">
 
+    <link rel="javascript" href="./JavaScript/stateBar.js" media="screen">
+
     <link rel="stylesheet" href="./CSS/UtenteEstado.css" media="screen">
-    <link rel="stylesheet" href="./CSS/HeaderUtente.css" media="screen">
+    <link rel="stylesheet" href="./CSS/stateBar.css" media="screen">
+    <link rel="stylesheet" href="./CSS/Header.css" media="screen">
     <link rel="stylesheet" href="./CSS/dropdownMenu.css" media="screen">
     <link rel="stylesheet" href="./CSS/progress.css" media="screen">
     <link rel="stylesheet" href="./CSS/footer.css" media="screen">
+    <link rel="stylesheet" href="./CSS/modal.css" media="screen">
 
+    
+    <script class="u-script" type="text/javascript" src="JavaScript/modal.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="JavaScript/dragAndDrop.js" defer=""></script>
 
     <title>Simple Page</title>
@@ -45,16 +51,19 @@
         <p class="state-title">Estado da solicitação</p>
         <p class="state-subtitle">Se no resultado for atribuída consulta na Junta Médica, esta será agendada.
             Se não for atribuída terá a escolha de agendar uma consulta ou não.</p>
-        <div class="wrapper">
-            <div class="margin-area">
-                <div class="dot one">1</div>
-                <div class="dot two">2</div>
-                <div class="dot three">3</div>
-                <div class="progress-bar first"></div>
-                <div class="progress-bar second"></div>
-                <div class="message message-1">Submetido</div>
-                <div class="message message-2">Em análise</div>
-                <div class="message message-3">Atribuída</div>
+        <div class="stepper-wrapper">
+            <div class="stepper-item completed">
+                <div class="step-counter">✓</div>
+                <div class="step-name">Submetido</div>
+            </div>
+            <div class="stepper-item completed">
+                <div class="step-counter">✓</div>
+                <div class="step-name">Em análise</div>
+            </div>
+            <div class="stepper-item active">
+                <div class="step-counter">✓</div>
+                <div class="step-name">Atribuida</div>
+                <button class="myBtn step-result" id="myBtn">Ver resultado</button>
             </div>
         </div>
 
@@ -68,14 +77,15 @@
         </div>
 
         <div class="solicitation-header-div">
-            <p>IDENTIFICAÇÃO</p>
+            <p style="margin:0%">IDENTIFICAÇÃO</p>
         </div>
-        <div>
+
+        <div class="space-div">
             <div class="name-div">
                 <p>NOME</p>
             </div>
             <div class="filled-div">
-                <p style="padding-left:5%;">Julia Maria Silva</p>
+                <p>2323432234</p>
             </div>
         </div>
 
@@ -84,8 +94,9 @@
                 <p>Nº DE UTENTE</p>
             </div>
             <div class="filled-div">
-                <p style="padding-left:5%;">2323432234</p>
+                <p>2323432234</p>
             </div>
+
         </div>
 
         <div class="space-div">
@@ -93,26 +104,22 @@
                 <p>BI/CC</p>
             </div>
             <div class="filled-div">
-                <p style="padding-left:5%;">2323432234</p>
+                <p>2323432234</p>
             </div>
             <div class="name-two-div">
                 <p>VÁLIDO ATÉ</p>
             </div>
-        </div>
-
-        <div class="space-div">
-            
             <div class="filled-div">
-                <p style="padding-left:5%;">2323432234</p>
+                <p>2323432234</p>
             </div>
         </div>
 
         <div class="space-div">
             <div class="name-div">
-                <p>Nº CONT</p>
+                <p>NIF</p>
             </div>
             <div class="filled-div">
-                <p style="padding-left:5%;">2323432234</p>
+                <p>2323432234</p>
             </div>
         </div>
 
@@ -120,9 +127,114 @@
             <p>NATURALIDADE</p>
         </div>
 
+        <div class="space-div">
+            <div class="name-div">
+                <p>DATA DE NASCIMENTO</p>
+            </div>
+            <div class="filled-div">
+                <p>2323432234</p>
+            </div>
+        </div>
+        <div class="space-div">
+            <div class="name-div">
+                <p>BI/CC</p>
+            </div>
+            <div class="filled-div">
+                <p>2323432234</p>
+            </div>
+            <div class="name-two-div">
+                <p>VÁLIDO ATÉ</p>
+            </div>
+            <div class="filled-div">
+                <p>2323432234</p>
+            </div>
+        </div>
+
         <div class="solicitation-header-div">
             <p>RESIDÊNCIA</p>
         </div>
+
+        <div class="space-div">
+            <div class="name-div">
+                <p>RUA</p>
+            </div>
+            <div class="filled-div">
+                <p style="padding-left:5%;"></p>
+            </div>
+        </div>
+
+        <div class="space-div">
+            <div class="name-div">
+                <p>CÓDGIGO POSTAL</p>
+            </div>
+            <div class="filled-div">
+                <p >2323432234</p>
+            </div>
+        </div>
+
+        <div class="space-div">
+            <div class="name-div">
+                <p>FREGUESIA DE</p>
+            </div>
+            <div class="filled-div">
+                <p>2323432234</p>
+            </div>
+            <div class="name-two-div">
+                <p>CONCELHO</p>
+            </div>
+            <div class="filled-div">
+                <p>2323432234</p>
+            </div>
+        </div>
+
+        <div class="space-div">
+            <div class="name-div">
+                <p>TELEFONE</p>
+            </div>
+            <div class="filled-div">
+                <p>2323432234</p>
+            </div>
+            <div class="name-two-div">
+                <p>OU</p>
+            </div>
+            <div class="filled-div">
+                <p>2323432234</p>
+            </div>
+        </div>
     </div>
+
+    <footer>
+        <div class="footer" id="rodape">
+            <p class="footer-intro">A conectar utentes e médicos para cuidados de saúde personalizados desde 2020.</p>
+            <p>Rua Afonso Albuquerque, Nº 9 · Barcelos · Braga</p>
+            <div class="footer-phone-info-div">
+                <img src="imagens/icons8-phone-50 1.png" />
+                <div class="footer-info-letter">+351 253 467 451</div>
+            </div>
+            <div class="footer-email-info-div">
+                <img src="imagens/icons8-email-50 1.png" />
+                <div class="footer-info-letter">info@saudeonline.pt</div>
+            </div>
+            <div class="footer-logo">
+                <img style="width: 40px" src="imagens/juntas-logo.png" />
+            </div>
+        </div>
+        <div class="footer-copyright-div">
+            <div class="footer-copyright-letter">© 2023 Saúde On-Line </div>
+        </div>
+    </footer>
+
+    <div id="myModal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <p class="result-title">Resultado</p>
+            </div>
+            <div class="modal-body">
+                <span class="">Percentagem: <span>70%</span></span>
+              
+            </div>
+          </div>
+        </div>
 
 </body>
