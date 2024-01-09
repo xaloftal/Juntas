@@ -4,7 +4,7 @@ doRegister = () => {
     let nus = document.querySelector('[data-id="nus"]').value;
 
     $.ajax({
-        url: "http://localhost:3050/RegistoUtente? + "&email=" + encodeURI(email) + "&password=" + encodeURI(password) + "&nus=" + nus,
+        url: "http://localhost:3050/RegistoUtente?id=" +  + encodeURI(email) + "&password=" + encodeURI(password) + "&nus=" + nus,
         type: "POST",
         crossDomain: false,
         dataType: "json",

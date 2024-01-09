@@ -12,21 +12,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(morgan('short'));
 
-app.use(require('./routes/reclamacaoRoute'));
-app.use(require('./routes/loginRoute'));
-app.use(require('./routes/formularioRoute'));
-app.use(require('./routes/especialidadeRoute'));
 app.use(require('./routes/registoRoute'));
-app.use(require('./routes/contaRoute'));
-app.use(require('./routes/miscRoute'));
-app.use(require('./routes/consultaRoute'));
-app.use(require('./routes/medicamentoRoute'));
-app.use(require('./routes/exameRoute'));
 
 app.use('/www', express.static('www'))
 
 app.get('/', (req, res) => {
-    res.redirect(301, '/www/PaginaPrincipal.html');
+    res.redirect(301, '/www/Login.html');
   });
 
 app.listen('3050', (err) => {
