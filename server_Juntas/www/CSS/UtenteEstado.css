@@ -109,3 +109,10 @@
     width:fit-content;
     
 }
+
+.result-title {
+    color: #000;
+    text-align: left;
+    font-family: Manrope;
+    font-size: 20px;
+}

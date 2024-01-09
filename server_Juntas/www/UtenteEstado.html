@@ -16,11 +16,14 @@
 
     <link rel="stylesheet" href="./CSS/UtenteEstado.css" media="screen">
     <link rel="stylesheet" href="./CSS/stateBar.css" media="screen">
-    <link rel="stylesheet" href="./CSS/HeaderUtente.css" media="screen">
+    <link rel="stylesheet" href="./CSS/Header.css" media="screen">
     <link rel="stylesheet" href="./CSS/dropdownMenu.css" media="screen">
     <link rel="stylesheet" href="./CSS/progress.css" media="screen">
     <link rel="stylesheet" href="./CSS/footer.css" media="screen">
+    <link rel="stylesheet" href="./CSS/modal.css" media="screen">
 
+    
+    <script class="u-script" type="text/javascript" src="JavaScript/modal.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="JavaScript/dragAndDrop.js" defer=""></script>
 
     <title>Simple Page</title>
@@ -60,7 +63,7 @@
             <div class="stepper-item active">
                 <div class="step-counter">✓</div>
                 <div class="step-name">Atribuida</div>
-                <div class="step-result">Ver resultado</div>
+                <button class="myBtn step-result" id="myBtn">Ver resultado</button>
             </div>
         </div>
 
@@ -220,5 +223,18 @@
             <div class="footer-copyright-letter">© 2023 Saúde On-Line </div>
         </div>
     </footer>
+
+    <div id="myModal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <p class="result-title">Resultado</p>
+            </div>
+            <div class="modal-body">
+                <span class="">Percentagem: <span>70%</span></span>
+              
+            </div>
+          </div>
+        </div>
 
 </body>

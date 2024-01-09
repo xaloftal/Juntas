@@ -15,8 +15,8 @@
     <link rel="javascript" href="./JavaScript/stateBar.js" media="screen">
 
     <link rel="stylesheet" href="./CSS/UtenteEstado.css" media="screen">
-    <link rel="stylesheet" href="./CSS/stateBar.css" media="screen">
-    <link rel="stylesheet" href="./CSS/HeaderUtente.css" media="screen">
+    <link rel="stylesheet" href="./CSS/MedicoAvaliacao.css" media="screen">
+    <link rel="stylesheet" href="./CSS/Header.css" media="screen">
     <link rel="stylesheet" href="./CSS/dropdownMenu.css" media="screen">
     <link rel="stylesheet" href="./CSS/progress.css" media="screen">
     <link rel="stylesheet" href="./CSS/footer.css" media="screen">
@@ -44,137 +44,168 @@
         </div>
     </header>
 
-    <div class="solicitation-div">
+    <div class="grid-container">
+        <div class="solicitation-div" style="width: 80%; margin-right:10px">
+            <div>
+                <p class="solicitation-header-title">Solicitação de Junta Médica
+                    <span class="solicitation-header-span">21/01/2023</span>
+                </p>
+            </div>
+
+            <div class="solicitation-header-div">
+                <p style="margin:0%">IDENTIFICAÇÃO</p>
+            </div>
+
+            <div class="space-div">
+                <div class="name-div">
+                    <p>NOME</p>
+                </div>
+                <div class="filled-div">
+                    <p>2323432234</p>
+                </div>
+            </div>
+
+            <div class="space-div">
+                <div class="name-div">
+                    <p>Nº DE UTENTE</p>
+                </div>
+                <div class="filled-div">
+                    <p>2323432234</p>
+                </div>
+
+            </div>
+
+            <div class="space-div">
+                <div class="name-div">
+                    <p>BI/CC</p>
+                </div>
+                <div class="filled-div">
+                    <p>2323432234</p>
+                </div>
+                <div class="name-two-div">
+                    <p>VÁLIDO ATÉ</p>
+                </div>
+                <div class="filled-div">
+                    <p>2323432234</p>
+                </div>
+            </div>
+
+            <div class="space-div">
+                <div class="name-div">
+                    <p>NIF</p>
+                </div>
+                <div class="filled-div">
+                    <p>2323432234</p>
+                </div>
+            </div>
+
+            <div class="solicitation-header-div">
+                <p>NATURALIDADE</p>
+            </div>
+
+            <div class="space-div">
+                <div class="name-div">
+                    <p>DATA DE NASCIMENTO</p>
+                </div>
+                <div class="filled-div">
+                    <p>2323432234</p>
+                </div>
+            </div>
+            <div class="space-div">
+                <div class="name-div">
+                    <p>BI/CC</p>
+                </div>
+                <div class="filled-div">
+                    <p>2323432234</p>
+                </div>
+                <div class="name-two-div">
+                    <p>VÁLIDO ATÉ</p>
+                </div>
+                <div class="filled-div">
+                    <p>2323432234</p>
+                </div>
+            </div>
+
+            <div class="solicitation-header-div">
+                <p>RESIDÊNCIA</p>
+            </div>
+
+            <div class="space-div">
+                <div class="name-div">
+                    <p>RUA</p>
+                </div>
+                <div class="filled-div">
+                    <p style="padding-left:5%;"></p>
+                </div>
+            </div>
+
+            <div class="space-div">
+                <div class="name-div">
+                    <p>CÓDGIGO POSTAL</p>
+                </div>
+                <div class="filled-div">
+                    <p>2323432234</p>
+                </div>
+            </div>
+
+            <div class="space-div">
+                <div class="name-div">
+                    <p>FREGUESIA DE</p>
+                </div>
+                <div class="filled-div">
+                    <p>2323432234</p>
+                </div>
+                <div class="name-two-div">
+                    <p>CONCELHO</p>
+                </div>
+                <div class="filled-div">
+                    <p>2323432234</p>
+                </div>
+            </div>
+
+            <div class="space-div">
+                <div class="name-div">
+                    <p>TELEFONE</p>
+                </div>
+                <div class="filled-div">
+                    <p>2323432234</p>
+                </div>
+                <div class="name-two-div">
+                    <p>OU</p>
+                </div>
+                <div class="filled-div">
+                    <p>2323432234</p>
+                </div>
+            </div>
+        </div>
         <div>
-            <p class="solicitation-header-title">Solicitação de Junta Médica
-                <span class="solicitation-header-span">21/01/2023</span>
-            </p>
-        </div>
-
-        <div class="solicitation-header-div">
-            <p style="margin:0%">IDENTIFICAÇÃO</p>
-        </div>
-
-        <div class="space-div">
-            <div class="name-div">
-                <p>NOME</p>
+            <div class="exams-div">
+                <div class="exam-header-div">
+                    <span class="exams-title">Relatórios Clínicos</span>
+                    <span class="exam-files-count">x ficheiros<span class="anexed-text"> anexados</span></span>
+                </div>
+                <div class="exam-files-div">
+                    <div class="exam-one-file">
+                        <p>Exame_raios_x</p>
+                        <button class="see-btn">Ver</button>
+                    </div>
+                </div>
             </div>
-            <div class="filled-div">
-                <p>2323432234</p>
+            <div class="evaluation-div">
+                <div class="evaluation-header-div">
+                    <span class="evaluation-title">Avaliação de incapacidade</span>
+                </div>
+                <div class="evaluation-answer-div">
+                    <label for="obv">Observações</label>
+                    <textarea type="text" id="obv" name="obv" class="text-input" height="100px"></textarea>
+                    <p style="font-weight: bold;">Percentagem de incapacidade<input type="text" class="percentage-input"> %</p>
+                </div>
+                <div class="submit-div">
+                    <button class="answer-btn">Responder</button>
+                    <a class="cancel-a">Cancelar</a>
+                </div>
             </div>
-        </div>
-
-        <div class="space-div">
-            <div class="name-div">
-                <p>Nº DE UTENTE</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-
-        </div>
-
-        <div class="space-div">
-            <div class="name-div">
-                <p>BI/CC</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-            <div class="name-two-div">
-                <p>VÁLIDO ATÉ</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-        </div>
-
-        <div class="space-div">
-            <div class="name-div">
-                <p>NIF</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-        </div>
-
-        <div class="solicitation-header-div">
-            <p>NATURALIDADE</p>
-        </div>
-
-        <div class="space-div">
-            <div class="name-div">
-                <p>DATA DE NASCIMENTO</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-        </div>
-        <div class="space-div">
-            <div class="name-div">
-                <p>BI/CC</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-            <div class="name-two-div">
-                <p>VÁLIDO ATÉ</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-        </div>
-
-        <div class="solicitation-header-div">
-            <p>RESIDÊNCIA</p>
-        </div>
-
-        <div class="space-div">
-            <div class="name-div">
-                <p>RUA</p>
-            </div>
-            <div class="filled-div">
-                <p style="padding-left:5%;"></p>
-            </div>
-        </div>
-
-        <div class="space-div">
-            <div class="name-div">
-                <p>CÓDGIGO POSTAL</p>
-            </div>
-            <div class="filled-div">
-                <p >2323432234</p>
-            </div>
-        </div>
-
-        <div class="space-div">
-            <div class="name-div">
-                <p>FREGUESIA DE</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-            <div class="name-two-div">
-                <p>CONCELHO</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-        </div>
-
-        <div class="space-div">
-            <div class="name-div">
-                <p>TELEFONE</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-            <div class="name-two-div">
-                <p>OU</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
+                        
         </div>
     </div>
 
