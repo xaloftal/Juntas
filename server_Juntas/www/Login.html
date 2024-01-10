@@ -14,6 +14,16 @@
 
         <link rel="stylesheet" href="./CSS/LoginRegisto.css" media="screen">
 
+        <script class="u-script" type="text/javascript" src="JavaScript/Login.js" defer=""></script>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script class="u-script" type="text/javascript" src="JavaScript/jquery.js" defer=""></script>
+
         <title>Simple Page</title>
     </head>
 
@@ -29,14 +39,14 @@
                 <div class="login-input-div">
                     <p class="login-title">Iniciar sessão</p>
                     <p class="login-email">Email</p>
-                    <input type="text" class="login-input"></input>
+                    <input type="text" class="login-input" data-id="email"></input>
                     <p class="login-password">Palavra-passe</p>
-                    <input type="text" class="login-input"></input>
+                    <input type="text" class="login-input" data-id="password"></input>
                     <center>
                         <p class="text-no-account">Não tem conta? <a href="./RegistoUtente.html"
                                 class="sign-up">Registe-se aqui</a></p>
                     </center>
-                    <center><button class="login-btn">Iniciar sessão</button></center>
+                    <center><button class="login-btn" onclick="doLogin()">Iniciar sessão</button></center>
                 </div>
             </div>
         </section>

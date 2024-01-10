@@ -1,4 +1,4 @@
-const client = require('../Database/database');
+const client = require('../Database/databaseJMAI');
 
 module.exports = {
     RegistoUtente: (req, res) => {

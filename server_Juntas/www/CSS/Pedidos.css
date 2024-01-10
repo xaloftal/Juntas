@@ -87,6 +87,13 @@
     line-height: normal;
     margin-left: 27%;
     padding: 1% 2% 1% 2%;
+    cursor:pointer;
+}
+
+.solicitation-count {
+    color: #2979FF;
+    font-weight: bold;
+    padding-left: 65%;
 }
 
 .next-answer {
@@ -109,8 +116,13 @@
     }
 
     .solicitation-title {
-        font-size: 19px;
+        font-size: 16px;
         padding-left:3%;
+    }
+
+    .solicitation-count {
+        font-size: 16px;
+        padding-left: 25%;
     }
 
     .data-patient-name {
@@ -152,6 +164,10 @@
         padding-left:3%;
     }
 
+    .solicitation-count {
+        padding-left: 35%;
+    }
+
     .answer-btn {
         margin-left: 20%;
     }
@@ -175,6 +191,10 @@
         padding-left:3%;
     }
 
+    .solicitation-count {
+        padding-left: 50%;
+    }
+
     .answer-btn {
         margin-left: 27%;
     }
@@ -193,12 +213,16 @@
         padding-left:3%;
     }
 
+    .solicitation-count {
+        padding-left: 65%;
+    }
+
     .answer-btn {
-        margin-left: 35%;
+        margin-left: 36%;
     }
 
     .data-date {
-        padding-left: 26%;
+        padding-left: 28%;
     }
 
     .next-answer {
