@@ -7,10 +7,8 @@ create table utente(
 	nome_u		varchar(60)		not null,
 	nif_u		int				unique,
 	nus_u		int				unique,
-	email_u		varchar(60)		unique,
 	tele_u		int				unique,
 	dat_nasc	date,
-	id_nacionalidade int,
 	cc_num varchar(12),
 	cc_val date,
 	
@@ -55,17 +53,21 @@ create table morada(
 	id_morada serial primary key,
 	rua varchar(100),
 	nmr_porta int,
-	cod_post int
+	id_cod int,
+	
+	constraint mor_cod_fk foreign key (id_cod) references codigo_postal(id_cod)
 );
 
+
+
 create table codigo_postal(
-	cod_post varchar(8) primary key,
+	id_cod serial primary key,
+	cod_post varchar(8) , 
 	id_freguesia int,
-	distrito varchar(60),
 	
-	constraint zipfre_fk foreign key (id_freguesia) references freguesia(id_freguesia)
-	
+	constraint cod_fre foreign key (id_freguesia) references freguesia(id_freguesia)
 );
+
 
 create table pais(
 	id_pais serial primary key,
@@ -117,3 +119,5 @@ create table utente_incapacidade(
 	constraint ute_inc_fk foreign key (id_utente) references utente(id_utente),
 	constraint inc_inc_fk foreign key (id_incapacidade) references incapacidade(id_incapacidade)
 );
+
+insert into nacionalidade (nome_nac, sigla_nac) values ('Portugues', 'PT')

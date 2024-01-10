@@ -1,99 +1,93 @@
 <!DOCTYPE html>
-    <html lang="en">
+<html lang="en">
 
-    <head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope">
 
-        <link rel="stylesheet" href="./CSS/AdmContas.css" media="screen">
-        <link rel="stylesheet" href="./CSS/dropdownMenu.css" media="screen">
+    <link rel="stylesheet" href="./CSS/Tabelas.css" media="screen">
+    <link rel="stylesheet" href="./CSS/Header.css" media="screen">
+    <link rel="stylesheet" href="./CSS/dropdownMenu.css" media="screen">
+    <link rel="stylesheet" href="./CSS/footer.css" media="screen">
 
-        <title>Simple Page</title>
-    </head>
+    <script class="u-script" type="text/javascript" src="JavaScript/dragAndDrop.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="JavaScript/AdmContas.js" defer=""></script>
 
-    <body>
-        <header>
-            <div class="header-div">
-                <img src="./imagens/juntas-logo.png" alt="logo" class='img'/> 
-                <div class="dropdown">
-                  <p class="header-content">Gestão de Contas</p>
-                  <div class="dropdown-content">
-                    <a href="">Registar Médicos</a>
-                    <a href="">Contas</a>
-                  </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script class="u-script" type="text/javascript" src="JavaScript/jquery.js" defer=""></script>
+
+    <title>Simple Page</title>
+
+    <script type="text/javascript">
+        window.onload = () => {
+          GetContasMedico();
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="header-div">
+            <img src="./imagens/juntas-logo.png" alt="logo" class='img' />
+            <div class="dropdown">
+                <div style="display: inline-flex;">
+                    <p class="header-content">Gestão de contas</p>
+                    <img src="imagens/Expand Arrow.png" class="dropdown-arrow">
                 </div>
-                <img src="./imagens/user.png" alt="logo" class='img-user'/> 
-              </div>
-        </header>
-
-        <!-- <section class="img-section">
-            <div class="title-div">
-              <p class="title-text">Solicitação de Junta Médica</p>
-              <p class="title-subtext">Preencha o formulário e obtenha resposta rápida</p>
+                <div class="dropdown-content">
+                    <a href="">Registar médicos</a>
+                    <a href="">Contas</a>
+                </div>
             </div>
-          </section>-->
-
-          <div class="container">
-            <table>
-                <tr>
-                    <th>Médicos</th>
-                    <th class="corner-text">4 Médicos</th>
-                </tr>
-                <tbody id="tabela">
-                    <tr class="tr-header">
-                        <td class="right">Nome</td>
-                        <td class="right">Nº Cédula</td>
-                        <td class="right">Especialidade</td>
-                        <td class="right">Email</td>
-                        <td class="right">Telemóvel</td>
-                        <!-- <button class="button">
-                            Eliminar
-                        </button> -->
-                        
-                    </tr>
-    
-                    <tr class="item", data-id="25089">
-                        
-                        <td>25089</td>
-                        <td class="right">Gustavo Herrera</td>
-                        <td class="right">gustavoherrera@sas.ipca.pt</td>
-                        
-                    </tr>
-    
-                    <tr class="item", data-id="25014">
-                        
-                        <td>25014</td>
-                        <td class="right">Filipe Barbosa</td>
-                        <td class="right">filipebarbosa@sas.ipca.pt</td>
-                        
-                    </tr>
-    
-                    <tr class="item", data-id="25066">
-                        
-                        <td>25066</td>
-                        <td class="right">Vânia Carneiro</td>
-                        <td class="right">vaniacarneiro@sas.ipca.pt</td>
-                        
-                    </tr>
-    
-                    <tr class="item", data-id="25072">
-                        
-                        <td>25072</td>
-                        <td class="right">Joelma Leite</td>
-                        <td class="right">joelmaleite@sas.ipca.pt</td>
-                        
-                    </tr>
-    
-                </tbody>    
-            </table>
+            <img src="./imagens/user.png" alt="logo" class='img-user' />
         </div>
-    </body>
+    </header>
 
-    </html>
+    <div class="account-div">
+        <p class="account-title">Médicos</p>
+        <div class="header-account-div">
+            <span>NOME</span>
+            <span class="header-account-span-one">Nº DA CÉDULA</span>
+            <span class="header-account-span-two">EMAIL</span>
+            <span class="header-account-span-three">TELEMÓVEL</span>
+        </div>
+        <div class="data-account-div" data-id="contaMedicoContainer">
+        </div>
+    </div>
+        
+
+    <footer>
+        <div class="footer" id="rodape">
+            <p class="footer-intro">A conectar utentes e médicos para cuidados de saúde personalizados desde 2020.</p>
+            <p>Rua Afonso Albuquerque, Nº 9 · Barcelos · Braga</p>
+            <div class="footer-phone-info-div">
+                <img src="imagens/icons8-phone-50 1.png" />
+                <div class="footer-info-letter">+351 253 467 451</div>
+            </div>
+            <div class="footer-email-info-div">
+                <img src="imagens/icons8-email-50 1.png" />
+                <div class="footer-info-letter">info@saudeonline.pt</div>
+            </div>
+            <div class="footer-logo">
+                <img style="width: 40px" src="imagens/juntas-logo.png" />
+            </div>
+        </div>
+        <div class="footer-copyright-div">
+            <div class="footer-copyright-letter">© 2023 Saúde On-Line </div>
+        </div>
+    </footer>
+</body>
+
+</html>
