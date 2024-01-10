@@ -36,6 +36,7 @@ create table medico(
 	email_m varchar(60),
 	nome_m varchar(60),
 	cedula int,
+	tel_med int,
 	constraint fk_medico_login foreign key (email_m) references utilizador(email)
 )
 
@@ -56,6 +57,7 @@ create table avaliacao(
 	data_avaliacao date,
 	percentagem int,
 	estado_a estado,
+	observ_ava	varchar(500),
 	
 	id_pedido int,
 	id_medico int,
