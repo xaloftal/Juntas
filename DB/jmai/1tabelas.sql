@@ -43,14 +43,25 @@ create table medico(
 create table pedido(
 	id_pedido serial primary key,
 	estado_p estado,
-	data_pedido date,
-	tele1 int,
-	tele2 int,
+	data_pedido date, --
+	tele1 int,--
+	tele2 int,--
+	nome_u varchar(60),--
+	cc_num varchar(12),--
+	cc_val date,--
+	dat_nasc	date,--
+	freg_nat int,--
+	nif_u		int ,--
+	nus_u int,--
+	rua varchar(60),--
+	cod_postal	int,--
 	
-	id_utente int,
+	
+	id_utente int,--
 	
 	constraint ut_fk foreign key (id_utente) references utente(id_utente)
 );
+
 
 create table avaliacao(
 	id_avaliacao serial primary key,
