@@ -498,3 +498,266 @@
         padding-left: 19%;
     }
 }
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Manrope');
+
+/*Header*/
+
+.header-div {
+    width:100%;
+    height: 100px; 
+    position: relative; 
+    background: white; 
+    border-bottom: 1px #D4D4D4 solid;
+    display:inline-flex;
+}
+
+.header-content {
+    color: #000;
+    font-family: Manrope;
+    font-size: 20px;
+    font-weight: 600;
+    position:relative;
+}
+
+.img {
+    height: 90%;
+    padding-left:2%;
+}
+
+.img-user {
+    height:80%;
+    padding-top:0.5%;
+}
+
+.img-section {
+    background-image: url('../imagens/background-utente.png') ;
+    padding-top:5%;
+    padding-left:5%;
+    padding-bottom:5%;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.title-div {
+    border-radius: 6px;
+    border: 1px solid #D4D4D4;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width:fit-content;
+    height:fit-content;
+    padding-left:3%;
+    padding-right:3%;
+    padding-bottom:1%;
+}
+
+.title-text {
+    color: #000;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.title-subtext {
+    color: #000;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.form-div {
+    fill: #FFF;
+    stroke-width: 1px;
+    stroke: #D4D4D4;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 6px;
+    width:40%;
+    margin:auto;
+    border:#D4D4D4 1px solid;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-top:20px;
+}
+
+.form-header-div {
+    background-color: #2979FF;
+    color: #FFF;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.form-input {
+    border-radius: 4px;
+    border: 1px solid #808080;
+    margin-left:5%;
+    height:35px;
+    width:90%;
+}
+
+.form-text {
+    color: #000;
+    font-family: Manrope;
+    font-size: 1rem;
+    font-weight: 400;
+    padding-left: 5%;
+    margin-bottom: 1px;
+}
+
+.form-two-inputs {
+    display:inline-flex;
+    padding-top: 2%;
+    padding-left: 3.5%;
+}
+
+.form-text-one {
+    color: #000;
+    font-family: Manrope;
+    font-size: 1rem;
+    font-weight: 400;
+    width:fit-content;
+    padding-left: 5%;
+    margin-bottom:auto;
+}
+
+.form-text-two {
+    color: #000;
+    font-family: Manrope;
+    font-size: 1rem;
+    font-weight: 400;
+    padding-left: 5%;
+    width:fit-content;
+    margin-bottom:auto
+}
+
+
+.container {
+    width: 100%; /* ajuste conforme necessário */
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    margin: auto;
+    margin-top: 2%;
+    border: 1px solid #D4D4D4;
+    border-radius: 6px ;
+    width: 90%;
+}
+
+.container table{
+  width:100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-radius: 6px;
+  
+}
+
+.container table tr th,
+.container table tr td {
+    color: #000;
+    font-family: Manrope;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.container table tr th{
+    padding-bottom: 1%;
+    padding-top: 1%;
+    width:fit-content;
+}
+
+.container .corner-text {
+    color: #2979FF;
+    font-family: Manrope;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    width: fit-content;
+    height: fit-content;
+}
+
+.container table tr{
+    border: 1px solid #D4D4D4;
+}
+
+.container table tr td {
+    border-bottom: 1px solid #D4D4D4; 
+    font-size: 16px;
+    font-weight: 400;
+    width:fit-content;
+}
+
+.container table tr.item td{
+  padding: 2% 0%;
+  color: #000;
+  text-align: center;
+}
+
+.container table tr.tr-header{
+    background-color: #F3F3F3;
+    border-collapse: collapse !important;
+}
+
+.container table tr td.icone i {
+  cursor: pointer;
+  font-size: 18px;
+  color: #000; 
+}
+
+.container table tr td{
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+}
+
+.container table tr td .button {
+  font-size: 16px; /* Ajuste o tamanho da fonte conforme necessário */
+  max-width: 120px; /* Ajuste a largura máxima conforme necessário */
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #000; /* Cor verde - ajuste conforme necessário */
+  border: 2px solid #000; /* Cor da borda também em verde - ajuste conforme necessário */
+  background-color: transparent;
+  padding: 10px 15px; /* Ajuste o preenchimento conforme necessário */
+  min-height: 30px; /* Ajuste a altura mínima conforme necessário */
+}
+
+.container table tr td .button:hover {
+  background-color: rgba(237, 237, 237, 1); /* Cor de fundo ao passar o mouse */
+  color: #000; /* Cor do texto ao passar o mouse - ajuste conforme necessário */
+  /* Adicione mais estilos conforme necessário */
+}
+
+.tr-header{
+    flex-shrink: 0;
+    text-transform: uppercase;
+}
+
+.tr-header .right{
+    color: #2979FF;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+table tr td:last-child{
+    border:0
+  }
