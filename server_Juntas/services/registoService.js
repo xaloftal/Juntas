@@ -11,24 +11,4 @@ module.exports = {
             res.send(results.rows)
         });
     },
-    RegistoMedico: (req, res) => {
-        client.query('call signup_medico($1,$2,$3,$4)', [req.query.nome, req.query.email, req.query.password, req.query.especialidade], (error, results) => {
-
-            if (error) {
-                throw error
-            }
-            console.log(results)
-            res.send(results.rows)
-        });
-    },
-    RegistoAdm: (req, res) => {
-        client.query('call signup_adm($1, $2, $3)', [req.query.nome, req.query.email, req.query.password], (error, results) => {
-
-            if (error) {
-                throw error
-            }
-            console.log(results)
-            res.send(results.rows)
-        });
-    },
 }
