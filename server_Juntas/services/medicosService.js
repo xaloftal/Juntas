@@ -2,7 +2,7 @@ const client = require('../Database/databaseRNU');
 
 module.exports = {
     GetMedicos: (req, res) => {
-        client.query('SELECT * FROM medico', [req.query.nus], (error, results) => {
+        client.query('SELECT m.*, ut.*, e.* FROM medico m INNER JOIN especialidade e ON m.id_especialidade = e.id_especialidade INNER JOIN utilizador ut ON m.email_m = ut.email AND ut.estado_l = 'Existente';"', (error, results) => {
             if (error) {
                 throw error
             }
