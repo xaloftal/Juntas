@@ -2,7 +2,7 @@ const GetContasMedico = () => {
     $.ajax({
             url: "http://localhost:3050/medicos",
             type: "GET",
-            crossDomain: false,
+            crossDomain: true,
             dataType: "json",
             headers: {
                 "accept": "application/json",
@@ -14,10 +14,9 @@ const GetContasMedico = () => {
             let containerMedico = document.querySelector('[data-id="contaMedicoContainer"]');
             response.forEach(contaMedico => {
                 console.log(contaMedico);
-                containerMedico.innerHTML += '<div class="data-name-div"><div class="data-med-name">' + contaMedico.nome_m + '</div></div><div class="data-number">' + contaMedico.cedula + '</div><div class="data-email">' + contaMedico.email_m + '</div><div class="data-phone">233453</div><button class="delete-account-btn">Eliminar</button>';
+                containerMedico.innerHTML += '<td>'+ contaMedico.nome_m +'</td><td class="right">'+ contaMedico.cedula +'</td><td class="right">'+ contaMedico.email_m +'</td><td class="right">'+ contaMedico.tel_med +'</td><td><button class="delete-account-btn" onclick="deleteContaMedico(\''+ contaMedico.email_m +'\')">Eliminar</button></td>';
             })
 
-            updateModalBtns();
         })
         .catch((error) => {
             console.error(error)
@@ -27,9 +26,9 @@ const GetContasMedico = () => {
 const deleteContaMedico = (email) => {
 
     $.ajax({
-            url: "http://localhost:3050/EliminarConta?email=" + email,
+            url: "http://localhost:3050/deleteMedicos?email=" + email,
             type: "PUT",
-            crossDomain: false,
+            crossDomain: true,
             dataType: "json",
             headers: {
                 "accept": "application/json",
@@ -45,4 +44,5 @@ const deleteContaMedico = (email) => {
         .catch((error) => {
             alert('Eliminação sem sucesso')
         });
+
 }

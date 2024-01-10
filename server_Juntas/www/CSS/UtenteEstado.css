@@ -116,3 +116,97 @@
     font-family: Manrope;
     font-size: 20px;
 }
+
+.percentage,
+.obv {
+    color: #2979FF;
+    font-family: Manrope;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.result {
+    color: black;
+    font-family: Manrope;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.appointment-checkbox {
+    color: #000;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding-left:2%;
+}
+
+.checkbox-div {
+    margin-bottom:2%;
+}
+
+.checkbox-span {
+    color: #000;
+    font-family: Manrope;
+    font-size: 0.7rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+input[type=checkbox] {
+    position: relative;
+    cursor: pointer;
+    border: #D4D4D4;
+}
+
+input[type=checkbox]:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 0;
+    border: 2px solid #555555;
+    border-radius: 3px;
+    background-color: white;
+}
+input[type=checkbox]:checked:after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 2px;
+    left: 6px;
+}
+
+
+.answer-btn {
+    border-radius: 7px;
+    background: #2979FF;
+    border:none;
+    color: #FFF;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 2% 8% 2% 8%;
+    cursor:pointer;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left:70%;
+}

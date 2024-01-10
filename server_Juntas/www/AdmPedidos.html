@@ -12,58 +12,81 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope">
 
-    <link rel="stylesheet" href="./CSS/Pedidos.css" media="screen">
+    <link rel="stylesheet" href="./CSS/Tabelas.css" media="screen">
     <link rel="stylesheet" href="./CSS/Header.css" media="screen">
     <link rel="stylesheet" href="./CSS/dropdownMenu.css" media="screen">
     <link rel="stylesheet" href="./CSS/footer.css" media="screen">
 
     <script class="u-script" type="text/javascript" src="JavaScript/dragAndDrop.js" defer=""></script>
 
+    <script class="u-script" type="text/javascript" src="JavaScript/AdmPedidos.js" defer=""></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script class="u-script" type="text/javascript" src="JavaScript/jquery.js" defer=""></script>
+
     <title>Simple Page</title>
+    
+    <script type="text/javascript">
+        window.onload = () => {
+          GetPrimeiroPedido();
+          GetPedidos();
+        }
+    </script>
 </head>
 
 <body>
     <header>
         <div class="header-div">
             <img src="./imagens/juntas-logo.png" alt="logo" class='img' />
+            <a href="" class="header-content solicitation">Pedidos</a>
             <div class="dropdown">
                 <div style="display: inline-flex;">
-                    <p class="header-content">Solicitações</p>
+                    <p class="header-content">Gestão de contas</p>
                     <img src="imagens/Expand Arrow.png" class="dropdown-arrow">
                 </div>
                 <div class="dropdown-content">
-                    <a href="">Pedir uma Junta Médica</a>
-                    <a href="">Histórico de solicitações</a>
+                    <a href="">Registar médicos</a>
+                    <a href="">Eliminar contas</a>
                 </div>
             </div>
             <img src="./imagens/user.png" alt="logo" class='img-user' />
         </div>
     </header>
 
-    <div class="solicitation-div">
-        <p class="solicitation-title">Pedidos <span class="solicitation-count">6 pedidos</span> por responder</p>
-        
-        <div class="header-solicitation-div">
-            <span>NOME</span>
-            <span class="header-solicitation-span">DATA</span>
-        </div>
-        <div class="solicitation-between-div"></div>
-        <div class="data-solicitation-div">
-            <div class="data-patient-div">
-                <div class="data-patient-name">José Maria Pereira</div>
-                <div class="data-patient-email">josepereira@med.juntas.pt</div>
-            </div>
-            <div class="data-date">30/07/2023</div>
-            <button class="answer-btn">Avaliar</button>
-        </div>
-        <div class="solicitation-between-div"></div>
-        <div class="data-solicitation-div">
-            <div class="data-patient-div">
-                <div class="data-patient-name">José Maria Pereira</div>
-                <div class="data-patient-email">josepereira@med.juntas.pt</div>
-            </div>
-            <div class="data-date">30/07/2023</div>
-        </div>
+    <div class="container-1">
+        <table>
+            <tr>
+                <p class="med-header">Pedidos de Junta Médica<span class="corner-text"> 4 pedidos para responder</span></p>
+            </tr>
+            
+            <tbody id="tabela">
+                <tr class="tr-header">
+                    <th class="right">UTENTE</th>
+                    <th class="right">DATA</th>
+                    <th></th>
+                </tr>
+                <tr class="div-between">
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr class="item" data-id="primeiroPedidoContainer">
+
+                </tr>
+                <tr class="div-between">
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr class="item" data-id="pedidoContainer">
+                </tr>
+            </tbody>    
+        </table>
     </div>
         
 

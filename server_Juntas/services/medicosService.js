@@ -1,8 +1,8 @@
-const client = require('../Database/databaseRNU');
+const client = require('../Database/databaseJMAI');
 
 module.exports = {
     GetMedicos: (req, res) => {
-        client.query('SELECT m.*, ut.*, e.* FROM medico m INNER JOIN especialidade e ON m.id_especialidade = e.id_especialidade INNER JOIN utilizador ut ON m.email_m = ut.email AND ut.estado_l = 'Existente';"', (error, results) => {
+        client.query("SELECT * FROM medico m INNER JOIN utilizador u ON m.email_m = u.email WHERE u.estado_u = 'ativo'", (error, results) => {
             if (error) {
                 throw error
             }

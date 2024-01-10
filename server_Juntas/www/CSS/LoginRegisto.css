@@ -13,6 +13,7 @@
 
 .login-section {
     background-image: url("../imagens/background-image.png");
+    background-size: cover;
     
 }
 
@@ -28,7 +29,7 @@
     background: #FFF;
     margin-left:auto;
     margin-right:auto;
-    margin-top: 5%;
+    margin-top: 2%;
 }
 
 .login-title,
@@ -101,8 +102,8 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-top:7%;
-    margin-bottom: 7%;
+    margin-top:6%;
+    margin-bottom: 1%;
 }
 
 .sign-up,

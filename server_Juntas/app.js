@@ -17,6 +17,7 @@ app.use(require('./routes/registoRoute'));
 app.use(require('./routes/rnuRoute'));
 app.use(require('./routes/loginRoute'));
 app.use(require('./routes/medicosRoute'));
+app.use(require('./routes/pedidoRoute'));
 
 app.use('/www', express.static('www'))
 

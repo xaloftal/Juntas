@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope">
 
-    <link rel="stylesheet" href="./CSS/Pedidos.css" media="screen">
+    <link rel="stylesheet" href="./CSS/Tabelas.css" media="screen">
     <link rel="stylesheet" href="./CSS/Header.css" media="screen">
     <link rel="stylesheet" href="./CSS/dropdownMenu.css" media="screen">
     <link rel="stylesheet" href="./CSS/footer.css" media="screen">
@@ -40,31 +40,40 @@
         </div>
     </header>
 
-    <div class="solicitation-div">
-        <p class="solicitation-title">Pedidos <span class="solicitation-count">6 pedidos</span> por responder</p>
-        
-        <div class="header-solicitation-div">
-            <span>NOME</span>
-            <span class="header-solicitation-span">DATA</span>
-        </div>
-        <div class="solicitation-between-div"></div>
-        <div class="data-solicitation-div">
-            <div class="data-patient-div">
-                <div class="data-patient-name">José Maria Pereira</div>
-                <div class="data-patient-email">josepereira@med.juntas.pt</div>
-            </div>
-            <div class="data-date">30/07/2023</div>
-            <button class="answer-btn">Responder</button>
-        </div>
-        <div class="solicitation-between-div"></div>
-        <div class="data-solicitation-div">
-            <div class="data-patient-div">
-                <div class="data-patient-name">José Maria Pereira</div>
-                <div class="data-patient-email">josepereira@med.juntas.pt</div>
-            </div>
-            <div class="data-date">30/07/2023</div>
-            <p class="next-answer">Próximo a responder</p>
-        </div>
+    <div class="container-1">
+        <table>
+            <tr>
+                <p class="med-header">Pedidos de Junta Médica<span class="corner-text"> 4 pedidos para responder</span></p>
+            </tr>
+            
+            <tbody id="tabela">
+                <tr class="tr-header">
+                    <th class="right">UTENTE</th>
+                    <th class="right">DATA</th>
+                    <th></th>
+                </tr>
+                <tr class="div-between">
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr class="item">
+                    <td>25089<p class="med-email">23324@fkjsksfds</p></td>
+                    <td class="right">Gustavo Herrera</td>
+                    <td><button class="answer-btn">Responder</button></td>
+                </tr>
+                <tr class="div-between">
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr class="item">
+                    <td>25089<p class="med-email">23324@fkjsksfds</p></td>
+                    <td class="right">Gustavo Herrera</td>
+                    <td style="font-weight: bold;padding-left: 9%;">Próximo a responder</td>
+                </tr>
+            </tbody>    
+        </table>
     </div>
         
 

@@ -14,6 +14,17 @@
 
         <link rel="stylesheet" href="./CSS/LoginRegisto.css" media="screen">
 
+        <script class="u-script" type="text/javascript" src="JavaScript/Registo.js" defer=""></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script class="u-script" type="text/javascript" src="JavaScript/jquery.js" defer=""></script>
+
+
+
         <title>Simple Page</title>
     </head>
 
@@ -28,13 +39,18 @@
             <div class="signup-card">
                 <div class="signup-input-div">
                     <p class="signup-title">Criar Conta</p>
-                    <p class="signup-number">Nº de cédula profissional</p>
-                    <input type="text" class="signup-input"></input>
+                    <p class="signup-number">Nome</p>
+                    <input type="text" class="signup-input" data-id="name"></input>
+                    <p class="signup-password">Nº de cédula profissional</p>
+                    <input type="text" class="signup-input" data-id="cedula"></input>
+                    <p class="signup-password">Telemóvel</p>
+                    <input type="text" class="signup-input" data-id="phone"></input>
                     <p class="signup-email">Email</p>
-                    <input type="text" class="signup-input"></input>
+                    <input type="text" class="signup-input" data-id="email"></input>
                     <p class="signup-password">Palavra-passe</p>
-                    <input type="text" class="signup-input"></input>
-                    <center><button class="signup-btn">Criar conta</button></center>
+                    <input type="text" class="signup-input" data-id="password"></input>
+
+                    <center><button class="signup-btn" onclick="doRegisterMedico()">Criar conta</button></center>
                 </div>
             </div>
         </section>

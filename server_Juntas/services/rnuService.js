@@ -10,4 +10,13 @@ module.exports = {
             res.send(results.rows)
         });
     },
+    GetDadosUtente: (req, res) => {
+        client.query('SELECT u.*, m.*, c.* FROM utente u INNER JOIN morada m ON u.id_morada = m.id_morada INNER JOIN codigo_postal c ON u.id_morada = m.id_morada WHERE id_utente = $1', [req.query.id], (error, results) => {
+            if (error) {
+                throw error
+            }
+            console.log(results)
+            res.send(results.rows)
+        });
+    },
 }

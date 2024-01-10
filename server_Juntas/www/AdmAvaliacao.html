@@ -22,23 +22,37 @@
     <link rel="stylesheet" href="./CSS/footer.css" media="screen">
 
     <script class="u-script" type="text/javascript" src="JavaScript/dragAndDrop.js" defer=""></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script class="u-script" type="text/javascript" src="JavaScript/dropdownMedicos.js" defer=""></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script class="u-script" type="text/javascript" src="JavaScript/jquery.js" defer=""></script>
 
     <title>Simple Page</title>
+    <script type="text/javascript">
+        window.onload = () => {
+          populateDropdownMedico();
+        }
+    </script>
 </head>
 
 <body>
     <header>
         <div class="header-div">
             <img src="./imagens/juntas-logo.png" alt="logo" class='img' />
+            <a href="" class="header-content solicitation">Pedidos</a>
             <div class="dropdown">
                 <div style="display: inline-flex;">
-                    <p class="header-content">Solicitações</p>
+                    <p class="header-content">Gestão de contas</p>
                     <img src="imagens/Expand Arrow.png" class="dropdown-arrow">
                 </div>
                 <div class="dropdown-content">
-                    <a href="">Solicitação decorrente</a>
-                    <a href="">Histórico de solicitações</a>
+                    <a href="">Registar médicos</a>
+                    <a href="">Eliminar contas</a>
                 </div>
             </div>
             <img src="./imagens/user.png" alt="logo" class='img-user' />
@@ -198,8 +212,8 @@
                 </div>
                 <div class="evaluation-answer-div">
                     <label for="doctor">Encaminar para:</label>
-                    <select id="doctor" name="doctor" class="chooser-doc">
-                        <option value="">Escolha um médico</option>
+                    <select id="medicoDropdown" name="doctor" class="chooser-doc">
+                        <option value="-1">Escolha um médico</option>
                     </select>
                 </div>
                 <div class="submit-div">

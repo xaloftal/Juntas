@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="./CSS/LoginRegisto.css" media="screen">
 
-    <script class="u-script" type="text/javascript" src="JavaScript/RegistoUtente.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="JavaScript/Registo.js" defer=""></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
@@ -44,7 +44,11 @@
                 <input type="text" class="signup-input" data-id="email"></input>
                 <p class="signup-password">Palavra-passe</p>
                 <input type="text" class="signup-input" data-id="password"></input>
-                <center><button class="signup-btn" onclick="doRegister()">Criar conta</button></center>
+                <center>
+                    <p class="text-no-account">Já tem conta? <a href="./RegistoUtente.html"
+                            class="sign-up">Entre aqui</a></p>
+                </center>
+                <center><button class="signup-btn" onclick="doRegisterUtente()">Criar conta</button></center>
             </div>
         </div>
     </section>
