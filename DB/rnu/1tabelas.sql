@@ -18,7 +18,6 @@ create table utente(
 	constraint fre_fk foreign key (id_freguesia) references freguesia(id_freguesia)
 );
 
-
 create table nacionalidade(
 	id_nacionalidade	serial	not null	primary key,
 	nome_nac	varchar(60),
