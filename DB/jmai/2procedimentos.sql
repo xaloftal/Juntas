@@ -23,7 +23,7 @@ begin
 end; $$ Language PLPGSQL
 
 
-create or replace procedure submeter_pedido(_dat date, _nom varchar(60), _nus int, _nif int, _tel1 int, _tel2 int, _cnum varchar(12), _cval date, _datnasc date, _freg int, _cod int, _rua varchar(60), _ut int)
+create or replace procedure submeter_pedido(_dat date, _nom varchar(60), _nus int, _nif int, _tel1 int, _tel2 int, _cnum varchar(12), _cval date, _datnasc date, _freg int, _cod int, _rua varchar(60), _ut int, out id_pedido int)
 as $$
 declare _ped int;
 begin
@@ -38,9 +38,12 @@ begin
 	end if;
 
 	insert into pedido (data_pedido, tele1, tele2, nome_u, cc_num, cc_val, dat_nasc, freg_nat, nif_u,nus_u,rua,cod_postal,id_utente,estado_p )
-	values (_dat, _tel1, _tel2,_nom,_cnum, _cval,_datnasc,_freg,_nif,_nus,_rua,_cod,_ut,'submetido');
+	values (_dat, _tel1, _tel2,_nom,_cnum, _cval,_datnasc,_freg,_nif,_nus,_rua,_cod,_ut,'submetido')
+	returning id_pedido into id_pedido;
 
 end; $$ Language PLPGSQL
+
+drop procedure submeter_pedido
 
 create or replace procedure reencaminhar_pedido(_ped int, _med int)
 as $$
