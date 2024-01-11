@@ -50,18 +50,19 @@ create table pedido(
 	cc_num varchar(12),--
 	cc_val date,--
 	dat_nasc	date,--
-	freg_nat int,--
+	freg_nat varchar(60),--
 	nif_u		int ,--
 	nus_u int,--
 	rua varchar(60),--
 	cod_postal	int,--
-	
+	conc_nat varchar(60),
+	conc_res varchar(60),
+	freg_res varchar(60),
 	
 	id_utente int,--
 	
 	constraint ut_fk foreign key (id_utente) references utente(id_utente)
 );
-
 
 create table avaliacao(
 	id_avaliacao serial primary key,
@@ -76,3 +77,4 @@ create table avaliacao(
 	constraint ped_fk foreign key (id_pedido) references pedido(id_pedido),
 	constraint med_fk foreign key (id_medico) references medico(id_medico)
 );
+
