@@ -23,7 +23,7 @@ begin
 end; $$ Language PLPGSQL
 
 
-create or replace procedure submeter_pedido(_dat date, _nom varchar(60), _nus int, _nif int, _tel1 int, _tel2 int, _cnum varchar(12), _cval date, _datnasc date, _freg_n varchar(60), _cod int, _rua varchar(60), _ut int, _freg_r varchar(60), _conc_r varchar(60), _conc_n varchar(60))
+create or replace procedure submeter_pedido(_dat date, _nom varchar(60), _nus int, _nif int, _tel1 int, _tel2 int, _cnum varchar(12), _cval date, _datnasc date, _freg int, _cod int, _rua varchar(60), _ut int, out id_pedido int)
 as $$
 declare _ped int;
 begin
@@ -37,23 +37,13 @@ begin
 		return;
 	end if;
 
-	insert into pedido (data_pedido, tele1, tele2, nome_u, cc_num, cc_val, dat_nasc, freg_nat, nif_u,nus_u,rua,cod_postal,id_utente,estado_p, freg_res, conc_res, conc_nat)
-	values (_dat, _tel1, _tel2,_nom,_cnum, _cval,_datnasc,_freg_n,_nif,_nus,_rua,_cod,_ut,'submetido', _freg_r, _conc_r, _conc_n);
+	insert into pedido (data_pedido, tele1, tele2, nome_u, cc_num, cc_val, dat_nasc, freg_nat, nif_u,nus_u,rua,cod_postal,id_utente,estado_p )
+	values (_dat, _tel1, _tel2,_nom,_cnum, _cval,_datnasc,_freg,_nif,_nus,_rua,_cod,_ut,'submetido')
+	returning id_pedido into id_pedido;
 
 end; $$ Language PLPGSQL
 
-create or replace procedure submeter_ficheiro(_ped int, _nom varchar(50), _ficheiro oid)
-as $$
-declare _fich int;
-begin
-	select count(*) into _fich
-	from ficheiro
-	where id_pedido = _ped and (estado_p='submetido' or estado_p='em analise');
-
-	insert into ficheiro (id_pedido,nome,ficheiro)
-	values (_ped,_nom,_ficheiro);
-
-end; $$ Language PLPGSQL
+drop procedure submeter_pedido
 
 create or replace procedure reencaminhar_pedido(_ped int, _med int)
 as $$
