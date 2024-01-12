@@ -72,6 +72,8 @@ begin
 	end if;
 end; $$ Language PLPGSQL
 
+
+
 create or replace procedure responder_pedido(_ped int, _dat date, _perc int, _obs varchar(500))
 as $$
 declare ava int;
@@ -88,5 +90,4 @@ begin
 		update avaliacao set data_avaliacao =_dat, percentagem = _perc , observ_ava = _obs, estado_a = 'atribuido';
 	end if;
 	
-	update pedido set estado_p = 'concluido' where id_pedido = _ped;
 end; $$ Language PLPGSQL
