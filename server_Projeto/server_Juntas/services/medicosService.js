@@ -2,7 +2,7 @@ const client = require('../Database/databaseJMAI');
 
 module.exports = {
     GetMedicos: (req, res) => {
-        client.query("SELECT * FROM medico m INNER JOIN utilizador u ON m.email_m = u.email WHERE u.estado_u = 'ativo'", (error, results) => {
+        client.query("SELECT m.* FROM medico m INNER JOIN utilizador u ON m.email_m = u.email WHERE u.estado_u = 'ativo'", (error, results) => {
             if (error) {
                 throw error
             }

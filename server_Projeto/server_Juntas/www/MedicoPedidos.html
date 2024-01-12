@@ -18,8 +18,23 @@
     <link rel="stylesheet" href="./CSS/footer.css" media="screen">
 
     <script class="u-script" type="text/javascript" src="JavaScript/dragAndDrop.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="JavaScript/AdmPedidos.js" defer=""></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script class="u-script" type="text/javascript" src="JavaScript/jquery.js" defer=""></script>
 
     <title>Simple Page</title>
+    <script type="text/javascript">
+        window.onload = () => {
+          GetPrimeiroPedidoMed();
+          GetPedidosMed();
+        }
+    </script>
 </head>
 
 <body>
@@ -57,20 +72,16 @@
                     <th></th>
                     <th></th>
                 </tr>
-                <tr class="item">
-                    <td>25089<p class="med-email">23324@fkjsksfds</p></td>
-                    <td class="right">Gustavo Herrera</td>
-                    <td><button class="answer-btn">Responder</button></td>
+                <tr class="item" data-id="primeiroPedidoContainer">
+                    
                 </tr>
                 <tr class="div-between">
                     <th></th>
                     <th></th>
                     <th></th>
                 </tr>
-                <tr class="item">
-                    <td>25089<p class="med-email">23324@fkjsksfds</p></td>
-                    <td class="right">Gustavo Herrera</td>
-                    <td style="font-weight: bold;padding-left: 9%;">Próximo a responder</td>
+                <tr class="item" data-id="pedidoContainer">
+                    
                 </tr>
             </tbody>    
         </table>

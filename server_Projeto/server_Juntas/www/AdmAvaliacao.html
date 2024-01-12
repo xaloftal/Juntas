@@ -23,6 +23,7 @@
 
     <script class="u-script" type="text/javascript" src="JavaScript/dragAndDrop.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="JavaScript/dropdownMedicos.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="JavaScript/AdmPedidos.js" defer=""></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -35,7 +36,8 @@
     <title>Simple Page</title>
     <script type="text/javascript">
         window.onload = () => {
-          populateDropdownMedico();
+          GetMedicos();
+          GetUmPedido();
         }
     </script>
 </head>
@@ -60,138 +62,8 @@
     </header>
 
     <div class="grid-container">
-        <div class="solicitation-div" style="width: 80%; margin-right:10px">
-            <div>
-                <p class="solicitation-header-title">Solicitação de Junta Médica
-                    <span class="solicitation-header-span">21/01/2023</span>
-                </p>
-            </div>
-
-            <div class="solicitation-header-div">
-                <p style="margin:0%">IDENTIFICAÇÃO</p>
-            </div>
-
-            <div class="space-div">
-                <div class="name-div">
-                    <p>NOME</p>
-                </div>
-                <div class="filled-div">
-                    <p>2323432234</p>
-                </div>
-            </div>
-
-            <div class="space-div">
-                <div class="name-div">
-                    <p>Nº DE UTENTE</p>
-                </div>
-                <div class="filled-div">
-                    <p>2323432234</p>
-                </div>
-
-            </div>
-
-            <div class="space-div">
-                <div class="name-div">
-                    <p>BI/CC</p>
-                </div>
-                <div class="filled-div">
-                    <p>2323432234</p>
-                </div>
-                <div class="name-two-div">
-                    <p>VÁLIDO ATÉ</p>
-                </div>
-                <div class="filled-div">
-                    <p>2323432234</p>
-                </div>
-            </div>
-
-            <div class="space-div">
-                <div class="name-div">
-                    <p>NIF</p>
-                </div>
-                <div class="filled-div">
-                    <p>2323432234</p>
-                </div>
-            </div>
-
-            <div class="solicitation-header-div">
-                <p>NATURALIDADE</p>
-            </div>
-
-            <div class="space-div">
-                <div class="name-div">
-                    <p>DATA DE NASCIMENTO</p>
-                </div>
-                <div class="filled-div">
-                    <p>2323432234</p>
-                </div>
-            </div>
-            <div class="space-div">
-                <div class="name-div">
-                    <p>BI/CC</p>
-                </div>
-                <div class="filled-div">
-                    <p>2323432234</p>
-                </div>
-                <div class="name-two-div">
-                    <p>VÁLIDO ATÉ</p>
-                </div>
-                <div class="filled-div">
-                    <p>2323432234</p>
-                </div>
-            </div>
-
-            <div class="solicitation-header-div">
-                <p>RESIDÊNCIA</p>
-            </div>
-
-            <div class="space-div">
-                <div class="name-div">
-                    <p>RUA</p>
-                </div>
-                <div class="filled-div">
-                    <p style="padding-left:5%;"></p>
-                </div>
-            </div>
-
-            <div class="space-div">
-                <div class="name-div">
-                    <p>CÓDGIGO POSTAL</p>
-                </div>
-                <div class="filled-div">
-                    <p>2323432234</p>
-                </div>
-            </div>
-
-            <div class="space-div">
-                <div class="name-div">
-                    <p>FREGUESIA DE</p>
-                </div>
-                <div class="filled-div">
-                    <p>2323432234</p>
-                </div>
-                <div class="name-two-div">
-                    <p>CONCELHO</p>
-                </div>
-                <div class="filled-div">
-                    <p>2323432234</p>
-                </div>
-            </div>
-
-            <div class="space-div">
-                <div class="name-div">
-                    <p>TELEFONE</p>
-                </div>
-                <div class="filled-div">
-                    <p>2323432234</p>
-                </div>
-                <div class="name-two-div">
-                    <p>OU</p>
-                </div>
-                <div class="filled-div">
-                    <p>2323432234</p>
-                </div>
-            </div>
+        <div class="solicitation-div" style="width: 80%; margin-right:10px;" data-id="pedidoContainer">
+            
         </div>
         <div>
             <div class="exams-div">
@@ -211,14 +83,14 @@
                     <span class="evaluation-title">Avaliação de incapacidade</span>
                 </div>
                 <div class="evaluation-answer-div">
-                    <label for="doctor">Encaminar para:</label>
+                    <label for="doctor">Encaminhar para:</label>
                     <select id="medicoDropdown" name="doctor" class="chooser-doc">
                         <option value="-1">Escolha um médico</option>
                     </select>
                 </div>
                 <div class="submit-div">
-                    <button class="answer-btn">Responder</button>
-                    <a class="cancel-a">Cancelar</a>
+                    <button class="answer-btn" onclick="encaminharPedido()">Responder</button>
+                    <a class="cancel-a" onclick="cancelarPedido()">Cancelar</a>
                 </div>
             </div>
                         
