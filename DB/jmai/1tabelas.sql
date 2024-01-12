@@ -60,7 +60,7 @@ create table pedido(
 	veiculo bool,
 	submissao_n bool,
 	submissao_s bool,
-	data_avaliacao_ant bool,
+	data_avaliacao_ant date,
 	consulta bool,
 	
 	
