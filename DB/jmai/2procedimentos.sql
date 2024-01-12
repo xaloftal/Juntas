@@ -91,3 +91,14 @@ begin
 	end if;
 	
 end; $$ Language PLPGSQL
+
+
+
+create or replace procedure responder_pedido_utente(_ped int, _cons bool)
+as
+begin
+	update pedido
+	set consulta = _cons, estado_p = 'concluido'
+	where id_pedido = _ped;
+end; $$ Language PLPGSQL
+
