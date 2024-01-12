@@ -67,6 +67,15 @@ module.exports = {
             res.send(results.rows)
         });
     },
+    ReadEstadoUtente: (req, res) => {
+        client.query("SELECT count(*) FROM pedido p INNER JOIN utente u ON p.id_utente = u.id_utente WHERE p.estado_p = 'em analise' AND u.email_u = $1", [req.query.email], (error, results) => {
+            if (error) {
+                throw error
+            }
+            console.log(results)
+            res.send(results.rows)
+        });
+    },
     DeletePedido: (req, res) => {
         client.query("call cancelar_pedido($1)", [req.query.id_pedido], (error, results) => {
             if (error) {

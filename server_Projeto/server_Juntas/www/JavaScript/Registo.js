@@ -31,6 +31,32 @@ const doRegisterUtente = () => {
     let password = document.querySelector('[data-id="password"]').value;
     let nus = document.querySelector('[data-id="nus"]').value;
 
+    const emailMatch = email.match('\@[a-zA-Z]*');
+
+    if(emailMatch) {
+        switch (emailMatch[0].toLowerCase()) {
+            case '@med': {
+                alert("Escreva um email correto.");
+                document.querySelector('[data-id="email"]').value = '';
+                document.querySelector('[data-id="password"]').value = '';
+                break;
+            }
+            case '@adm': {
+                alert("Escreva um email correto.");
+                document.querySelector('[data-id="email"]').value = '';
+                document.querySelector('[data-id="password"]').value = '';
+                break;
+            }
+            default: {
+                break;
+            }
+        }
+    } else {
+        alert("Escreva um email correto.");
+        document.querySelector('[data-id="email"]').value = '';
+        document.querySelector('[data-id="password"]').value = '';
+    }
+
     GetId(nus)
         .then((id) => {
             return $.ajax({
