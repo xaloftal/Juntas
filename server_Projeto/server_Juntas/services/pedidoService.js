@@ -59,7 +59,7 @@ module.exports = {
         });
     },
     ReadPedidoUtente: (req, res) => {
-        client.query("SELECT p.* FROM pedido p INNER JOIN utente u ON p.id_utente = u.id_utente WHERE p.id_utente = $1 AND p.estado_p = 'concluido'", [req.query.id_utente], (error, results) => {
+        client.query("SELECT p.*, u.* FROM pedido p INNER JOIN utente u ON p.id_utente = u.id_utente WHERE p.id_utente = $1 AND p.estado_p = 'concluido'", [req.query.id_utente], (error, results) => {
             if (error) {
                 throw error
             }
