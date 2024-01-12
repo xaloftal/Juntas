@@ -30,9 +30,9 @@ const createPedido = () => {
                 'Access-Control-Allow-OSrigin': '*'
             })
             .then((response) => {
-                const id_pedido = 
                 alert('Solicitação submetido');
                 console.log(response);
+                return(response);
             })
             .catch((error) => {
                 alert('Solicitação não foi sobmetida. Verifique se os campos estão todos preenchidos')
