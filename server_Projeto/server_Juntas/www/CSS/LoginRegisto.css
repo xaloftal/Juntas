@@ -8,13 +8,14 @@
     align-items: center;
     flex-shrink: 0;
     border-bottom: 1px solid #D4D4D4;
+    z-index: 2;
 }
 
 
-.login-section {
-    background-image: url("../imagens/background-image.png");
-    background-size: cover;
-    
+main {
+   background-image: url("../imagens/background-image.png");
+    background-repeat: no-repeat;
+    size:100%;
 }
 
 /*Login Card*/
@@ -26,7 +27,7 @@
     flex-shrink: 0;
     border-radius: 20px;
     border: 1px solid #808080;
-    background: #FFF;
+    background: hsl(0, 0%, 100%);
     margin-left:auto;
     margin-right:auto;
     margin-top: 2%;
