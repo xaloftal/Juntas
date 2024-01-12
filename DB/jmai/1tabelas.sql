@@ -32,13 +32,14 @@ create table utente(
 );
 
 create table medico(
-	id_medico serial primary key,
+	id_medico int primary key,
 	email_m varchar(60),
 	nome_m varchar(60),
 	cedula int,
 	tel_med int,
 	constraint fk_medico_login foreign key (email_m) references utilizador(email)
 )
+
 
 create table pedido(
 	id_pedido serial primary key,
@@ -55,6 +56,14 @@ create table pedido(
 	nus_u int,--
 	rua varchar(60),--
 	cod_postal	int,--
+	multiuso bool,
+	veiculo bool,
+	submissao_n bool,
+	submissao_s bool,
+	data_avaliacao_ant bool,
+	consulta bool,
+	
+	
 	conc_nat varchar(60),
 	conc_res varchar(60),
 	freg_res varchar(60),
@@ -63,6 +72,8 @@ create table pedido(
 	
 	constraint ut_fk foreign key (id_utente) references utente(id_utente)
 );
+
+
 
 create table avaliacao(
 	id_avaliacao serial primary key,
