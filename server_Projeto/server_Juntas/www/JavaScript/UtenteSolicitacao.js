@@ -30,56 +30,18 @@ const createPedido = () => {
                 'Access-Control-Allow-OSrigin': '*'
             })
             .then((response) => {
-                alert('Solicitação submetido');
+                alert('Solicitação submetida');
                 console.log(response);
                 return(response);
             })
             .catch((error) => {
-                alert('Solicitação não foi sobmetida. Verifique se os campos estão todos preenchidos')
+                alert('Solicitação não foi submetida. Verifique se os campos estão todos preenchidos')
             });
 
     } else {
         alert('No login');
     }
 
-}
-
-const createFicheiro = (id) => {
-    if (localStorage.getItem('userSession')) {
-        let name = document.querySelector('[data-id="name"]').value;
-        let filesInput = document.getElementById('fileElem');
-        let files = filesInput.files;
-
-        let formData = new FormData();
-        formData.append('id_pedido', id);
-        formData.append('nome', name);
-
-        for (const file of files) {
-            formData.append('files', file);
-        }
-
-        $.ajax({
-            url: "http://localhost:3000/createFicheiro",
-            type: "POST",
-            data: formData,
-            processData: false,
-            contentType: false,
-            headers: {
-                "accept": "application/json",
-                "Access-Control-Allow-Origin": "*"
-            },
-            success: function (response) {
-                console.log(response);
-                // Handle success, if needed
-            },
-            error: function (xhr, status, error) {
-                console.error(xhr.responseText || error);
-                // Handle error, if needed
-            }
-        });
-    } else {
-        alert('No login');
-    }
 }
 
 const GetDadosUtente = () => {
@@ -98,7 +60,7 @@ const GetDadosUtente = () => {
             'Access-Control-Allow-OSrigin': '*'
         })
         .then((response) => {
-            let userData = response.data;
+            let userData = response[0];
             setUserDataInForm(userData);
         })
         .catch((error) => {
@@ -109,25 +71,31 @@ const GetDadosUtente = () => {
     }
 }
 
-const setUserDataInForm = (userDataArray) => {
-    if (userDataArray && userDataArray.length > 0) {
-        let userData = userDataArray[0]; // Use the first element
+const setUserDataInForm = (userData) => {
 
-        $('.form-input[name="name"]').val(userData.nome_utente);
-        $('.form-input[name="nus"]').val(userData.nus);
-        $('.form-input[name="nif"]').val(userData.nif);
-        $('.form-input[name="cc"]').val(userData.cc_numero);
-        $('.form-input-date[name="ccVal"]').val(userData.cc_validade);
-        $('.form-input-date[name="birthday"]').val(userData.dat_nasc);
-        $('.form-input[name="freg_natural"]').val(userData.freg_nat);
-        $('.form-input-date[name="conc_natural"]').val(userData.conc_nat);
-        $('.form-input[name="freg_residencia"]').val(userData.freg_res);
-        $('.form-input[name="conc_residencia"]').val(userData.conc_res);
-        $('.form-input[name="code"]').val(userData.cod_postal);
-        $('.form-input[name="street"]').val(userData.rua);
-        $('.form-input[name="phoneOne"]').val(userData.tele1);
-        $('.form-input[name="phoneTwo"]').val(userData.tele2);
-    } else {
-        console.error("User data array is empty or undefined");
-    }
+    const birthday = formatDateString(userData.data_nascimento);
+    const cc_val = formatDateString(userData.cc_validade);
+
+    document.querySelector('.form-input[name="name"]').value = String(userData.nome_utente);
+    document.querySelector('.form-input[name="nus"]').value = String(userData.nus);
+    document.querySelector('.form-input[name="nif"]').value = String(userData.nif);
+    document.querySelector('.form-input[name="cc"]').value = String(userData.cc_numero);
+    document.querySelector('.form-input-date[name="ccVal"]').value = String(cc_val);
+    document.querySelector('.form-input-date[name="birthday"]').value = String(birthday);
+    document.querySelector('.form-input[name="freg_residencia"]').value = String(userData.freguesia_morada);
+    document.querySelector('.form-input[name="conc_residencia"]').value = String(userData.concelho_morada);
+    document.querySelector('.form-input[name="code"]').value = String(userData.codigo_postal);
+    document.querySelector('.form-input[name="street"]').value = String(userData.rua + ", nº " + userData.nmr_porta);
+    document.querySelector('.form-input[name="phoneOne"]').value = String(userData.telemovel);
 }
+
+function formatDateString(originalDateString) {
+    const originalDate = new Date(originalDateString);
+    
+    const year = originalDate.getFullYear();
+    const month = String(originalDate.getMonth() + 1).padStart(2, '0');
+    const day = String(originalDate.getDate()).padStart(2, '0');
+    
+    const formattedDate = `${year}-${month}-${day}`;
+    return formattedDate;
+  }

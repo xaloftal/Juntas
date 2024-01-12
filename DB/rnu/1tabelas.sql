@@ -2,6 +2,7 @@
 --	tabelas
 --
 
+
 create table utente(
 	id_utente	serial			not null		primary key,
 	nome_u		varchar(60)		not null,
@@ -11,6 +12,7 @@ create table utente(
 	dat_nasc	date,
 	cc_num varchar(12),
 	cc_val date,
+	sexo_u sexo,
 	
 	id_morada int,
 	id_freguesia int, -- naturalidade
