@@ -73,6 +73,7 @@
 .stepper-item:first-child::before {
   content: none;
 }
+
 .stepper-item:last-child::after {
   content: none;
 }

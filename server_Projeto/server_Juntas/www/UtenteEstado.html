@@ -25,8 +25,27 @@
 
     <script class="u-script" type="text/javascript" src="JavaScript/modal.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="JavaScript/dragAndDrop.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="JavaScript/AdmPedidos.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="JavaScript/UtenteEstado.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="JavaScript/Login.js" defer=""></script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script class="u-script" type="text/javascript" src="JavaScript/jquery.js" defer=""></script>
+
 
     <title>Simple Page</title>
+    <script type="text/javascript">
+        window.onload = () => {
+          GetUmPedido();
+          GetEstado();
+          GetAvaliacao();
+        }
+      </script>
 </head>
 
 <body>
@@ -39,8 +58,8 @@
                     <img src="imagens/Expand Arrow.png" class="dropdown-arrow">
                 </div>
                 <div class="dropdown-content">
-                    <a href="">Solicitação decorrente</a>
-                    <a href="">Histórico de solicitações</a>
+                    <a href="UtenteSolicitacao.html">Pedir uma junta médica</a>
+                    <a href="UtenteHistorico.html">Solicitações</a>
                 </div>
             </div>
             <img src="./imagens/user.png" alt="logo" class='img-user' />
@@ -56,151 +75,20 @@
                 <div class="step-counter">✓</div>
                 <div class="step-name">Submetido</div>
             </div>
-            <div class="stepper-item completed">
+            <div class="stepper-item active">
                 <div class="step-counter">✓</div>
                 <div class="step-name">Em análise</div>
             </div>
-            <div class="stepper-item active">
+            <div class="stepper-item">
                 <div class="step-counter">✓</div>
-                <div class="step-name">Atribuida</div>
+                <div class="step-name">Concluido</div>
                 <button class="myBtn step-result" id="myBtn">Ver resultado</button>
             </div>
         </div>
-
     </div>
 
-    <div class="solicitation-div">
-        <div>
-            <p class="solicitation-header-title">Solicitação de Junta Médica
-                <span class="solicitation-header-span">21/01/2023</span>
-            </p>
-        </div>
-
-        <div class="solicitation-header-div">
-            <p style="margin:0%">IDENTIFICAÇÃO</p>
-        </div>
-
-        <div class="space-div">
-            <div class="name-div">
-                <p>NOME</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-        </div>
-
-        <div class="space-div">
-            <div class="name-div">
-                <p>Nº DE UTENTE</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-
-        </div>
-
-        <div class="space-div">
-            <div class="name-div">
-                <p>BI/CC</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-            <div class="name-two-div">
-                <p>VÁLIDO ATÉ</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-        </div>
-
-        <div class="space-div">
-            <div class="name-div">
-                <p>NIF</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-        </div>
-
-        <div class="solicitation-header-div">
-            <p>NATURALIDADE</p>
-        </div>
-
-        <div class="space-div">
-            <div class="name-div">
-                <p>DATA DE NASCIMENTO</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-        </div>
-        <div class="space-div">
-            <div class="name-div">
-                <p>BI/CC</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-            <div class="name-two-div">
-                <p>VÁLIDO ATÉ</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-        </div>
-
-        <div class="solicitation-header-div">
-            <p>RESIDÊNCIA</p>
-        </div>
-
-        <div class="space-div">
-            <div class="name-div">
-                <p>RUA</p>
-            </div>
-            <div class="filled-div">
-                <p style="padding-left:5%;"></p>
-            </div>
-        </div>
-
-        <div class="space-div">
-            <div class="name-div">
-                <p>CÓDGIGO POSTAL</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-        </div>
-
-        <div class="space-div">
-            <div class="name-div">
-                <p>FREGUESIA DE</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-            <div class="name-two-div">
-                <p>CONCELHO</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-        </div>
-
-        <div class="space-div">
-            <div class="name-div">
-                <p>TELEFONE</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-            <div class="name-two-div">
-                <p>OU</p>
-            </div>
-            <div class="filled-div">
-                <p>2323432234</p>
-            </div>
-        </div>
+    <div class="solicitation-div" data-id="pedidoContainer">
+        
     </div>
 
     <footer>
@@ -224,24 +112,8 @@
         </div>
     </footer>
 
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close">&times;</span>
-                <p class="result-title">Resultado</p>
-            </div>
-            <div class="modal-body">
-                <span class="percentage">Percentagem: <span class="result">70%</span></span>
-                <p class="obv">Observações: <span class="result">fsesfsfd</span></p>
-                <div class="checkbox-div">
-                    <input type="checkbox" id="consulta" name="consulta" class="checkbox" />
-                    <label for="consulta" class="appointment-checkbox">Marcar consulta</span></label>
-                </div>                
-            </div>
-            <div class="modal-footer">
-                <button class="answer-btn">Concluir</button>
-              </div>
-        </div>
+    <div id="myModal" class="modal" data-id="avaliacaoContainer">
+        
     </div>
 
 </body>

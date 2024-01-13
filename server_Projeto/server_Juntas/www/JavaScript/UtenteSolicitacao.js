@@ -17,9 +17,24 @@ const createPedido = () => {
         let conc_residencia = document.querySelector('[data-id="conc_residencia"]').value;
         let code = document.querySelector('[data-id="code"]').value;
         let street = document.querySelector('[data-id="street"]').value;
+        let multi = document.querySelector('[data-id="multi"]').value;
+        let veic = document.querySelector('[data-id="veic"]').value;
+        let submissao_n = document.querySelector('[data-id="sub_n"]').value;
+        let submissao_s = document.querySelector('[data-id="sub_s"]').value;
+        let data_ant = document.querySelector('[data-id="data_ant"]').value;
+
+        const pedido = getEstadoPedido(userSession.email);
+
+        if (pedido) {
+            alert("Já tem uma solicitação em análise. Vá para as solicitações")
+        }
+
+        if (encodeURI(submissao_n) == true) {
+            data_ant = null;
+        }
 
         $.ajax({
-                url: "http://localhost:3050/createPedido?name=" + encodeURI(name) + "&nus=" + encodeURI(nus) + "&nif=" + encodeURI(nif) + "&tel1=" + encodeURI(phoneOne) + "&tel2=" + encodeURI(phoneTwo) + "&cc=" + encodeURI(cc) + "&ccval=" + encodeURI(ccVal) + "&datnas=" + encodeURI(birthday) + "&fregn=" + encodeURI(freg_natural) + "&codigo=" + encodeURI(code) + "&rua=" + encodeURI(street) + "&id_utente=" + encodeURI(userSession.id) + "&data=" + encodeURI(currentDate) + "&fregr=" + encodeURI(freg_residencia) + "&concr=" + encodeURI(conc_residencia) + "&concn=" + encodeURI(conc_natural),
+                url: "http://localhost:3050/createPedido?name=" + encodeURI(name) + "&nus=" + encodeURI(nus) + "&nif=" + encodeURI(nif) + "&tel1=" + encodeURI(phoneOne) + "&tel2=" + encodeURI(phoneTwo) + "&cc=" + encodeURI(cc) + "&ccval=" + encodeURI(ccVal) + "&datnas=" + encodeURI(birthday) + "&fregn=" + encodeURI(freg_natural) + "&codigo=" + encodeURI(code) + "&rua=" + encodeURI(street) + "&id_utente=" + encodeURI(userSession.id) + "&data=" + encodeURI(currentDate) + "&fregr=" + encodeURI(freg_residencia) + "&concr=" + encodeURI(conc_residencia) + "&concn=" + encodeURI(conc_natural) + "&multi=" + encodeURI(multi) + "&veic=" + encodeURI(veic)  + "&sub_n=" + encodeURI(submissao_n)  + "&sub_s=" + encodeURI(submissao_s)  + "&data_ant=" + encodeURI(data_ant),
                 type: "POST",
                 crossDomain: true,
                 dataType: "json",

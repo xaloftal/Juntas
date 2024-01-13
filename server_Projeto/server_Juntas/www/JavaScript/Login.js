@@ -1,8 +1,8 @@
 doLogin = async () => {
-    try {
-        let email = document.querySelector('[data-id="email"]').value;
-        let password = document.querySelector('[data-id="password"]').value;
+    let email = document.querySelector('[data-id="email"]').value;
+    let password = document.querySelector('[data-id="password"]').value;
 
+    try {
         const response = await $.ajax({
             url: "http://localhost:3050/login/DoLogin?email=" + encodeURI(email) + "&password=" + encodeURI(password),
             type: "GET",
@@ -15,9 +15,7 @@ doLogin = async () => {
             'Access-Control-Allow-Origin': '*'
         });
 
-        console.log(response);
-
-        if (response.length > 0 && response[0].estado_l != 'Inativo') {
+        if (response.length > 0 && response[0].estado_l !== 'Inativo') {
             console.log(response[0]);
 
             const emailMatch = email.match('@[a-zA-Z]*');
@@ -32,10 +30,9 @@ doLogin = async () => {
                         $(location).prop('href', '/www/AdmContas.html');
                         break;
                     default:
-                        let pedido = await getEstadoPedido(email);
-                        console.log(pedido); // Log the value of pedido
-                        if (pedido > 0) {
-                            $(location).prop('href', '/www/UtenteEstado.html');
+                        const pedido = await getEstadoPedido(email);
+                        if (pedido) {
+                            $(location).prop('href', '/www/UtenteHistorico.html');
                         } else {
                             $(location).prop('href', '/www/UtenteSolicitacao.html');
                         }
@@ -65,11 +62,10 @@ const getEstadoPedido = async (email) => {
             },
         });
 
-        console.log(response[0]);
-        return response && response.length > 0 ? response[0].count || 0 : 0;
-        
+        console.log(response);
+        return response;
     } catch (error) {
         console.error(error);
-        return 0;
+        return null;
     }
 }

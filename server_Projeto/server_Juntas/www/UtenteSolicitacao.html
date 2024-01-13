@@ -19,6 +19,8 @@
 
   <script class="u-script" type="text/javascript" src="JavaScript/dragAndDrop.js" defer=""></script>
   <script class="u-script" type="text/javascript" src="JavaScript/UtenteSolicitacao.js" defer=""></script>
+  <script class="u-script" type="text/javascript" src="JavaScript/UtenteHistórico.js" defer=""></script>
+  <script class="u-script" type="text/javascript" src="JavaScript/Login.js" defer=""></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -32,6 +34,7 @@
   <script type="text/javascript">
     window.onload = () => {
       GetDadosUtente();
+      GetPedidoUtente();
     }
   </script>
 </head>
@@ -46,7 +49,7 @@
         <img src="imagens/Expand Arrow.png" class="dropdown-arrow"></div>
         <div class="dropdown-content">
           <a href="UtenteSolicitacao.html">Pedir uma Junta Médica</a>
-          <a href="UtenteHistorico.html">Histórico de solicitações</a>
+          <a href="UtenteHistorico.html">Solicitações</a>
         </div>
       </div>
       <img src="./imagens/user.png" alt="logo" class='img-user' />
@@ -174,14 +177,14 @@
       Incapacidade para efeito de:</p>
 
     <div class="checkbox-div">
-      <input type="checkbox" id="obtencao1" name="obtencao1" class="checkbox" />
+      <input type="checkbox" id="obtencao1" name="obtencao1" class="checkbox" data-id="multi"/>
       <label for="obtencao" class="checkbox-text">Obtenção de Atestado Médico de Incapacidade Multiuso <span
           class="checkbox-span">(DL. n.º 202/96 de 23/10 com redação dada pelo DL. nº 174/97 de 19/07 e republicado pelo
           DL. n. º 291/2009 de 12/10).</span></label>
     </div>
 
     <div class="checkbox-div">
-      <input type="checkbox" id="obtencao2" name="obtencao2" class="checkbox" />
+      <input type="checkbox" id="obtencao2" name="obtencao2" class="checkbox" data-id="veic"/>
       <label for="obtencao" class="checkbox-text">Isenção do Imposto sobre Veículos <span class="checkbox-span">(Lei n.º
           22-A/2007 de 29/06).</span></label>
     </div>
@@ -189,15 +192,15 @@
     <p class="term-title">Informa ainda de que:</p>
 
     <div class="checkbox-div">
-      <input type="checkbox" id="obtencao3" name="obtencao3" class="checkbox" />
+      <input type="checkbox" id="obtencao3" name="obtencao3" class="checkbox" data-id="sub_n"/>
       <label for="obtencao" class="checkbox-text">Nunca foi submetido a junta médica de avaliação do grau de
         incapacidade.</label>
     </div>
 
     <div class="checkbox-div">
-      <input type="checkbox" id="obtencao4" name="obtencao4" class="checkbox" />
+      <input type="checkbox" id="obtencao4" name="obtencao4" class="checkbox" data-id="sub_s"/>
       <label for="obtencao" class="checkbox-text">Já foi submetido em<input type="date"
-          class="term-input-date"></input>, pretendendo uma reavaliação.</label>
+          class="term-input-date" data-id="data_ant"></input>, pretendendo uma reavaliação.</label>
     </div>
 
     <p class="term-title">Compromete-se a ser portador de toda a informação clínica respeitante à(s) doença(s) e/ou deficiência(s) 
