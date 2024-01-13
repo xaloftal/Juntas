@@ -23,7 +23,7 @@ begin
 end; $$ Language PLPGSQL
 
 
-create or replace procedure submeter_pedido(_dat date, _nom varchar(60), _nus int, _nif int, _tel1 int, _tel2 int, _cnum varchar(12), _cval date, _datnasc date, _freg_n varchar(60), _cod int, _rua varchar(60), _ut int, _freg_r varchar(60), _conc_r varchar(60), _conc_n varchar(60), _multi boolean, _veic boolean, _sub_n boolean, _sub_s boolean, dat_ant date, out id_pedido int)
+create or replace procedure submeter_pedido(_dat date, _nom varchar(60), _nus int, _nif int, _tel1 int, _tel2 int, _cnum varchar(12), _cval date, _datnasc date, _freg_n varchar(60), _cod int, _rua varchar(60), _ut int, _freg_r varchar(60), _conc_r varchar(60), _conc_n varchar(60), _multi boolean, _veic boolean, _sub_n boolean, _sub_s boolean, dat_ant date, out _pedido int)
 as $$
 declare _ped int;
 begin
@@ -39,7 +39,7 @@ begin
 
 	insert into pedido (data_pedido, tele1, tele2, nome_u, cc_num, cc_val, dat_nasc, freg_nat, nif_u,nus_u,rua,cod_postal,id_utente,estado_p, freg_res, conc_res, conc_nat, multiuso, veiculo, submissao_n, submissao_s, data_avaliacao_ant)
 	values (_dat, _tel1, _tel2,_nom,_cnum, _cval,_datnasc,_freg_n,_nif,_nus,_rua,_cod,_ut,'submetido', _freg_r, _conc_r, _conc_n, _multi, _veic, _sub_n, _sub_s, dat_ant)
-	returning id_pedido into id_pedido;
+	returning id_pedido into _pedido;
 
 end; $$ Language PLPGSQL
 
