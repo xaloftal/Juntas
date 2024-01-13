@@ -20,7 +20,7 @@
 
     <script class="u-script" type="text/javascript" src="JavaScript/dragAndDrop.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="JavaScript/UtenteHistórico.js" defer=""></script>
-    
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -33,9 +33,9 @@
     <title>Simple Page</title>
     <script type="text/javascript">
         window.onload = () => {
-          GetPedidoUtente();
+            GetPedidoUtente();
         }
-      </script>
+    </script>
 </head>
 
 <body>
@@ -52,14 +52,20 @@
                     <a href="UtenteHistorico.html">Solicitações</a>
                 </div>
             </div>
-            <img src="./imagens/user.png" alt="logo" class='img-user' />
+            <div class="dropdown">
+                <img src="./imagens/user.png" alt="logo" class='img-user' />
+                <div class="dropdown-content">
+                    <a href="UtenteDados.html">Dados pessoais</a>
+                    <a href="Login.html">Terminar Sessão</a>
+                </div>
+            </div>
         </div>
     </header>
 
     <div class="container-1">
         <table>
             <tr>
-                <p class="med-header">Solicitações</p>   
+                <p class="med-header">Solicitações</p>
             </tr>
             <tbody id="tabela">
                 <tr class="tr-header">
@@ -70,7 +76,7 @@
                 </tr>
                 <tr class="item" data-id="pedidoUtenteContainer">
                 </tr>
-            </tbody>    
+            </tbody>
         </table>
     </div>
 
