@@ -4,7 +4,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 
-require('./Database/databaseRNU');
+require('./Database/databaseRNP');
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.use(cookieParser());
 app.use(morgan('short'));
 app.use(cors());
 
-app.use(require('../server_RNU/routes/rnuRoute'));
+app.use(require('./routes/rnpRoute'));
 
 app.use('/www', express.static('www'))
 
@@ -23,9 +23,9 @@ app.get('/', (req, res) => {
     res.redirect(301, '/');
   });
 
-app.listen('3000', (err) => {
+app.listen('3001', (err) => {
     if(err)
         throw err;
 
-    console.log('running on port 3000');
+    console.log('running on port 3001');
 });

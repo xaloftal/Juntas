@@ -1,8 +1,8 @@
-const client = require('../Database/database');
+const client = require('../Database/databaseRNP');
 
 module.exports = {
-    GetIdUtente: (req, res) => {
-        client.query('SELECT id_utente FROM utente WHERE nus_u = $1', [req.query.nus], (error, results) => {
+    GetIdMedico: (req, res) => {
+        client.query('SELECT id_medico FROM utente WHERE cedula = $1', [req.query.ced], (error, results) => {
             if (error) {
                 throw error
             }
@@ -10,7 +10,7 @@ module.exports = {
             res.send(results.rows)
         });
     },
-    GetDadosUtente: (req, res) => {
+    GetDadosMedico: (req, res) => {
         const id_utente = parseInt(req.query.id);
         client.query('SELECT * FROM utentes WHERE id_utente = $1', [req.query.id_utente], (error, results) => {
             if (error) {

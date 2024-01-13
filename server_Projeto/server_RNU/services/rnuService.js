@@ -11,7 +11,6 @@ module.exports = {
         });
     },
     GetDadosUtente: (req, res) => {
-        const id_utente = parseInt(req.query.id);
         client.query('SELECT * FROM utentes WHERE id_utente = $1', [req.query.id_utente], (error, results) => {
             if (error) {
                 throw error

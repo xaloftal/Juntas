@@ -2,9 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
-const rnuService = require('../services/rnuService');
+const rnpService = require('../services/rnpService');
 
-router.get('/GetId', rnuService.GetIdUtente);
-router.get('/GetDadosUtente', rnuService.GetDadosUtente);
+router.get('/GetId', rnpService.GetIdMedico);
 
 module.exports = router;
