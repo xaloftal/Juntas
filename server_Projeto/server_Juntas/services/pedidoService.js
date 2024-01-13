@@ -2,13 +2,15 @@ const client = require('../Database/databaseJMAI');
 
 module.exports = {
     CreatePedido: (req, res) => {
-        client.query('call submeter_pedido($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15, $16, $17, $18, $19, $20, $21,$22)', [req.query.date, req.query.nome, req.query.nus, req.query.nif, req.query.tel1, req.query.tel2, req.query.cc, req.query.ccval, req.query.datnas, req.query.fregn, req.query.codigo, req.query.rua, req.query.id_utente, req.query.fregr, req.query.concr, req.query.concn, req.query.multi, req.query.veic, req.query.sub_n, req.query.sub_s, req.query.data_ant], (error, results) => {
+        client.query('CALL submeter_pedido($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22)', [req.query.date, req.query.nome, req.query.nus, req.query.nif, req.query.tel1, req.query.tel2, req.query.cc, req.query.ccval, req.query.datnas, req.query.fregn, req.query.codigo, req.query.rua, req.query.id_utente, req.query.fregr, req.query.concr, req.query.concn, req.query.multi, req.query.veic, req.query.sub_n, req.query.sub_s, req.query.data_ant, null], (error, results) => {
 
             if (error) {
                 throw error
             }
             console.log(results)
-            res.send(results.rows)
+            const idPedido = results[0][0].id_pedido;
+            console.log("id_pedido:" + id_pedido)
+            res.send({ id_pedido: idPedido });
         });
     },
     ReadPedidoAdmPrimeiro: (req, res) => {

@@ -1,62 +1,66 @@
-const createPedido = () => {
-    if (localStorage.getItem('userSession')) {
-        let userSession = JSON.parse(localStorage.getItem('userSession'));
+const createPedido = async () => {
+    try {
+        if (localStorage.getItem('userSession')) {
+            let userSession = JSON.parse(localStorage.getItem('userSession'));
 
-        let currentDate = new Date().toLocaleDateString('en-GB');
-        let name = document.querySelector('[data-id="name"]').value;
-        let nus = document.querySelector('[data-id="nus"]').value;
-        let nif = document.querySelector('[data-id="nif"]').value;
-        let phoneOne = document.querySelector('[data-id="phoneOne"]').value;
-        let phoneTwo = document.querySelector('[data-id="phoneTwo"]').value;
-        let cc = document.querySelector('[data-id="cc"]').value;
-        let ccVal = document.querySelector('[data-id="ccVal"]').value;
-        let birthday = document.querySelector('[data-id="birthday"]').value;
-        let freg_natural = document.querySelector('[data-id="freg_natural"]').value;
-        let conc_natural = document.querySelector('[data-id="conc_natural"]').value;
-        let freg_residencia = document.querySelector('[data-id="freg_residencia"]').value;
-        let conc_residencia = document.querySelector('[data-id="conc_residencia"]').value;
-        let code = document.querySelector('[data-id="code"]').value;
-        let street = document.querySelector('[data-id="street"]').value;
-        let multi = document.querySelector('[data-id="multi"]').value;
-        let veic = document.querySelector('[data-id="veic"]').value;
-        let submissao_n = document.querySelector('[data-id="sub_n"]').value;
-        let submissao_s = document.querySelector('[data-id="sub_s"]').value;
-        let data_ant = document.querySelector('[data-id="data_ant"]').value;
+            let currentDate = new Date().toLocaleDateString('en-GB');
+            let name = document.querySelector('[data-id="name"]').value;
+            let nus = document.querySelector('[data-id="nus"]').value;
+            let nif = document.querySelector('[data-id="nif"]').value;
+            let phoneOne = document.querySelector('[data-id="phoneOne"]').value;
+            let phoneTwo = document.querySelector('[data-id="phoneTwo"]').value;
+            let cc = document.querySelector('[data-id="cc"]').value;
+            let ccVal = document.querySelector('[data-id="ccVal"]').value;
+            let birthday = document.querySelector('[data-id="birthday"]').value;
+            let freg_natural = document.querySelector('[data-id="freg_natural"]').value;
+            let conc_natural = document.querySelector('[data-id="conc_natural"]').value;
+            let freg_residencia = document.querySelector('[data-id="freg_residencia"]').value;
+            let conc_residencia = document.querySelector('[data-id="conc_residencia"]').value;
+            let code = document.querySelector('[data-id="code"]').value;
+            let street = document.querySelector('[data-id="street"]').value;
+            let multi = document.querySelector('[data-id="multi"]').checked;
+            let veic = document.querySelector('[data-id="veic"]').checked;
+            let submissao_n = document.querySelector('[data-id="sub_n"]').checked;
+            let submissao_s = document.querySelector('[data-id="sub_s"]').checked;
+            let data_ant = document.querySelector('[data-id="data_ant"]').value;
 
-        const pedido = getEstadoPedido(userSession.email);
+            let pedido = await getEstadoPedido(userSession.email);
 
-        if (pedido) {
-            alert("Já tem uma solicitação em análise. Vá para as solicitações")
+            if (pedido > 0) {
+                alert("Já tem uma solicitação em análise. Vá para as solicitações");
+                
+            }
+
+            if (submissao_n == true) {
+                data_ant = "01/01/1900";
+            }
+
+            $.ajax({
+                    url: "http://localhost:3050/createPedido?name=" + encodeURI(name) + "&nus=" + encodeURI(nus) + "&nif=" + encodeURI(nif) + "&tel1=" + encodeURI(phoneOne) + "&tel2=" + encodeURI(phoneTwo) + "&cc=" + encodeURI(cc) + "&ccval=" + encodeURI(ccVal) + "&datnas=" + encodeURI(birthday) + "&fregn=" + encodeURI(freg_natural) + "&codigo=" + encodeURI(code) + "&rua=" + encodeURI(street) + "&id_utente=" + encodeURI(userSession.id) + "&data=" + encodeURI(currentDate) + "&fregr=" + encodeURI(freg_residencia) + "&concr=" + encodeURI(conc_residencia) + "&concn=" + encodeURI(conc_natural) + "&multi=" + encodeURI(multi) + "&veic=" + encodeURI(veic) + "&sub_n=" + encodeURI(submissao_n) + "&sub_s=" + encodeURI(submissao_s) + "&data_ant=" + encodeURI(data_ant),
+                    type: "POST",
+                    crossDomain: true,
+                    dataType: "json",
+                    headers: {
+                        "accept": "application/json",
+                        "Access-Control-Allow-Origin": "*"
+                    },
+                    'Access-Control-Allow-OSrigin': '*'
+                })
+                .then((response) => {
+                    console.log(response);
+                    return (response);
+                })
+                .catch((error) => {
+                    alert('Solicitação não foi submetida. Verifique se os campos estão todos preenchidos')
+                });
+
+        } else {
+            alert('No login');
         }
-
-        if (encodeURI(submissao_n) == true) {
-            data_ant = null;
-        }
-
-        $.ajax({
-                url: "http://localhost:3050/createPedido?name=" + encodeURI(name) + "&nus=" + encodeURI(nus) + "&nif=" + encodeURI(nif) + "&tel1=" + encodeURI(phoneOne) + "&tel2=" + encodeURI(phoneTwo) + "&cc=" + encodeURI(cc) + "&ccval=" + encodeURI(ccVal) + "&datnas=" + encodeURI(birthday) + "&fregn=" + encodeURI(freg_natural) + "&codigo=" + encodeURI(code) + "&rua=" + encodeURI(street) + "&id_utente=" + encodeURI(userSession.id) + "&data=" + encodeURI(currentDate) + "&fregr=" + encodeURI(freg_residencia) + "&concr=" + encodeURI(conc_residencia) + "&concn=" + encodeURI(conc_natural) + "&multi=" + encodeURI(multi) + "&veic=" + encodeURI(veic) + "&sub_n=" + encodeURI(submissao_n) + "&sub_s=" + encodeURI(submissao_s) + "&data_ant=" + encodeURI(data_ant),
-                type: "POST",
-                crossDomain: true,
-                dataType: "json",
-                headers: {
-                    "accept": "application/json",
-                    "Access-Control-Allow-Origin": "*"
-                },
-                'Access-Control-Allow-OSrigin': '*'
-            })
-            .then((response) => {
-                console.log(response);
-                return (response);
-            })
-            .catch((error) => {
-                alert('Solicitação não foi submetida. Verifique se os campos estão todos preenchidos')
-            });
-
-    } else {
-        alert('No login');
+    } catch (error) {
+        console.error("Error creating pedido:", error);
     }
-
-}
+};
 
 const GetDadosUtente = () => {
     if (localStorage.getItem('userSession')) {
@@ -125,7 +129,7 @@ const setData = () => {
                 let containerIncapacidade = document.querySelector('[data-id="incapacidadeContainer"]');
 
                 if (response.length > 0) {
-                    let dados = response[0]; 
+                    let dados = response[0];
                     containerDados.innerHTML += '<div class="solicitation-header-title">Dados pessoais</div><div class="form-header-div"><p>IDENTIFICAÇÃO</p></div><p class="data-text">Nome</p><div class="data-input" name="name">' + dados.nome_utente + '</div><div class="form-two-inputs"><div class="form-div-two-inputs"><p class="data-text">Nº de Utente</p><div  class="data-input" name="nus">' + dados.nus + '</div></div><div class="form-div-two-inputs"><p class="data-text">Nº Contribuinte</p><div class="data-input" name="nif">' + dados.nif + '</div></div></div><div class="form-two-inputs"><div class="form-div-two-inputs"><p class="data-text">BI/CC</p><div class="data-input" name="cc" >' + dados.cc_numero + '</div></div><div class="form-div-two-inputs"><p class="data-text">Validade</p><div class="data-input" name="ccVal">' + dados.cc_validade + '</div></div></div><div class="form-two-inputs"><div class="form-div-two-inputs"><p class="data-text">Data de Nascimento</p><div class="data-input" name="birthday">' + dados.data_nascimento + '</div></div><div class="form-div-two-inputs"><p class="data-text">Telefone</p><div class="data-input">' + dados.telemovel + '</div></div></div><div class="form-header-div"><p>RESIDÊNCIA</p></div><p class="data-text">Rua</p><div class="data-input" name="street" >' + dados.rua + ', nº ' + dados.nmr_porta + '</div><p class="data-text">Código Postal</p><div class="data-input" name="code">' + dados.codigo_postal + '</div><div class="form-two-inputs"><div class="form-div-two-inputs"><p class="data-text">Freguesia de</p><div class="data-input" name="freg_residencia">' + dados.freguesia_morada + '</div></div><div class="form-div-two-inputs"><p class="data-text">Concelho</p><div class="data-input" name="conc_residencia">' + dados.concelho_morada + '</div></div></div>';
                 }
                 response.forEach(incapacidade => {
@@ -188,5 +192,3 @@ const createFicheiro = (id) => {
         alert('No login');
     }
 }
-
-
