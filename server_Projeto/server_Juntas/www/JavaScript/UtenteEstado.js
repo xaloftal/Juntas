@@ -65,7 +65,7 @@ const GetAvaliacao = () => {
             .then((response) => {
                 let containerAvaliacao = document.querySelector('[data-id="avaliacaoContainer"]');
                 response.forEach(avaliacao => {
-                    containerAvaliacao.innerHTML += '<div class="modal-content"><div class="modal-header"><span class="close">&times;</span><p class="result-title">Resultado</p></div><div class="modal-body"><span class="percentage">Percentagem: <span class="result">' + avaliacao.percentagem + '</span></span><p class="obv">Observações: <span class="result">' + avaliacao.observ_ava + '</span></p><div class="checkbox-div"><input type="checkbox" id="consulta" name="consulta" class="checkbox" /><label for="consulta" class="appointment-checkbox">Marcar consulta</span></label></div></div><div class="modal-footer"><button class="answer-btn" onclick="createConsultaAvaliacao()">Concluir</button></div></div>';
+                    containerAvaliacao.innerHTML += '<div class="modal-content"><div class="modal-header"><span class="close">&times;</span><p class="result-title">Resultado</p></div><div class="modal-body"><span class="percentage">Percentagem: <span class="result">' + avaliacao.percentagem + '</span></span><p class="obv">Observações: <span class="result">' + avaliacao.observ_ava + '</span></p><div class="checkbox-div"><input type="checkbox" id="consulta" name="consulta" class="checkbox" /><label for="consulta" class="appointment-checkbox">Marcar consulta</span></label></div><select id="localDropdown" name="local" class="chooser-local"><option value="-1">Se sim, escolha um local</option></select></div><div class="modal-footer"><button class="answer-btn" onclick="createConsultaAvaliacao()">Concluir</button></div></div>';
                     updateModalBtns();
                 })
             })
@@ -84,10 +84,40 @@ const createConsultaAvaliacao = () => {
     const checkbox = document.getElementById('consulta');
     const cons = checkbox.checked;
 
+    if(cons == true) {
+        createConsultaLocal(id);
+    }
+
     if (localStorage.getItem('userSession')) {
         $.ajax({
                 url: "http://localhost:3050/createConsultaAvaliacao?id_pedido=" + encodeURI(id) + "&cons=" + encodeURI(cons),
                 type: "PUT",
+                crossDomain: true,
+                dataType: "json",
+                headers: {
+                    "accept": "application/json",
+                    "Access-Control-Allow-Origin": "*"
+                },
+                'Access-Control-Allow-OSrigin': '*'
+            })
+            .then((response) => {
+            })
+            .catch((error) => {
+                alert("Consulta requisitada sem sucesso")
+                console.error(error)
+            });
+    } else {
+        alert('No login');
+    }
+}
+
+const createConsultaLocal = (id_pedido) => {
+
+    if (localStorage.getItem('userSession')) {
+        let userSession = JSON.parse(localStorage.getItem('userSession'));
+        $.ajax({
+                url: "http://localhost:3050/createConsulta?id_pedido=" + encodeURI(id_pedido) + "&id_utente=" + encodeURI(userSession.id) + "&id_local=" + encodeURI(id_local),
+                type: "POST",
                 crossDomain: true,
                 dataType: "json",
                 headers: {

@@ -2,9 +2,9 @@ const express = require('express');
 
 const router = express.Router();
 
-const rnuService = require('../services/rnuService');
+const cthService = require('../services/cthService');
 
-router.get('/GetId', rnuService.GetIdUtente);
-router.get('/GetDadosUtente', rnuService.GetDadosUtente);
+router.get('/getLocais', cthService.GetLocais);
+router.post('/createConsulta', cthService.CreateConsulta);
 
 module.exports = router;
