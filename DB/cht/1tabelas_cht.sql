@@ -30,3 +30,9 @@ create table equipa_medica(
 	constraint con_fk foreign key (id_consulta) references consulta(id_consulta),
 	constraint med_fk foreign key (id_medico) references medico(id_medico)
 );
+
+create or replace procedure pedido_cosulta (_ped int, _ute int, _loc int)
+as $$
+begin
+	insert into consulta (id_pedido, id_utente, id_local) values (_ped, _ute, _loc);
+end; $$ Language PLPGSQL
