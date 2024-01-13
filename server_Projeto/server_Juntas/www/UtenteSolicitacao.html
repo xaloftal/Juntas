@@ -16,19 +16,21 @@
   <link rel="stylesheet" href="./CSS/Header.css" media="screen">
   <link rel="stylesheet" href="./CSS/dropdownMenu.css" media="screen">
   <link rel="stylesheet" href="./CSS/footer.css" media="screen">
+  <link rel="stylesheet" href="./CSS/modal.css" media="screen">
 
   <script class="u-script" type="text/javascript" src="JavaScript/dragAndDrop.js" defer=""></script>
   <script class="u-script" type="text/javascript" src="JavaScript/UtenteSolicitacao.js" defer=""></script>
   <script class="u-script" type="text/javascript" src="JavaScript/UtenteHistórico.js" defer=""></script>
   <script class="u-script" type="text/javascript" src="JavaScript/Login.js" defer=""></script>
+  <script class="u-script" type="text/javascript" src="JavaScript/modal.js" defer=""></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-    </script>
-    <script class="u-script" type="text/javascript" src="JavaScript/jquery.js" defer=""></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+  </script>
+  <script class="u-script" type="text/javascript" src="JavaScript/jquery.js" defer=""></script>
 
   <title>Simple Page</title>
   <script type="text/javascript">
@@ -45,8 +47,9 @@
       <img src="./imagens/juntas-logo.png" alt="logo" class='img' />
       <div class="dropdown">
         <div style="display: inline-flex;">
-        <p class="header-content">Solicitações</p>
-        <img src="imagens/Expand Arrow.png" class="dropdown-arrow"></div>
+          <p class="header-content">Solicitações</p>
+          <img src="imagens/Expand Arrow.png" class="dropdown-arrow">
+        </div>
         <div class="dropdown-content">
           <a href="UtenteSolicitacao.html">Pedir uma Junta Médica</a>
           <a href="UtenteHistorico.html">Solicitações</a>
@@ -166,31 +169,22 @@
     </div>
 
     <div class="form-header-div">
-      <p>RELATÓRIOS CLÍNICOS</p>
+      <p>TERMOS</p>
     </div>
-
-    <div id="drop-area" class="drop-area">
-      <img src="./imagens/Upload.png" class="upload-img">
-      <p class="dragAndDrop-text">Clique aqui ou arrasta os ficheiros para aqui</p>
-      <input type="file" id="fileElem" multiple style="display:none;">
-      <div id="file-names" class=""></div>
-    </div>
-    
-    <div id="gallery"></div>
 
     <p class="term-title">Vem solicitar a V. Exª, que ao abrigo do n.º 1 do Art.º 3.º do Decreto-Lei
       n.º 202/96, de 23 de outubro seja admitido a Junta Médica para Avaliação de
       Incapacidade para efeito de:</p>
 
     <div class="checkbox-div">
-      <input type="checkbox" id="obtencao1" name="obtencao1" class="checkbox" data-id="multi"/>
+      <input type="checkbox" id="obtencao1" name="obtencao1" class="checkbox" data-id="multi" />
       <label for="obtencao" class="checkbox-text">Obtenção de Atestado Médico de Incapacidade Multiuso <span
           class="checkbox-span">(DL. n.º 202/96 de 23/10 com redação dada pelo DL. nº 174/97 de 19/07 e republicado pelo
           DL. n. º 291/2009 de 12/10).</span></label>
     </div>
 
     <div class="checkbox-div">
-      <input type="checkbox" id="obtencao2" name="obtencao2" class="checkbox" data-id="veic"/>
+      <input type="checkbox" id="obtencao2" name="obtencao2" class="checkbox" data-id="veic" />
       <label for="obtencao" class="checkbox-text">Isenção do Imposto sobre Veículos <span class="checkbox-span">(Lei n.º
           22-A/2007 de 29/06).</span></label>
     </div>
@@ -198,45 +192,63 @@
     <p class="term-title">Informa ainda de que:</p>
 
     <div class="checkbox-div">
-      <input type="checkbox" id="obtencao3" name="obtencao3" class="checkbox" data-id="sub_n"/>
+      <input type="checkbox" id="obtencao3" name="obtencao3" class="checkbox" data-id="sub_n" />
       <label for="obtencao" class="checkbox-text">Nunca foi submetido a junta médica de avaliação do grau de
         incapacidade.</label>
     </div>
 
     <div class="checkbox-div">
-      <input type="checkbox" id="obtencao4" name="obtencao4" class="checkbox" data-id="sub_s"/>
-      <label for="obtencao" class="checkbox-text">Já foi submetido em<input type="date"
-          class="term-input-date" data-id="data_ant"></input>, pretendendo uma reavaliação.</label>
+      <input type="checkbox" id="obtencao4" name="obtencao4" class="checkbox" data-id="sub_s" />
+      <label for="obtencao" class="checkbox-text">Já foi submetido em<input type="date" class="term-input-date"
+          data-id="data_ant"></input>, pretendendo uma reavaliação.</label>
     </div>
 
-    <p class="term-title">Compromete-se a ser portador de toda a informação clínica respeitante à(s) doença(s) e/ou deficiência(s) 
+    <p class="term-title">Compromete-se a ser portador de toda a informação clínica respeitante à(s) doença(s) e/ou
+      deficiência(s)
       que justifica(m) este pedido</p>
 
     <div class="sumbit-div">
-      <center><button class="submit-btn" onclick="createPedido()">Submeter</button></center>
+      <center><button class="myBtn submit-btn" id="myBtn">Submeter</button></center>
+    </div>
+  </div>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header"><span class="close">&times;</span>
+        <p class="exam-title">Relatórios Clínicos</p>
+      </div>
+      <div class="modal-body">
+        <div id="drop-area" class="drop-area">
+      <img src="./imagens/Upload.png" class="upload-img">
+      <p class="dragAndDrop-text">Clique aqui ou arrasta os ficheiros para aqui</p>
+      <input type="file" id="fileElem" multiple style="display:none;" data-id="file">
+      <div id="file-names" class=""></div>
+    </div>
+      <div class="modal-footer">
+        <button class="answer-btn" onclick="createFicheiro()">Concluir</button></div>
     </div>
   </div>
 
   <footer>
     <div class="footer" id="rodape">
-        <p class="footer-intro">A conectar utentes e médicos para cuidados de saúde personalizados desde 2020.</p>
-        <p>Rua Afonso Albuquerque, Nº 9 · Barcelos · Braga</p>
-        <div class="footer-phone-info-div">
-            <img src="imagens/icons8-phone-50 1.png" />
-            <div class="footer-info-letter">+351 253 467 451</div>
-        </div>
-        <div class="footer-email-info-div">
-            <img src="imagens/icons8-email-50 1.png" />
-            <div class="footer-info-letter">info@saudeonline.pt</div>
-        </div>
-        <div class="footer-logo">
-            <img style="width: 40px" src="imagens/juntas-logo.png" />
-        </div>
+      <p class="footer-intro">A conectar utentes e médicos para cuidados de saúde personalizados desde 2020.</p>
+      <p>Rua Afonso Albuquerque, Nº 9 · Barcelos · Braga</p>
+      <div class="footer-phone-info-div">
+        <img src="imagens/icons8-phone-50 1.png" />
+        <div class="footer-info-letter">+351 253 467 451</div>
+      </div>
+      <div class="footer-email-info-div">
+        <img src="imagens/icons8-email-50 1.png" />
+        <div class="footer-info-letter">info@saudeonline.pt</div>
+      </div>
+      <div class="footer-logo">
+        <img style="width: 40px" src="imagens/juntas-logo.png" />
+      </div>
     </div>
     <div class="footer-copyright-div">
-        <div class="footer-copyright-letter">© 2023 Saúde On-Line </div>
+      <div class="footer-copyright-letter">© 2023 Saúde On-Line </div>
     </div>
-</footer>
+  </footer>
 </body>
 
 </html>

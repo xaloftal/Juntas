@@ -33,7 +33,7 @@ const doRegisterUtente = () => {
 
     const emailMatch = email.match('\@[a-zA-Z]*');
 
-    if(emailMatch) {
+    if (emailMatch) {
         switch (emailMatch[0].toLowerCase()) {
             case '@med': {
                 alert("Escreva um email correto.");
@@ -81,7 +81,7 @@ const doRegisterUtente = () => {
 const GetIdMedico = (ced) => {
     return new Promise((resolve, reject) => {
         $.ajax({
-                url: "http://localhost:3000/GetId?ced=" + ced,
+                url: "http://localhost:3001/GetId?ced=" + ced,
                 type: "GET",
                 crossDomain: true,
                 dataType: "json",
@@ -91,10 +91,10 @@ const GetIdMedico = (ced) => {
                 },
             })
             .then((response) => {
-                console.log(response);
+                console.log(response[0]);
 
-                if (response.length > 0 && response[0].id_utente !== undefined) {
-                    resolve(response[0].id_utente);
+                if (response.length > 0 && response[0].id_medico !== undefined) {
+                    resolve(response[0]);
                 } else {
                     reject("id_utente não válido");
                 }
@@ -108,15 +108,13 @@ const GetIdMedico = (ced) => {
 
 const doRegisterMedico = () => {
 
-    let phone = document.querySelector('[data-id="phone"]').value;
     let email = document.querySelector('[data-id="email"]').value;
     let cedula = document.querySelector('[data-id="cedula"]').value;
-    let name = document.querySelector('[data-id="name"]').value;
     let password = document.querySelector('[data-id="password"]').value;
 
     const emailMatch = email.match('\@[a-zA-Z]*');
 
-    if(emailMatch) {
+    if (emailMatch) {
         switch (emailMatch[0].toLowerCase()) {
             case '@med': {
                 break;
@@ -139,23 +137,23 @@ const doRegisterMedico = () => {
         document.querySelector('[data-id="email"]').value = '';
         document.querySelector('[data-id="password"]').value = '';
     }
-
-    $.ajax({
-            url: "http://localhost:3050/RegistoMedico?ced=" + encodeURI(cedula) + "&nome=" + encodeURI(name) + "&email=" + encodeURI(email) + "&tele=" + encodeURI(phone) + "&pass=" + encodeURI(password),
-            type: "POST",
-            crossDomain: false,
-            dataType: "json",
-            headers: {
-                "accept": "application/json",
-                "Access-Control-Allow-Origin": "*"
-            },
-            'Access-Control-Allow-OSrigin': '*'
+    GetIdMedico(cedula)
+        .then((medico) => {
+            return $.ajax({
+                url: "http://localhost:3050/RegistoMedico?id=" + encodeURI(medico.id_medico) + "&ced=" + encodeURI(cedula) + "&nome=" + encodeURI(medico.nome_m) + "&email=" + encodeURI(email) + "&tele=" + encodeURI(medico.tel_m) + "&pass=" + encodeURI(password),
+                type: "POST",
+                crossDomain: true,
+                dataType: "json",
+                headers: {
+                    "accept": "application/json",
+                    "Access-Control-Allow-Origin": "*"
+                },
+            });
         })
         .then((response) => {
-            window.location = 'AdmContas.html'
+            window.location = '/www/AdmContas.html';
         })
         .catch((error) => {
-            alert('Erro ao registar')
+            alert('Erro ao registar');
         });
-
 }

@@ -327,3 +327,26 @@ input[type=checkbox]:checked:after {
     margin: 5px;
   }
 
+  .answer-btn {
+    border-radius: 7px;
+    background: #2979FF;
+    border:none;
+    color: #FFF;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 2% 8% 2% 8%;
+    cursor:pointer;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left:70%;
+}
+
+.exam-title {
+    color: #000;
+    text-align: left;
+    font-family: Manrope;
+    font-size: 20px;
+}

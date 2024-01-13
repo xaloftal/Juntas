@@ -12,7 +12,7 @@ module.exports = {
         });
     },
     RegistoMedico: (req, res) => {
-        client.query('call registo_medico($1,$2,$3,$4,$5)', [req.query.ced, req.query.nome, req.query.email, req.query.tele, req.query.pass], (error, results) => {
+        client.query('call registo_medico($1,$2,$3,$4,$5,$6)', [req.query.ced, req.query.id, req.query.nome, req.query.email, req.query.tele, req.query.pass], (error, results) => {
 
             if (error) {
                 throw error

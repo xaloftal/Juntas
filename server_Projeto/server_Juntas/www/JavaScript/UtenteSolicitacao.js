@@ -45,7 +45,6 @@ const createPedido = () => {
                 'Access-Control-Allow-OSrigin': '*'
             })
             .then((response) => {
-                alert('Solicitação submetida');
                 console.log(response);
                 return (response);
             })
@@ -152,3 +151,42 @@ function formatDateString(originalDateString) {
     const formattedDate = `${year}-${month}-${day}`;
     return formattedDate;
 }
+
+const createFicheiro = (id) => {
+    if (localStorage.getItem('userSession')) {
+        let userSession = JSON.parse(localStorage.getItem('userSession'));
+
+        const pedido = getEstadoPedido(userSession.email);
+        const ficheiro = document.querySelector('[data-id="file"]').value;
+        const nome = document.querySelector('[data-id="name-file"]').value;
+
+        if (pedido) {
+            alert("Já tem uma solicitação em análise. Vá para as solicitações")
+        }
+
+        $.ajax({
+                url: "http://localhost:3050/createFicheiro?id_pedido=" + encodeURI(id) + "&nome=" + encodeURI(nome) + "&ficheiro=" + encodeURI(ficheiro),
+                type: "POST",
+                crossDomain: true,
+                dataType: "json",
+                headers: {
+                    "accept": "application/json",
+                    "Access-Control-Allow-Origin": "*"
+                },
+                'Access-Control-Allow-OSrigin': '*'
+            })
+            .then((response) => {
+                alert('Solicitação submetida');
+                console.log(response);
+                return (response);
+            })
+            .catch((error) => {
+                alert('Insira um ficheiro')
+            });
+
+    } else {
+        alert('No login');
+    }
+}
+
+
