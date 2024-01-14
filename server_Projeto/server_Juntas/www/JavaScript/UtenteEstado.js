@@ -101,6 +101,7 @@ const createConsultaAvaliacao = () => {
                 'Access-Control-Allow-OSrigin': '*'
             })
             .then((response) => {
+   
             })
             .catch((error) => {
                 alert("Consulta requisitada sem sucesso")
@@ -113,10 +114,12 @@ const createConsultaAvaliacao = () => {
 
 const createConsultaLocal = (id_pedido) => {
 
+    const id_local = document.querySelector('select[id="localDropdown"]').value;
+
     if (localStorage.getItem('userSession')) {
         let userSession = JSON.parse(localStorage.getItem('userSession'));
         $.ajax({
-                url: "http://localhost:3050/createConsulta?id_pedido=" + encodeURI(id_pedido) + "&id_utente=" + encodeURI(userSession.id) + "&id_local=" + encodeURI(id_local),
+                url: "http://localhost:3002/createConsulta?id_pedido=" + encodeURI(id_pedido) + "&id_utente=" + encodeURI(userSession.id) + "&id_local=" + encodeURI(id_local),
                 type: "POST",
                 crossDomain: true,
                 dataType: "json",
@@ -128,6 +131,7 @@ const createConsultaLocal = (id_pedido) => {
             })
             .then((response) => {
                 alert("Consulta requisitada com sucesso")
+                window.location.href = '/www/UtenteHistorico.html';
             })
             .catch((error) => {
                 alert("Consulta requisitada sem sucesso")

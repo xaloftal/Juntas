@@ -24,6 +24,8 @@
     <script class="u-script" type="text/javascript" src="JavaScript/dragAndDrop.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="JavaScript/MedicoAvaliacao.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="JavaScript/AdmPedidos.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="JavaScript/Ficheiros.js" defer=""></script>
+    
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -37,6 +39,7 @@
     <script type="text/javascript">
         window.onload = () => {
           GetUmPedido();
+          GetFicheiros();
         }
     </script>
 </head>
@@ -69,11 +72,7 @@
                     <span class="exams-title">Relatórios Clínicos</span>
                     <span class="exam-files-count">x ficheiros<span class="anexed-text"> anexados</span></span>
                 </div>
-                <div class="exam-files-div">
-                    <div class="exam-one-file">
-                        <p>Exame_raios_x</p>
-                        <button class="see-btn">Ver</button>
-                    </div>
+                <div class="exam-files-div" data-id="ficheiroContainer">
                 </div>
             </div>
             <div class="evaluation-div">

@@ -125,13 +125,13 @@ const refPedidoMed = (id) => {
     window.location.href = '/www/MedicoAvaliacao.html?id_pedido=' + encodeURI(id);
 }
 
-const GetUmPedido = () => {
+GetUmPedido = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id_pedido');
 
     if (localStorage.getItem('userSession')) {
         $.ajax({
-                url: "http://localhost:3050/pedido?id_pedido=" + encodeURI(id),
+                url: "http://localhost:3050/pedido?id=" + encodeURI(id),
                 type: "GET",
                 crossDomain: true,
                 dataType: "json",
@@ -143,8 +143,9 @@ const GetUmPedido = () => {
             })
             .then((response) => {
                 let containerPedido = document.querySelector('[data-id="pedidoContainer"]');
+                
                 response.forEach(pedido => {
-                    console.log(pedido);
+                    console.log(containerPedido.innerHTML);
                     containerPedido.innerHTML += '<div><p class="solicitation-header-title">Solicitação de Junta Médica<span class="solicitation-header-span">' + pedido.data_pedido + '</span></p></div><div class="solicitation-header-div"><p style="margin:0%">IDENTIFICAÇÃO</p></div><div class="space-div"><div class="name-div"><p>NOME</p></div><div class="filled-div"><p>' + pedido.nome_u + '</p></div></div><div class="space-div"><div class="name-div"><p>Nº DE UTENTE</p></div><div class="filled-div"><p>' + pedido.nus_u + '</p></div></div><div class="space-div"><div class="name-div"><p>BI/CC</p></div><div class="filled-div"><p>' + pedido.cc_num + '</p></div><div class="name-two-div"><p>VÁLIDO ATÉ</p></div><div class="filled-div"><p>' + pedido.cc_val + '</p></div></div><div class="space-div"><div class="name-div"><p>NIF</p></div><div class="filled-div"><p>' + pedido.nif + '</p></div></div><div class="solicitation-header-div"><p>NATURALIDADE</p></div><div class="space-div"><div class="name-div"><p>DATA DE NASCIMENTO</p></div><div class="filled-div"><p>' + pedido.dat_nasc + '</p></div></div><div class="space-div"><div class="name-div"><p>FREGUESIA DE</p></div><div class="filled-div"><p>' + pedido.freg_nat + '</p></div><div class="name-two-div"><p>CONCELHO</p></div><div class="filled-div"><p>' + pedido.conc_nat + '</p></div></div><div class="solicitation-header-div"><p>RESIDÊNCIA</p></div><div class="space-div"><div class="name-div"><p>RUA</p></div><div class="filled-div"><p style="padding-left:5%;">' + pedido.rua + '</p></div></div><div class="space-div"><div class="name-div"><p>CÓDGIGO POSTAL</p></div><div class="filled-div"><p>' + pedido.cod_postal + '</p></div></div><div class="space-div"><div class="name-div"><p>FREGUESIA DE</p></div><div class="filled-div"><p>' + pedido.freg_res + '</p></div><div class="name-two-div"><p>CONCELHO</p></div><div class="filled-div"><p>' + pedido.conc_res + '</p></div></div><div class="space-div"><div class="name-div"><p>TELEFONE</p></div><div class="filled-div"><p>' + pedido.tele1 + '</p></div><div class="name-two-div"><p>OU</p></div><div class="filled-div"><p>' + pedido.tele2 + '</p></div></div>';
                 })
 

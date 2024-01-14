@@ -28,14 +28,14 @@ const createPedido = async () => {
 
             if (pedido > 0) {
                 alert("Já tem uma solicitação em análise. Vá para as solicitações");
-                
             }
 
             if (submissao_n == true) {
                 data_ant = "01/01/1900";
             }
 
-            $.ajax({
+            try {
+                const response = await $.ajax({
                     url: "http://localhost:3050/createPedido?name=" + encodeURI(name) + "&nus=" + encodeURI(nus) + "&nif=" + encodeURI(nif) + "&tel1=" + encodeURI(phoneOne) + "&tel2=" + encodeURI(phoneTwo) + "&cc=" + encodeURI(cc) + "&ccval=" + encodeURI(ccVal) + "&datnas=" + encodeURI(birthday) + "&fregn=" + encodeURI(freg_natural) + "&codigo=" + encodeURI(code) + "&rua=" + encodeURI(street) + "&id_utente=" + encodeURI(userSession.id) + "&data=" + encodeURI(currentDate) + "&fregr=" + encodeURI(freg_residencia) + "&concr=" + encodeURI(conc_residencia) + "&concn=" + encodeURI(conc_natural) + "&multi=" + encodeURI(multi) + "&veic=" + encodeURI(veic) + "&sub_n=" + encodeURI(submissao_n) + "&sub_s=" + encodeURI(submissao_s) + "&data_ant=" + encodeURI(data_ant),
                     type: "POST",
                     crossDomain: true,
@@ -46,21 +46,46 @@ const createPedido = async () => {
                     },
                     'Access-Control-Allow-OSrigin': '*'
                 })
-                .then((response) => {
-                    console.log(response);
-                    return (response);
-                })
-                .catch((error) => {
-                    alert('Solicitação não foi submetida. Verifique se os campos estão todos preenchidos')
-                });
+                
+                console.log(response)
+                return response
 
+            } catch(error) {
+                alert('Solicitação não foi submetida. Verifique se os campos estão todos preenchidos.');
+            }
         } else {
             alert('No login');
         }
     } catch (error) {
-        console.error("Error creating pedido:", error);
+        console.error("Erro ao criar o pedido:", error);
     }
-};
+}
+
+const getCreatePedido = async () => {
+    if (localStorage.getItem('userSession')) {
+        let userSession = JSON.parse(localStorage.getItem('userSession'));
+        console.log("1");
+
+        try {
+            const response = await fetch("http://localhost:3050/getCreatePedido?id_utente=" + encodeURI(userSession.id), {
+                method: "GET",
+                headers: {
+                    "accept": "application/json",
+                    "Access-Control-Allow-Origin": "*"
+                }
+            });
+
+            const result = await response.json();
+            console.log("Success:", result);
+            return result[0].id_pedido
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    } else {
+        alert('No login');
+    }
+}
+
 
 const GetDadosUtente = () => {
     if (localStorage.getItem('userSession')) {
@@ -122,7 +147,6 @@ const setData = () => {
                     "accept": "application/json",
                     "Access-Control-Allow-Origin": "*"
                 },
-                'Access-Control-Allow-OSrigin': '*'
             })
             .then((response) => {
                 let containerDados = document.querySelector('[data-id="dadosContainer"]');
@@ -154,41 +178,4 @@ function formatDateString(originalDateString) {
 
     const formattedDate = `${year}-${month}-${day}`;
     return formattedDate;
-}
-
-const createFicheiro = (id) => {
-    if (localStorage.getItem('userSession')) {
-        let userSession = JSON.parse(localStorage.getItem('userSession'));
-
-        const pedido = getEstadoPedido(userSession.email);
-        const ficheiro = document.querySelector('[data-id="file"]').value;
-        const nome = document.querySelector('[data-id="name-file"]').value;
-
-        if (pedido) {
-            alert("Já tem uma solicitação em análise. Vá para as solicitações")
-        }
-
-        $.ajax({
-                url: "http://localhost:3050/createFicheiro?id_pedido=" + encodeURI(id) + "&nome=" + encodeURI(nome) + "&ficheiro=" + encodeURI(ficheiro),
-                type: "POST",
-                crossDomain: true,
-                dataType: "json",
-                headers: {
-                    "accept": "application/json",
-                    "Access-Control-Allow-Origin": "*"
-                },
-                'Access-Control-Allow-OSrigin': '*'
-            })
-            .then((response) => {
-                alert('Solicitação submetida');
-                console.log(response);
-                return (response);
-            })
-            .catch((error) => {
-                alert('Insira um ficheiro')
-            });
-
-    } else {
-        alert('No login');
-    }
 }

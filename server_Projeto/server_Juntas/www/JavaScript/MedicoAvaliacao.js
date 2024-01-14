@@ -1,10 +1,10 @@
 const getCurrentDateFormatted = () => {
     const today = new Date();
-    const dd = String(today.getDate()).padStart(2, '0');
-    const mm = String(today.getMonth() + 1).padStart(2, '0'); // Adding 1 to month, as it is zero-indexed
     const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
 
-    return dd + '-' + mm + '-' + yyyy;
+    return yyyy + '-' + mm + '-' + dd;
 }
 
 const criarAvaliacao = () => {
@@ -16,7 +16,7 @@ const criarAvaliacao = () => {
         let obv = document.querySelector('[data-id="obv"]').value;
 
         $.ajax({
-                url: "http://localhost:3050/createAvaliacaoMedico?id_pedido=" + encodeURI(id) + "&data=" + encodeURI(currentDate) + "&percent=" + encodeURI(percentage) + "&obsv=" + encodeURI(obv),
+                url: "http://localhost:3050/createAvaliacaoMedico?id_ped=" + encodeURI(id) + "&data=" + encodeURI(currentDate) + "&percent=" + encodeURI(percentage) + "&obsv=" + encodeURI(obv),
                 type: "POST",
                 crossDomain: true,
                 dataType: "json",

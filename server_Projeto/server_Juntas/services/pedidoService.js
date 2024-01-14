@@ -2,15 +2,22 @@ const client = require('../Database/databaseJMAI');
 
 module.exports = {
     CreatePedido: (req, res) => {
-        client.query('CALL submeter_pedido($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22)', [req.query.date, req.query.nome, req.query.nus, req.query.nif, req.query.tel1, req.query.tel2, req.query.cc, req.query.ccval, req.query.datnas, req.query.fregn, req.query.codigo, req.query.rua, req.query.id_utente, req.query.fregr, req.query.concr, req.query.concn, req.query.multi, req.query.veic, req.query.sub_n, req.query.sub_s, req.query.data_ant, null], (error, results) => {
-
+        let id_pedido = 0;
+        client.query('call submeter_pedido($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22)', [req.query.date, req.query.nome, req.query.nus, req.query.nif, req.query.tel1, req.query.tel2, req.query.cc, req.query.ccval, req.query.datnas, req.query.fregn, req.query.codigo, req.query.rua, req.query.id_utente, req.query.fregr, req.query.concr, req.query.concn, req.query.multi, req.query.veic, req.query.sub_n, req.query.sub_s, req.query.data_ant, id_pedido], (error, results) => {
             if (error) {
                 throw error
             }
             console.log(results)
-            const idPedido = results[0][0].id_pedido;
-            console.log("id_pedido:" + id_pedido)
-            res.send({ id_pedido: idPedido });
+            res.send(results.rows)
+        });
+    },
+    ReadCreatePedido: (req, res) => {
+        client.query("SELECT p.*, u.* FROM pedido p INNER JOIN utente u ON p.id_utente = u.id_utente WHERE p.id_utente = $1 AND p.estado_p = 'submetido'", [req.query.id_utente], (error, results) => {
+            if (error) {
+                throw error
+            }
+            console.log(results)
+            res.send(results.rows)
         });
     },
     ReadPedidoAdmPrimeiro: (req, res) => {
@@ -24,7 +31,7 @@ module.exports = {
         });
     },
     ReadPedidoMedPrimeiro: (req, res) => {
-        client.query("SELECT p.id_pedido, p.data_pedido, p.nome_u, u.*, a.*, MIN(p.data_pedido) AS min_data_pedido FROM pedido p INNER JOIN utente u ON p.id_utente = u.id_utente INNER JOIN avaliacao a ON p.id_pedido = a.id_pedido WHERE p.estado_p = 'em analise' AND a.id_medico = $1 GROUP BY p.id_pedido, p.data_pedido, u.id_utente, p.nome_u, u.email_u, a.id_avaliacao", [req.query.id_medico], (error, results) => {
+        client.query("SELECT p.id_pedido, p.data_pedido, p.nome_u, u.*, a.*, MIN(p.data_pedido) AS min_data_pedido FROM pedido p INNER JOIN utente u ON p.id_utente = u.id_utente INNER JOIN avaliacao a ON p.id_pedido = a.id_pedido WHERE p.estado_p = 'em analise' AND a.estado_a = 'em analise' AND a.id_medico = $1 GROUP BY p.id_pedido, p.data_pedido, u.id_utente, p.nome_u, u.email_u, a.id_avaliacao", [req.query.id_medico], (error, results) => {
 
             if (error) {
                 throw error
@@ -43,7 +50,7 @@ module.exports = {
         });
     },
     ReadPedidoMed: (req, res) => {
-        client.query("SELECT p.*, u.*, a.* FROM pedido p INNER JOIN utente u ON p.id_utente = u.id_utente INNER JOIN avaliacao a ON p.id_pedido = a.id_pedido WHERE p.estado_p = 'em analise' AND a.id_medico = $1 AND p.data_pedido > (SELECT MIN(data_pedido) FROM pedido WHERE estado_p = 'em analise' AND u.id_utente = p.id_utente)", [req.query.id_medico], (error, results) => {
+        client.query("SELECT p.*, u.*, a.* FROM pedido p INNER JOIN utente u ON p.id_utente = u.id_utente INNER JOIN avaliacao a ON p.id_pedido = a.id_pedido WHERE p.estado_p = 'em analise' AND a.estado_a = 'em analise' AND a.id_medico = $1 AND p.data_pedido > (SELECT MIN(data_pedido) FROM pedido p WHERE p.estado_p = 'em analise' AND u.id_utente = p.id_utente)", [req.query.id_medico], (error, results) => {
             if (error) {
                 throw error
             }
@@ -52,13 +59,25 @@ module.exports = {
         });
     },
     ReadPedido: (req, res) => {
-        client.query("SELECT p.*, a.estado_a FROM pedido p INNER JOIN avaliacao a ON a.id_pedido = p.id_pedido WHERE p.id_pedido = $1", [req.query.id_pedido], (error, results) => {
-            if (error) {
-                throw error
+        if (req.query.id_pedido) {
+            client.query("SELECT p.*, a.estado_a FROM pedido p INNER JOIN avaliacao a ON a.id_pedido = p.id_pedido WHERE p.id_pedido = $1", [req.query.id_pedido], (error, results) => {
+                if (error) {
+                    throw error
+                }
+                console.log(results)
+                res.send(results.rows)
+            });
+        } else if (req.query.id) {
+            {
+                client.query("SELECT * FROM pedido  WHERE id_pedido = $1", [req.query.id], (error, results) => {
+                    if (error) {
+                        throw error
+                    }
+                    console.log(results)
+                    res.send(results.rows)
+                });
             }
-            console.log(results)
-            res.send(results.rows)
-        });
+        }
     },
     ReadPedidoUtente: (req, res) => {
         client.query("SELECT p.*, u.* FROM pedido p INNER JOIN utente u ON p.id_utente = u.id_utente WHERE p.id_utente = $1 ORDER BY (p.estado_p = 'em analise') DESC, p.estado_p;", [req.query.id_utente], (error, results) => {

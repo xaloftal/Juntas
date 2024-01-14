@@ -177,14 +177,14 @@
       Incapacidade para efeito de:</p>
 
     <div class="checkbox-div">
-      <input type="checkbox" name="obtencao1" class="checkbox" data-id="multi"/>
+      <input type="checkbox" name="obtencao1" class="checkbox" data-id="multi" />
       <label for="obtencao" class="checkbox-text">Obtenção de Atestado Médico de Incapacidade Multiuso <span
           class="checkbox-span">(DL. n.º 202/96 de 23/10 com redação dada pelo DL. nº 174/97 de 19/07 e republicado pelo
           DL. n. º 291/2009 de 12/10).</span></label>
     </div>
 
     <div class="checkbox-div">
-      <input type="checkbox" name="obtencao2" class="checkbox" data-id="veic"/>
+      <input type="checkbox" name="obtencao2" class="checkbox" data-id="veic" />
       <label for="obtencao" class="checkbox-text">Isenção do Imposto sobre Veículos <span class="checkbox-span">(Lei n.º
           22-A/2007 de 29/06).</span></label>
     </div>
@@ -192,13 +192,13 @@
     <p class="term-title">Informa ainda de que:</p>
 
     <div class="checkbox-div">
-      <input type="checkbox" name="obtencao3" class="checkbox" data-id="sub_n"/>
+      <input type="checkbox" name="obtencao3" class="checkbox" data-id="sub_n" />
       <label for="obtencao" class="checkbox-text">Nunca foi submetido a junta médica de avaliação do grau de
         incapacidade.</label>
     </div>
 
     <div class="checkbox-div">
-      <input type="checkbox" name="obtencao4" class="checkbox" data-id="sub_s"/>
+      <input type="checkbox" name="obtencao4" class="checkbox" data-id="sub_s" />
       <label for="obtencao" class="checkbox-text">Já foi submetido em<input type="date" class="term-input-date"
           data-id="data_ant"></input>, pretendendo uma reavaliação.</label>
     </div>
@@ -208,7 +208,16 @@
       que justifica(m) este pedido</p>
 
     <div class="sumbit-div">
-      <center><button class="myBtn submit-btn" id="myBtn" ><a onclick="createPedido()">Submeter</a></button></center>
+      <a onclick="
+        createPedido().then((result) => {
+          console.log(result);
+          document.getElementById('final-form').action = '/createFicheiro?id_pedido=' + result[0]._pedido;
+        })
+      ">
+        <center><button class="myBtn submit-btn" id="myBtn">
+            Submeter
+          </button></center>
+      </a>
     </div>
   </div>
 
@@ -219,36 +228,37 @@
       </div>
       <div class="modal-body">
         <div id="drop-area" class="drop-area">
-      <img src="./imagens/Upload.png" class="upload-img">
-      <p class="dragAndDrop-text">Clique aqui ou arrasta os ficheiros para aqui</p>
-      <input type="file" id="fileElem" multiple style="display:none;" data-id="file">
-      <div id="file-names" class=""></div>
+          <img src="./imagens/Upload.png" class="upload-img">
+          <form id="final-form" method="POST" enctype="multipart/form-data">
+            <p class="dragAndDrop-text">Clique aqui ou arrasta os ficheiros para aqui</p>
+            <input type="file" id="fileElem" multiple style="display:none;" name="filename">
+            <div id="file-names" class=""></div>
+        </div>
+        <input type="submit" class="answer-btn" onclick="window.location.href = './UtenteHistorico.html'">
+        </form>
+      </div>
     </div>
-      <div class="modal-footer">
-        <button class="answer-btn" onclick="createFicheiro()">Concluir</button></div>
-    </div>
-  </div>
 
-  <footer>
-    <div class="footer" id="rodape">
-      <p class="footer-intro">A conectar utentes e médicos para cuidados de saúde personalizados desde 2020.</p>
-      <p>Rua Afonso Albuquerque, Nº 9 · Barcelos · Braga</p>
-      <div class="footer-phone-info-div">
-        <img src="imagens/icons8-phone-50 1.png" />
-        <div class="footer-info-letter">+351 253 467 451</div>
+    <footer>
+      <div class="footer" id="rodape">
+        <p class="footer-intro">A conectar utentes e médicos para cuidados de saúde personalizados desde 2020.</p>
+        <p>Rua Afonso Albuquerque, Nº 9 · Barcelos · Braga</p>
+        <div class="footer-phone-info-div">
+          <img src="imagens/icons8-phone-50 1.png" />
+          <div class="footer-info-letter">+351 253 467 451</div>
+        </div>
+        <div class="footer-email-info-div">
+          <img src="imagens/icons8-email-50 1.png" />
+          <div class="footer-info-letter">info@saudeonline.pt</div>
+        </div>
+        <div class="footer-logo">
+          <img style="width: 40px" src="imagens/juntas-logo.png" />
+        </div>
       </div>
-      <div class="footer-email-info-div">
-        <img src="imagens/icons8-email-50 1.png" />
-        <div class="footer-info-letter">info@saudeonline.pt</div>
+      <div class="footer-copyright-div">
+        <div class="footer-copyright-letter">© 2023 Saúde On-Line </div>
       </div>
-      <div class="footer-logo">
-        <img style="width: 40px" src="imagens/juntas-logo.png" />
-      </div>
-    </div>
-    <div class="footer-copyright-div">
-      <div class="footer-copyright-letter">© 2023 Saúde On-Line </div>
-    </div>
-  </footer>
+    </footer>
 </body>
 
 </html>

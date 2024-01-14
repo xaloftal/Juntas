@@ -1,5 +1,4 @@
 const express = require('express');
-const axios = require('axios');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -13,7 +12,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(morgan('short'));
-app.use(cors());
+app.use(cors({
+    origin: "*",
+    methods: "*",
+}));
 
 app.use(require('./routes/registoRoute'));
 app.use(require('./routes/loginRoute'));
