@@ -11,7 +11,7 @@ module.exports = {
         });
     },
     ReadAvaliacao: (req, res) => {
-        client.query("SELECT * FROM avaliacao WHERE id_pedido = $1", [req.query.id_pedido], (error, results) => {
+        client.query("SELECT a.*, p.* FROM avaliacao INNER JOIN pedido p ON a.id_pedido = p.id_pedido WHERE p.id_pedido = $1", [req.query.id_pedido], (error, results) => {
             if (error) {
                 throw error
             }
