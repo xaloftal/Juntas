@@ -14,8 +14,9 @@ const GetPrimeiroPedidoAdm = () => {
             .then((response) => {
                 let containerPedido = document.querySelector('[data-id="primeiroPedidoContainer"]');
                 response.forEach(pedido => {
+                    const formattedDate = formatDateString(pedido.data_pedido);
                     console.log(pedido);
-                    containerPedido.innerHTML += '<td>' + pedido.nome_u + '<p class="med-email">' + pedido.email_u + '</p></td><td class="right">' + pedido.data_pedido + '</td><td><button class="evaluate-btn" onclick=refPedido(\'' + pedido.id_pedido + '\')>Avaliar</button></td>';
+                    containerPedido.innerHTML += '<td>' + pedido.nome_u + '<p class="med-email">' + pedido.email_u + '</p></td><td class="right">' + formattedDate + '</td><td><button class="evaluate-btn" onclick=refPedido(\'' + pedido.id_pedido + '\')>Avaliar</button></td>';
                 })
 
             })
@@ -45,8 +46,9 @@ const GetPrimeiroPedidoMed = () => {
             .then((response) => {
                 let containerPedido = document.querySelector('[data-id="primeiroPedidoContainer"]');
                 response.forEach(pedido => {
+                    const formattedDate = formatDateString(pedido.data_pedido);
                     console.log(pedido);
-                    containerPedido.innerHTML += '<td>' + pedido.nome_u + '<p class="med-email">' + pedido.email_u + '</p></td><td class="right">' + pedido.data_pedido + '</td><td><button class="answer-btn" onclick=refPedidoMed(\'' + pedido.id_pedido + '\')>Responder</button></td>';
+                    containerPedido.innerHTML += '<td>' + pedido.nome_u + '<p class="med-email">' + pedido.email_u + '</p></td><td class="right">' + formattedDate + '</td><td><button class="answer-btn" onclick=refPedidoMed(\'' + pedido.id_pedido + '\')>Responder</button></td>';
                 })
 
             })
@@ -74,8 +76,9 @@ const GetPedidosAdm = () => {
             .then((response) => {
                 let containerPedido = document.querySelector('[data-id="pedidoContainer"]');
                 response.forEach(pedido => {
+                    const formattedDate = formatDateString(pedido.data_pedido);
                     console.log(pedido);
-                    containerPedido.innerHTML += '<td>' + pedido.nome_u + '<p class="med-email">' + pedido.email_u + '</p></td><td class="right">' + pedido.data_pedido + '</td>';
+                    containerPedido.innerHTML += '<td>' + pedido.nome_u + '<p class="med-email">' + pedido.email_u + '</p></td><td class="right">' + formattedDate + '</td>';
                 })
 
             })
@@ -104,8 +107,9 @@ const GetPedidosMed = () => {
             .then((response) => {
                 let containerPedido = document.querySelector('[data-id="pedidoContainer"]');
                 response.forEach(pedido => {
+                    const formattedDate = formatDateString(pedido.data_pedido);
                     console.log(pedido);
-                    containerPedido.innerHTML += '<td>' + pedido.nome_u + '<p class="med-email">' + pedido.email_u + '</p></td><td class="right">' + pedido.data_pedido + '</td>';
+                    containerPedido.innerHTML += '<td>' + pedido.nome_u + '<p class="med-email">' + pedido.email_u + '</p></td><td class="right">' + formattedDate + '</td>';
                 })
 
             })
@@ -123,6 +127,17 @@ const refPedido = (id) => {
 
 const refPedidoMed = (id) => {
     window.location.href = '/www/MedicoAvaliacao.html?id_pedido=' + encodeURI(id);
+}
+
+function formatDateString(dateString) {
+
+    const dateObject = new Date(dateString);
+    const formattedDate = dateObject.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+    return formattedDate;
 }
 
 GetUmPedido = () => {
@@ -143,10 +158,13 @@ GetUmPedido = () => {
             })
             .then((response) => {
                 let containerPedido = document.querySelector('[data-id="pedidoContainer"]');
-                
+
                 response.forEach(pedido => {
+                    const formattedDate = formatDateString(pedido.data_pedido);
+                    const formattedCC = formatDateString(pedido.cc_val);
+                    const formattedBirthday = formatDateString(pedido.dat_nasc);
                     console.log(containerPedido.innerHTML);
-                    containerPedido.innerHTML += '<div><p class="solicitation-header-title">Solicitação de Junta Médica<span class="solicitation-header-span">' + pedido.data_pedido + '</span></p></div><div class="solicitation-header-div"><p style="margin:0%">IDENTIFICAÇÃO</p></div><div class="space-div"><div class="name-div"><p>NOME</p></div><div class="filled-div"><p>' + pedido.nome_u + '</p></div></div><div class="space-div"><div class="name-div"><p>Nº DE UTENTE</p></div><div class="filled-div"><p>' + pedido.nus_u + '</p></div></div><div class="space-div"><div class="name-div"><p>BI/CC</p></div><div class="filled-div"><p>' + pedido.cc_num + '</p></div><div class="name-two-div"><p>VÁLIDO ATÉ</p></div><div class="filled-div"><p>' + pedido.cc_val + '</p></div></div><div class="space-div"><div class="name-div"><p>NIF</p></div><div class="filled-div"><p>' + pedido.nif + '</p></div></div><div class="solicitation-header-div"><p>NATURALIDADE</p></div><div class="space-div"><div class="name-div"><p>DATA DE NASCIMENTO</p></div><div class="filled-div"><p>' + pedido.dat_nasc + '</p></div></div><div class="space-div"><div class="name-div"><p>FREGUESIA DE</p></div><div class="filled-div"><p>' + pedido.freg_nat + '</p></div><div class="name-two-div"><p>CONCELHO</p></div><div class="filled-div"><p>' + pedido.conc_nat + '</p></div></div><div class="solicitation-header-div"><p>RESIDÊNCIA</p></div><div class="space-div"><div class="name-div"><p>RUA</p></div><div class="filled-div"><p style="padding-left:5%;">' + pedido.rua + '</p></div></div><div class="space-div"><div class="name-div"><p>CÓDGIGO POSTAL</p></div><div class="filled-div"><p>' + pedido.cod_postal + '</p></div></div><div class="space-div"><div class="name-div"><p>FREGUESIA DE</p></div><div class="filled-div"><p>' + pedido.freg_res + '</p></div><div class="name-two-div"><p>CONCELHO</p></div><div class="filled-div"><p>' + pedido.conc_res + '</p></div></div><div class="space-div"><div class="name-div"><p>TELEFONE</p></div><div class="filled-div"><p>' + pedido.tele1 + '</p></div><div class="name-two-div"><p>OU</p></div><div class="filled-div"><p>' + pedido.tele2 + '</p></div></div>';
+                    containerPedido.innerHTML += '<div><p class="solicitation-header-title">Solicitação de Junta Médica<span class="solicitation-header-span" style="float:right;padding-right:1%">' + formattedDate + '</span></p></div><div class="solicitation-header-div"><p style="margin:0%">IDENTIFICAÇÃO</p></div><div class="space-div"><div class="name-div"><p>NOME</p></div><div class="filled-div"><p>' + pedido.nome_u + '</p></div></div><div class="space-div"><div class="name-div"><p>Nº DE UTENTE</p></div><div class="filled-div"><p>' + pedido.nus_u + '</p></div></div><div class="space-div"><div class="name-div"><p>BI/CC</p></div><div class="filled-div"><p>' + pedido.cc_num + '</p></div><div class="name-two-div"><p>VÁLIDO ATÉ</p></div><div class="filled-div"><p>' + formattedCC + '</p></div></div><div class="space-div"><div class="name-div"><p>NIF</p></div><div class="filled-div"><p>' + pedido.nif_u + '</p></div></div><div class="solicitation-header-div"><p>NATURALIDADE</p></div><div class="space-div"><div class="name-div"><p>DATA DE NASCIMENTO</p></div><div class="filled-div"><p>' + formattedBirthday + '</p></div></div><div class="space-div"><div class="name-div"><p>FREGUESIA DE</p></div><div class="filled-div"><p>' + pedido.freg_nat + '</p></div><div class="name-two-div"><p>CONCELHO</p></div><div class="filled-div"><p>' + pedido.conc_nat + '</p></div></div><div class="solicitation-header-div"><p>RESIDÊNCIA</p></div><div class="space-div"><div class="name-div"><p>RUA</p></div><div class="filled-div"><p style="padding-left:5%;">' + pedido.rua + '</p></div></div><div class="space-div"><div class="name-div"><p>CÓDGIGO POSTAL</p></div><div class="filled-div"><p>' + pedido.cod_postal + '</p></div></div><div class="space-div"><div class="name-div"><p>FREGUESIA DE</p></div><div class="filled-div"><p>' + pedido.freg_res + '</p></div><div class="name-two-div"><p>CONCELHO</p></div><div class="filled-div"><p>' + pedido.conc_res + '</p></div></div><div class="space-div"><div class="name-div"><p>TELEFONE</p></div><div class="filled-div"><p>' + pedido.tele1 + '</p></div><div class="name-two-div"><p>OU</p></div><div class="filled-div"><p>' + pedido.tele2 + '</p></div></div>';
                 })
 
             })
