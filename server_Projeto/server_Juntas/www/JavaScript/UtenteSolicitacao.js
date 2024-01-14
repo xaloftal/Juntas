@@ -55,11 +55,11 @@ const createPedido = async () => {
                     },
                     'Access-Control-Allow-OSrigin': '*'
                 })
-                
+
                 console.log(response)
                 return response
 
-            } catch(error) {
+            } catch (error) {
                 alert('Solicitação não foi submetida. Verifique se os campos estão todos preenchidos.');
             }
         } else {

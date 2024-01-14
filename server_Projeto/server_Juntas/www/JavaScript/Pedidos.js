@@ -196,10 +196,10 @@ const cancelarPedido = () => {
                 alert('Pedido cancelado com sucesso.');
                 if (window.location.href.includes('AdmAvaliacao')) {
                     window.location.href = '/www/AdmPedidos.html';
-                } else (window.location.href.includes('MedicoAvaliacao')) 
-                    window.location.href = '/www/MedicoPedidos.html';
-                
-                
+                } else(window.location.href.includes('MedicoAvaliacao'))
+                window.location.href = '/www/MedicoPedidos.html';
+
+
             })
             .catch((error) => {
                 alert('Cancelamento sem sucesso')
@@ -211,31 +211,31 @@ const cancelarPedido = () => {
 
 const encaminharPedido = () => {
     if (localStorage.getItem('userSession')) {
-      const urlParams = new URLSearchParams(window.location.search);
-      const id = urlParams.get('id_pedido');
-      const medChoice = document.getElementById('medicoDropdown').value; 
-  
-      $.ajax({
-        url: "http://localhost:3050/encaminharPedido?id_pedido=" + encodeURI(id) + "&id_med=" + encodeURI(medChoice), 
-        type: "POST",
-        crossDomain: true,
-        dataType: "json",
-        headers: {
-          "accept": "application/json",
-          "Access-Control-Allow-Origin": "*"
-        },
-        'Access-Control-Allow-OSrigin': '*'
-      })
-      .then((response) => {
-        console.log("id:", id);
-        console.log("medChoice:", medChoice);
-        alert('Pedido encaminhado com sucesso.');
-        window.location.href = '/www/AdmPedidos.html';
-      })
-      .catch((error) => {
-        alert('Encaminhamento sem sucesso');
-      });
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id_pedido');
+        const medChoice = document.getElementById('medicoDropdown').value;
+
+        $.ajax({
+                url: "http://localhost:3050/encaminharPedido?id_pedido=" + encodeURI(id) + "&id_med=" + encodeURI(medChoice),
+                type: "POST",
+                crossDomain: true,
+                dataType: "json",
+                headers: {
+                    "accept": "application/json",
+                    "Access-Control-Allow-Origin": "*"
+                },
+                'Access-Control-Allow-OSrigin': '*'
+            })
+            .then((response) => {
+                console.log("id:", id);
+                console.log("medChoice:", medChoice);
+                alert('Pedido encaminhado com sucesso.');
+                window.location.href = '/www/AdmPedidos.html';
+            })
+            .catch((error) => {
+                alert('Encaminhamento sem sucesso');
+            });
     } else {
-      alert('No login');
+        alert('No login');
     }
-  }
+}

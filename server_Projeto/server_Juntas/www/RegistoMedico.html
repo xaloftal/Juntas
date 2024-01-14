@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-    <html lang="en">
+<html lang="en">
 
-    <head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope">
 
-        <link rel="stylesheet" href="./CSS/LoginRegisto.css" media="screen">
+    <link rel="stylesheet" href="./CSS/LoginRegisto.css" media="screen">
 
-        <script class="u-script" type="text/javascript" src="JavaScript/Registo.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="JavaScript/Registo.js" defer=""></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
@@ -25,31 +25,31 @@
 
 
 
-        <title>Simple Page</title>
-    </head>
+    <title>Simple Page</title>
+</head>
 
-    <body>
-        <header>
-            <div class="header">
-                <img src="./imagens/juntas-logo.png" alt="logo" class='img' />
+<body>
+    <header>
+        <div class="header">
+            <img src="./imagens/juntas-logo.png" alt="logo" class='img' />
+        </div>
+    </header>
+
+    <section class="login-section">
+        <div class="signup-card">
+            <div class="signup-input-div">
+                <p class="signup-title">Criar Conta</p>
+                <p class="signup-password">Nº de cédula profissional</p>
+                <input type="text" class="signup-input" data-id="cedula"></input>
+                <p class="signup-email">Email</p>
+                <input type="text" class="signup-input" data-id="email"></input>
+                <p class="signup-password">Palavra-passe</p>
+                <input type="password" class="signup-input" data-id="password"></input>
+
+                <center><button class="signup-btn" onclick="doRegisterMedico()">Criar conta</button></center>
             </div>
-        </header>
+        </div>
+    </section>
+</body>
 
-        <section class="login-section">
-            <div class="signup-card">
-                <div class="signup-input-div">
-                    <p class="signup-title">Criar Conta</p>
-                    <p class="signup-password">Nº de cédula profissional</p>
-                    <input type="text" class="signup-input" data-id="cedula"></input>
-                    <p class="signup-email">Email</p>
-                    <input type="text" class="signup-input" data-id="email"></input>
-                    <p class="signup-password">Palavra-passe</p>
-                    <input type="password" class="signup-input" data-id="password"></input>
-
-                    <center><button class="signup-btn" onclick="doRegisterMedico()">Criar conta</button></center>
-                </div>
-            </div>
-        </section>
-    </body>
-
-    </html>
+</html>
