@@ -70,32 +70,6 @@ const createPedido = async () => {
     }
 }
 
-const getCreatePedido = async () => {
-    if (localStorage.getItem('userSession')) {
-        let userSession = JSON.parse(localStorage.getItem('userSession'));
-        console.log("1");
-
-        try {
-            const response = await fetch("http://localhost:3050/getCreatePedido?id_utente=" + encodeURI(userSession.id), {
-                method: "GET",
-                headers: {
-                    "accept": "application/json",
-                    "Access-Control-Allow-Origin": "*"
-                }
-            });
-
-            const result = await response.json();
-            console.log("Success:", result);
-            return result[0].id_pedido
-        } catch (error) {
-            console.error("Error:", error);
-        }
-    } else {
-        alert('No login');
-    }
-}
-
-
 const GetDadosUtente = () => {
     if (localStorage.getItem('userSession')) {
         let userSession = JSON.parse(localStorage.getItem('userSession'));

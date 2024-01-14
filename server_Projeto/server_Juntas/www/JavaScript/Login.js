@@ -4,7 +4,7 @@ doLogin = async () => {
 
     try {
         const response = await $.ajax({
-            url: "http://localhost:3050/login/DoLogin?email=" + encodeURI(email) + "&password=" + encodeURI(password),
+            url: "http://localhost:3050/login?email=" + encodeURI(email) + "&password=" + encodeURI(password),
             type: "GET",
             crossDomain: false,
             dataType: "json",

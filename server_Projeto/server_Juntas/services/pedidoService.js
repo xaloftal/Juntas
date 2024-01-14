@@ -11,15 +11,6 @@ module.exports = {
             res.send(results.rows)
         });
     },
-    ReadCreatePedido: (req, res) => {
-        client.query("SELECT p.*, u.* FROM pedido p INNER JOIN utente u ON p.id_utente = u.id_utente WHERE p.id_utente = $1 AND p.estado_p = 'submetido'", [req.query.id_utente], (error, results) => {
-            if (error) {
-                throw error
-            }
-            console.log(results)
-            res.send(results.rows)
-        });
-    },
     ReadPedidoAdmPrimeiro: (req, res) => {
         client.query("SELECT p.id_pedido, p.data_pedido, p.nome_u, u.*, MIN(p.data_pedido) AS min_data_pedido FROM pedido p INNER JOIN utente u ON p.id_utente = u.id_utente WHERE p.estado_p = 'submetido'  GROUP BY p.id_pedido, p.data_pedido, u.id_utente, p.nome_u, u.email_u", (error, results) => {
 

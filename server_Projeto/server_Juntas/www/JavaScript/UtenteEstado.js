@@ -52,7 +52,7 @@ const GetAvaliacao = () => {
 
     if (localStorage.getItem('userSession')) {
         $.ajax({
-                url: "http://localhost:3050/readAvaliacao?id_pedido=" + encodeURI(id),
+                url: "http://localhost:3050/avaliacao?id_pedido=" + encodeURI(id),
                 type: "GET",
                 crossDomain: true,
                 dataType: "json",

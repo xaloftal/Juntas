@@ -4,7 +4,7 @@ const router = express.Router();
 
 const registoService = require('../services/registoService');
 
-router.post('/RegistoUtente', registoService.RegistoUtente);
-router.post('/RegistoMedico', registoService.RegistoMedico);
+router.post('/registoUtente', registoService.RegistoUtente);
+router.post('/registoMedico', registoService.RegistoMedico);
 
 module.exports = router;

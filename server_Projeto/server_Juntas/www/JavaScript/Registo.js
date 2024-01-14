@@ -60,7 +60,7 @@ const doRegisterUtente = () => {
     GetIdUtente(nus)
         .then((id) => {
             return $.ajax({
-                url: "http://localhost:3050/RegistoUtente?id=" + encodeURI(id) + "&email=" + encodeURI(email) + "&password=" + encodeURI(password) + "&nus=" + nus,
+                url: "http://localhost:3050/registoUtente?id=" + encodeURI(id) + "&email=" + encodeURI(email) + "&password=" + encodeURI(password) + "&nus=" + nus,
                 type: "POST",
                 crossDomain: true,
                 dataType: "json",
@@ -140,7 +140,7 @@ const doRegisterMedico = () => {
     GetIdMedico(cedula)
         .then((medico) => {
             return $.ajax({
-                url: "http://localhost:3050/RegistoMedico?id=" + encodeURI(medico.id_medico) + "&ced=" + encodeURI(cedula) + "&nome=" + encodeURI(medico.nome_m) + "&email=" + encodeURI(email) + "&tele=" + encodeURI(medico.tel_m) + "&pass=" + encodeURI(password),
+                url: "http://localhost:3050/registoMedico?id=" + encodeURI(medico.id_medico) + "&ced=" + encodeURI(cedula) + "&nome=" + encodeURI(medico.nome_m) + "&email=" + encodeURI(email) + "&tele=" + encodeURI(medico.tel_m) + "&pass=" + encodeURI(password),
                 type: "POST",
                 crossDomain: true,
                 dataType: "json",
