@@ -25,7 +25,7 @@
     <script class="u-script" type="text/javascript" src="JavaScript/MedicoAvaliacao.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="JavaScript/Pedidos.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="JavaScript/Ficheiros.js" defer=""></script>
-    
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -38,8 +38,8 @@
     <title>Simple Page</title>
     <script type="text/javascript">
         window.onload = () => {
-          GetUmPedido();
-          GetFicheiros();
+            GetUmPedido();
+            GetFicheiros();
         }
     </script>
 </head>
@@ -59,7 +59,7 @@
 
     <div class="grid-container">
         <div class="solicitation-div" style="width: 80%; margin-right:10px" data-id="pedidoContainer">
-            
+
         </div>
         <div>
             <div class="exams-div">
@@ -75,16 +75,18 @@
                 </div>
                 <div class="evaluation-answer-div">
                     <label for="obv">Observações</label>
-                    <textarea type="text" id="obv" name="obv" class="text-input" height="100px" data-id="obv"></textarea>
-                    <p style="font-weight: bold;">Percentagem de incapacidade<input type="text" class="percentage-input" data-id="percentage"> %</p>
+                    <textarea type="text" id="obv" name="obv" class="text-input" height="100px"
+                        data-id="obv"></textarea>
+                    <p style="font-weight: bold;">Percentagem de incapacidade<input type="text" class="percentage-input"
+                            data-id="percentage"> %</p>
                 </div>
                 <div class="submit-div">
                     <button class="answer-btn-1" onclick="criarAvaliacao()">Responder</button>
                     <a class="cancel-a-1" onclick="cancelarPedido()">Cancelar</a></div>
-                </div>
             </div>
-                        
         </div>
+
+    </div>
     </div>
 
     <footer>
@@ -92,15 +94,15 @@
             <p class="footer-intro">A conectar utentes e médicos para cuidados de saúde personalizados desde 2020.</p>
             <p>Rua Afonso Albuquerque, Nº 9 · Barcelos · Braga</p>
             <div class="footer-phone-info-div">
-                <img src="imagens/icons8-phone-50 1.png" />
+                <img src="imagens/icons8-phone-50 1.png" class="img-phone" />
                 <div class="footer-info-letter">+351 253 467 451</div>
             </div>
             <div class="footer-email-info-div">
-                <img src="imagens/icons8-email-50 1.png" />
+                <img src="imagens/icons8-email-50 1.png" class="img-email" />
                 <div class="footer-info-letter">info@saudeonline.pt</div>
             </div>
             <div class="footer-logo">
-                <img style="width: 40px" src="imagens/juntas-logo.png" />
+                <img src="imagens/juntas-logo.png" class="img-logo" />
             </div>
         </div>
         <div class="footer-copyright-div">
@@ -109,3 +111,5 @@
     </footer>
 
 </body>
+
+</html>
