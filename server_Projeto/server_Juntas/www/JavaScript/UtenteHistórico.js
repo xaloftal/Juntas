@@ -16,6 +16,17 @@ GetPedidoUtente = () => {
             .then((response) => {
                 let containerPedido = document.querySelector('[data-id="pedidoUtenteContainer"]');
                 response.forEach(pedido => {
+
+                    if (pedido.estado_p == 'em analise') {
+                        pedido.estado_p = 'Em análise';
+                    } else if (pedido.estado_p == 'submetido') {
+                        pedido.estado_p = 'Submetido';
+                    } else if (pedido.estado_p == 'concluido') {
+                        pedido.estado_p = 'Concluido';
+                    } else if (pedido.estado_p == 'avaliado') {
+                        pedido.estado_p = 'Avaliado';
+                    }
+
                     const formattedDate = formatDateString(pedido.data_pedido);
                     containerPedido.innerHTML += '<td>' + pedido.nome_m + '<p class="med-email">' + pedido.email_m + '</p></td><td class="right">' + formattedDate + '</td><td class="right">' + pedido.estado_p + '</td><td><a class="see-details" onclick="refPedido(\'' + pedido.id_pedido + '\')">Ver detalhes</a></td>';
                 })
