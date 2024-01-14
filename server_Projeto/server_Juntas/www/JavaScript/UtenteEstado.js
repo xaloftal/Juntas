@@ -64,11 +64,12 @@ const GetAvaliacao = () => {
             })
             .then((response) => {
                 let containerAvaliacao = document.querySelector('[data-id="avaliacaoContainer"]');
+                GetLocais();
                 response.forEach(avaliacao => {
-                    if (avaliacao.estado_p = 'em analise') {
+                    if (avaliacao.estado_p == 'avaliado') {
                         containerAvaliacao.innerHTML += '<div class="modal-content"><div class="modal-header"><span class="close">&times;</span><p class="result-title">Resultado</p></div><div class="modal-body"><span class="percentage">Percentagem: <span class="result">' + avaliacao.percentagem + '</span></span><p class="obv">Observações: <span class="result">' + avaliacao.observ_ava + '</span></p><div class="checkbox-div"><input type="checkbox" id="consulta" name="consulta" class="checkbox" /><label for="consulta" class="appointment-checkbox">Marcar consulta</span></label></div><select id="localDropdown" name="local" class="chooser-local"><option value="-1">Se sim, escolha um local</option></select></div><div class="modal-footer"><button class="answer-btn" onclick="createConsultaAvaliacao()">Concluir</button></div></div>';
 
-                    } else if (avaliacao.estado_p = 'concluido') {
+                    } else if (avaliacao.estado_p == 'concluido') {
                         containerAvaliacao.innerHTML += '<div class="modal-content"><div class="modal-header"><span class="close">&times;</span><p class="result-title">Resultado</p></div><div class="modal-body"><span class="percentage">Percentagem: <span class="result">' + avaliacao.percentagem + '</span></span><p class="obv">Observações: <span class="result">' + avaliacao.observ_ava + '</span></p></div>';
                     }
                     updateModalBtns();

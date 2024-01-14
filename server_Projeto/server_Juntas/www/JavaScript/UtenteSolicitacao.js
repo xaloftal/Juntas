@@ -1,9 +1,18 @@
+const getCurrentDateFormatted = () => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+
+    return yyyy + '-' + mm + '-' + dd;
+}
+
 const createPedido = async () => {
     try {
         if (localStorage.getItem('userSession')) {
             let userSession = JSON.parse(localStorage.getItem('userSession'));
 
-            let currentDate = new Date().toLocaleDateString('en-GB');
+            const currentDate = getCurrentDateFormatted();
             let name = document.querySelector('[data-id="name"]').value;
             let nus = document.querySelector('[data-id="nus"]').value;
             let nif = document.querySelector('[data-id="nif"]').value;
@@ -36,7 +45,7 @@ const createPedido = async () => {
 
             try {
                 const response = await $.ajax({
-                    url: "http://localhost:3050/createPedido?name=" + encodeURI(name) + "&nus=" + encodeURI(nus) + "&nif=" + encodeURI(nif) + "&tel1=" + encodeURI(phoneOne) + "&tel2=" + encodeURI(phoneTwo) + "&cc=" + encodeURI(cc) + "&ccval=" + encodeURI(ccVal) + "&datnas=" + encodeURI(birthday) + "&fregn=" + encodeURI(freg_natural) + "&codigo=" + encodeURI(code) + "&rua=" + encodeURI(street) + "&id_utente=" + encodeURI(userSession.id) + "&data=" + encodeURI(currentDate) + "&fregr=" + encodeURI(freg_residencia) + "&concr=" + encodeURI(conc_residencia) + "&concn=" + encodeURI(conc_natural) + "&multi=" + encodeURI(multi) + "&veic=" + encodeURI(veic) + "&sub_n=" + encodeURI(submissao_n) + "&sub_s=" + encodeURI(submissao_s) + "&data_ant=" + encodeURI(data_ant),
+                    url: "http://localhost:3050/createPedido?data=" + encodeURI(currentDate) + "&nome=" + encodeURI(name) + "&nus=" + encodeURI(nus) + "&nif=" + encodeURI(nif) + "&tel1=" + encodeURI(phoneOne) + "&tel2=" + encodeURI(phoneTwo) + "&cc=" + encodeURI(cc) + "&ccval=" + encodeURI(ccVal) + "&datnas=" + encodeURI(birthday) + "&fregn=" + encodeURI(freg_natural) + "&codigo=" + encodeURI(code) + "&rua=" + encodeURI(street) + "&id_utente=" + encodeURI(userSession.id) + "&data=" + encodeURI(currentDate) + "&fregr=" + encodeURI(freg_residencia) + "&concr=" + encodeURI(conc_residencia) + "&concn=" + encodeURI(conc_natural) + "&multi=" + encodeURI(multi) + "&veic=" + encodeURI(veic) + "&sub_n=" + encodeURI(submissao_n) + "&sub_s=" + encodeURI(submissao_s) + "&data_ant=" + encodeURI(data_ant),
                     type: "POST",
                     crossDomain: true,
                     dataType: "json",

@@ -210,3 +210,11 @@ input[type=checkbox]:checked:after {
     margin-bottom: 1%;
     margin-left:70%;
 }
+
+.chooser-local {
+    border:black 1px solid;
+    border-radius: 4px;
+    height:30px;
+    font-family: Manrope;
+    margin-top:1%;
+}
