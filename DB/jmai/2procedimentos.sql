@@ -23,7 +23,7 @@ begin
 end; $$ Language PLPGSQL
 
 
-create or replace procedure submeter_pedido(_dat date, _nom varchar(60), _nus int, _nif int, _tel1 int, _tel2 int, _cnum varchar(12), _cval date, _datnasc date, _freg_n varchar(60), _cod int, _rua varchar(60), _ut int, _freg_r varchar(60), _conc_r varchar(60), _conc_n varchar(60), _multi boolean, _veic boolean, _sub_n boolean, _sub_s boolean, dat_ant date, out _pedido int)
+create or replace procedure submeter_pedido(_dat date, _nom varchar(60), _nus int, _nif int, _tel1 int, _tel2 int, _cnum varchar(12), _cval date, _datnasc date, _freg_n varchar(60), _cod varchar(8), _rua varchar(60), _ut int, _freg_r varchar(60), _conc_r varchar(60), _conc_n varchar(60), _multi boolean, _veic boolean, _sub_n boolean, _sub_s boolean, dat_ant date, out _pedido int)
 as $$
 declare _ped int;
 begin

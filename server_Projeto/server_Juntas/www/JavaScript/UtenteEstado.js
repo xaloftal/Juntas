@@ -12,7 +12,7 @@ const GetEstado = async () => {
                     "accept": "application/json",
                     "Access-Control-Allow-Origin": "*"
                 },
-                'Access-Control-Allow-OSrigin': '*' 
+                'Access-Control-Allow-OSrigin': '*'
             })
             .then((response) => {
                 const estadoAvaliacao = response[0].estado_a;
@@ -65,9 +65,10 @@ const GetAvaliacao = () => {
             .then((response) => {
                 let containerAvaliacao = document.querySelector('[data-id="avaliacaoContainer"]');
                 response.forEach(avaliacao => {
-                    if (avaliacao.estado_p = 'em analise'){
+                    if (avaliacao.estado_p = 'em analise') {
                         containerAvaliacao.innerHTML += '<div class="modal-content"><div class="modal-header"><span class="close">&times;</span><p class="result-title">Resultado</p></div><div class="modal-body"><span class="percentage">Percentagem: <span class="result">' + avaliacao.percentagem + '</span></span><p class="obv">Observações: <span class="result">' + avaliacao.observ_ava + '</span></p><div class="checkbox-div"><input type="checkbox" id="consulta" name="consulta" class="checkbox" /><label for="consulta" class="appointment-checkbox">Marcar consulta</span></label></div><select id="localDropdown" name="local" class="chooser-local"><option value="-1">Se sim, escolha um local</option></select></div><div class="modal-footer"><button class="answer-btn" onclick="createConsultaAvaliacao()">Concluir</button></div></div>';
-                    } else if (avaliacao.estado_p = 'concluido'){
+
+                    } else if (avaliacao.estado_p = 'concluido') {
                         containerAvaliacao.innerHTML += '<div class="modal-content"><div class="modal-header"><span class="close">&times;</span><p class="result-title">Resultado</p></div><div class="modal-body"><span class="percentage">Percentagem: <span class="result">' + avaliacao.percentagem + '</span></span><p class="obv">Observações: <span class="result">' + avaliacao.observ_ava + '</span></p></div>';
                     }
                     updateModalBtns();
@@ -88,7 +89,7 @@ const createConsultaAvaliacao = () => {
     const checkbox = document.getElementById('consulta');
     const cons = checkbox.checked;
 
-    if(cons == true) {
+    if (cons == true) {
         createConsultaLocal(id);
     }
 
@@ -105,7 +106,7 @@ const createConsultaAvaliacao = () => {
                 'Access-Control-Allow-OSrigin': '*'
             })
             .then((response) => {
-   
+
             })
             .catch((error) => {
                 alert("Consulta requisitada sem sucesso")
