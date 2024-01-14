@@ -118,7 +118,7 @@
     height:auto;
 }
 
-.answer-btn {
+.answer-btn-1 {
     border-radius: 7px;
     background: #2979FF;
     border:none;
@@ -137,7 +137,12 @@
     cursor:pointer;
 }
 
-.cancel-a {
+.answer-btn, .cancel-a {
+    flex: 1; 
+    margin-right: 10px;
+}
+
+.cancel-a-1 {
     color: #2979FF;
     text-align: center;
     font-family: Manrope;

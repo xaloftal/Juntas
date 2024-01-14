@@ -14,10 +14,10 @@ GetPedidoUtente = () => {
                 'Access-Control-Allow-OSrigin': '*'
             })
             .then((response) => {
-
                 let containerPedido = document.querySelector('[data-id="pedidoUtenteContainer"]');
                 response.forEach(pedido => {
-                    containerPedido.innerHTML += '<td>'+ pedido.nome_u +'<p class="med-email">'+ pedido.email_u +'</p></td><td class="right">'+ pedido.data_pedido +'</td><td class="right">'+ pedido.estado_p +'</td><td><a class="see-details" onclick="refPedido(\'' + pedido.id_pedido + '\')">Ver detalhes</a></td>';
+                    const formattedDate = formatDateString(pedido.data_pedido);
+                    containerPedido.innerHTML += '<td>' + pedido.nome_m + '<p class="med-email">' + pedido.email_m + '</p></td><td class="right">' + formattedDate + '</td><td class="right">' + pedido.estado_p + '</td><td><a class="see-details" onclick="refPedido(\'' + pedido.id_pedido + '\')">Ver detalhes</a></td>';
                 })
             })
             .catch((error) => {
@@ -26,6 +26,17 @@ GetPedidoUtente = () => {
     } else {
         alert('No login');
     }
+}
+
+function formatDateString(dateString) {
+
+    const dateObject = new Date(dateString);
+    const formattedDate = dateObject.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+    return formattedDate;
 }
 
 const refPedido = (id) => {

@@ -71,7 +71,7 @@ module.exports = {
         }
     },
     ReadPedidoUtente: (req, res) => {
-        client.query("SELECT p.*, u.* FROM pedido p INNER JOIN utente u ON p.id_utente = u.id_utente WHERE p.id_utente = $1 ORDER BY (p.estado_p = 'em analise') DESC, p.estado_p;", [req.query.id_utente], (error, results) => {
+        client.query("SELECT p.*, u.*, a.*, m.* FROM pedido p INNER JOIN utente u ON p.id_utente = u.id_utente INNER JOIN avaliacao a ON p.id_pedido = a.id_pedido INNER JOIN medico m ON a.id_medico = m.id_medico WHERE p.id_utente = $1 ORDER BY (p.estado_p = 'em analise') DESC, p.estado_p;", [req.query.id_utente], (error, results) => {
             if (error) {
                 throw error
             }
