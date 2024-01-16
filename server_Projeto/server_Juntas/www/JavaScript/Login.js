@@ -27,7 +27,7 @@ doLogin = async () => {
                         $(location).prop('href', '/www/MedicoPedidos.html');
                         break;
                     case '@adm':
-                        $(location).prop('href', '/www/AdmContas.html');
+                        $(location).prop('href', '/www/AdmPedidos.html');
                         break;
                     default:
                         const pedido = await getEstadoPedido(email);

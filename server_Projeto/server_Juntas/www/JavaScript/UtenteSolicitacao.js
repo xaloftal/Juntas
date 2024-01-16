@@ -19,8 +19,8 @@ const createPedido = async () => {
             let phoneOne = document.querySelector('[data-id="phoneOne"]').value;
             let phoneTwo = document.querySelector('[data-id="phoneTwo"]').value;
             let cc = document.querySelector('[data-id="cc"]').value;
-            let ccVal = document.querySelector('[data-id="ccVal"]').value;
-            let birthday = document.querySelector('[data-id="birthday"]').value;
+            let ccVal = document.querySelector('[data-id="ccVal"]').value);
+            let birthday = document.querySelector('[data-id="birthday"]').value);
             let freg_natural = document.querySelector('[data-id="freg_natural"]').value;
             let conc_natural = document.querySelector('[data-id="conc_natural"]').value;
             let freg_residencia = document.querySelector('[data-id="freg_residencia"]').value;
@@ -101,8 +101,8 @@ const GetDadosUtente = () => {
 
 const setUserDataInForm = (userData) => {
 
-    const birthday = formatDateString(userData.data_nascimento);
-    const cc_val = formatDateString(userData.cc_validade);
+    let birthday = formatDateStringData(userData.data_nascimento);
+    let cc_val = formatDateStringData(userData.cc_validade);
 
     document.querySelector('[name="name"]').value = String(userData.nome_utente);
     document.querySelector('[name="nus"]').value = String(userData.nus);
@@ -154,7 +154,19 @@ const setData = () => {
     }
 }
 
-function formatDateString(originalDateString) {
+
+function formatDateString(dateString) {
+
+    const dateObject = new Date(dateString);
+    const formattedDate = dateObject.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+    return formattedDate;
+}
+
+function formatDateStringData(originalDateString) {
     const originalDate = new Date(originalDateString);
 
     const year = originalDate.getFullYear();
