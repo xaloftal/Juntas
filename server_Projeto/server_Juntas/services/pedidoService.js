@@ -91,7 +91,7 @@ module.exports = {
     },
     ReadEstadoUtente: (req, res) => {
         if (req.query.email) {
-            client.query("SELECT count(*), p.* FROM pedido p INNER JOIN utente u ON p.id_utente = u.id_utente WHERE p.estado_p = 'submetido' OR p.estado_p = 'em analise' OR p.estado_p = 'avaliado' AND u.email_u = $1 GROUP BY p.id_pedido", [req.query.email], (error, results) => {
+            client.query("SELECT count(*), p.* FROM pedido p INNER JOIN utente u ON p.id_utente = u.id_utente WHERE (p.estado_p = 'submetido' OR p.estado_p = 'em analise' OR p.estado_p = 'avaliado') AND u.email_u = $1 GROUP BY p.id_pedido", [req.query.email], (error, results) => {
                 if (error) {
                     throw error
                 }

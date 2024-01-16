@@ -3,9 +3,15 @@ const getCurrentDateFormatted = () => {
     const yyyy = today.getFullYear();
     const mm = String(today.getMonth() + 1).padStart(2, '0');
     const dd = String(today.getDate()).padStart(2, '0');
+    const hh = String(today.getHours()).padStart(2, '0');
+    const min = String(today.getMinutes()).padStart(2, '0');
+    const sec = String(today.getSeconds()).padStart(2, '0');
 
-    return yyyy + '-' + mm + '-' + dd;
+    const formattedDate = `${yyyy}-${mm}-${dd} ${hh}:${min}:${sec}`;
+
+    return formattedDate;
 }
+
 
 const createPedido = async () => {
     try {
