@@ -29,19 +29,28 @@ const createPedido = async () => {
             let street = document.querySelector('[data-id="street"]').value;
             let multi = document.querySelector('[data-id="multi"]').checked;
             let veic = document.querySelector('[data-id="veic"]').checked;
-            let submissao_n = document.querySelector('[data-id="sub_n"]').checked;
-            let submissao_s = document.querySelector('[data-id="sub_s"]').checked;
+            let submissao_n = document.querySelector('input[name="obtencao3"]:checked').value;
+            let submissao_s = 0;
             let data_ant = document.querySelector('[data-id="data_ant"]').value;
 
             let pedido = await getEstadoPedido(userSession.email);
-
-            if (pedido > 0) {
+            console.log(pedido.length);
+            if (pedido.length > 0) {
                 alert("Já tem uma solicitação em análise. Vá para as solicitações");
+                window.location.href = './UtenteHistorico.html';
+                return; 
             }
 
-            if (submissao_n == true) {
+            if (submissao_n == 'true') {
+                submissao_n = true;
+                submissao_s = false;
                 data_ant = "01/01/1900";
+            } else if (submissao_n == 'false') {
+                submissao_s = true;
+                submissao_n = false;
             }
+
+            console.log(submissao_n, submissao_s);
 
             try {
                 const response = await $.ajax({
@@ -55,7 +64,7 @@ const createPedido = async () => {
                     },
                     'Access-Control-Allow-OSrigin': '*'
                 })
-
+                
                 console.log(response)
                 return response
 
