@@ -12,15 +12,15 @@ const createPedido = async () => {
         if (localStorage.getItem('userSession')) {
             let userSession = JSON.parse(localStorage.getItem('userSession'));
 
-            const currentDate = getCurrentDateFormatted();
+            let currentDate = getCurrentDateFormatted();
             let name = document.querySelector('[data-id="name"]').value;
             let nus = document.querySelector('[data-id="nus"]').value;
             let nif = document.querySelector('[data-id="nif"]').value;
             let phoneOne = document.querySelector('[data-id="phoneOne"]').value;
             let phoneTwo = document.querySelector('[data-id="phoneTwo"]').value;
             let cc = document.querySelector('[data-id="cc"]').value;
-            let ccVal = document.querySelector('[data-id="ccVal"]').value);
-            let birthday = document.querySelector('[data-id="birthday"]').value);
+            let ccVal = document.querySelector('[data-id="ccVal"]').value;
+            let birthday = document.querySelector('[data-id="birthday"]').value;
             let freg_natural = document.querySelector('[data-id="freg_natural"]').value;
             let conc_natural = document.querySelector('[data-id="conc_natural"]').value;
             let freg_residencia = document.querySelector('[data-id="freg_residencia"]').value;
@@ -45,7 +45,7 @@ const createPedido = async () => {
 
             try {
                 const response = await $.ajax({
-                    url: "http://localhost:3050/createPedido?data=" + encodeURI(currentDate) + "&nome=" + encodeURI(name) + "&nus=" + encodeURI(nus) + "&nif=" + encodeURI(nif) + "&tel1=" + encodeURI(phoneOne) + "&tel2=" + encodeURI(phoneTwo) + "&cc=" + encodeURI(cc) + "&ccval=" + encodeURI(ccVal) + "&datnas=" + encodeURI(birthday) + "&fregn=" + encodeURI(freg_natural) + "&codigo=" + encodeURI(code) + "&rua=" + encodeURI(street) + "&id_utente=" + encodeURI(userSession.id) + "&data=" + encodeURI(currentDate) + "&fregr=" + encodeURI(freg_residencia) + "&concr=" + encodeURI(conc_residencia) + "&concn=" + encodeURI(conc_natural) + "&multi=" + encodeURI(multi) + "&veic=" + encodeURI(veic) + "&sub_n=" + encodeURI(submissao_n) + "&sub_s=" + encodeURI(submissao_s) + "&data_ant=" + encodeURI(data_ant),
+                    url: "http://localhost:3050/createPedido?data=" + encodeURI(currentDate) + "&nome=" + encodeURI(name) + "&nus=" + encodeURI(nus) + "&nif=" + encodeURI(nif) + "&tel1=" + encodeURI(phoneOne) + "&tel2=" + encodeURI(phoneTwo) + "&cc=" + encodeURI(cc) + "&ccval=" + encodeURI(ccVal) + "&datnas=" + encodeURI(birthday) + "&fregn=" + encodeURI(freg_natural) + "&codigo=" + encodeURI(code) + "&rua=" + encodeURI(street) + "&id_utente=" + encodeURI(userSession.id) + "&fregr=" + encodeURI(freg_residencia) + "&concr=" + encodeURI(conc_residencia) + "&concn=" + encodeURI(conc_natural) + "&multi=" + encodeURI(multi) + "&veic=" + encodeURI(veic) + "&sub_n=" + encodeURI(submissao_n) + "&sub_s=" + encodeURI(submissao_s) + "&data_ant=" + encodeURI(data_ant),
                     type: "POST",
                     crossDomain: true,
                     dataType: "json",

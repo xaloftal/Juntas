@@ -219,3 +219,21 @@ input[type=checkbox]:checked:after {
     font-family: Manrope;
     margin-top:1%;
 }
+
+@media only screen and (max-width: 1024px) {
+    .filled-div {
+        font-size: 12px;
+        
+    }
+
+    .name-div {
+        font-size: 12px;
+        height:auto;
+    }
+
+    .name-two-div {
+        margin-left:1%;
+        font-size: 12px;
+        height:auto;
+    }
+}
