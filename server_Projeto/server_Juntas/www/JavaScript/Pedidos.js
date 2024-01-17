@@ -16,7 +16,7 @@ const GetPrimeiroPedidoAdm = () => {
                 response.forEach(pedido => {
                     const formattedDate = formatDateString(pedido.data_pedido);
                     console.log(pedido);
-                    containerPedido.innerHTML += '<td>' + pedido.nome_u + '<p class="med-email">' + pedido.email_u + '</p></td><td class="right">' + formattedDate + '</td><td><button class="evaluate-btn" onclick=refPedido(\'' + pedido.id_pedido + '\')>Avaliar</button></td>';
+                    containerPedido.innerHTML += '<tr class="item"><td>' + pedido.nome_u + '<p class="med-email">' + pedido.email_u + '</p></td><td class="right">' + formattedDate + '</td><td><button class="evaluate-btn" onclick=refPedido(\'' + pedido.id_pedido + '\')>Avaliar</button></td></tr>';
                 })
 
             })
@@ -48,7 +48,7 @@ const GetPrimeiroPedidoMed = () => {
                 response.forEach(pedido => {
                     const formattedDate = formatDateString(pedido.data_pedido);
                     console.log(pedido);
-                    containerPedido.innerHTML += '<td>' + pedido.nome_u + '<p class="med-email">' + pedido.email_u + '</p></td><td class="right">' + formattedDate + '</td><td><button class="answer-btn" onclick=refPedidoMed(\'' + pedido.id_pedido + '\')>Responder</button></td>';
+                    containerPedido.innerHTML += '<tr class="item"><td>' + pedido.nome_u + '<p class="med-email">' + pedido.email_u + '</p></td><td class="right">' + formattedDate + '</td><td><button class="answer-btn" onclick=refPedidoMed(\'' + pedido.id_pedido + '\')>Responder</button></td></tr>';
                 })
 
             })
@@ -78,7 +78,7 @@ const GetPedidosAdm = () => {
                 response.forEach(pedido => {
                     const formattedDate = formatDateString(pedido.data_pedido);
                     console.log(pedido);
-                    containerPedido.innerHTML += '<td>' + pedido.nome_u + '<p class="med-email">' + pedido.email_u + '</p></td><td class="right">' + formattedDate + '</td>';
+                    containerPedido.innerHTML += '<tr class="item"><td>' + pedido.nome_u + '<p class="med-email">' + pedido.email_u + '</p></td><td class="right">' + formattedDate + '</td></tr>';
                 })
 
             })
@@ -109,7 +109,7 @@ const GetPedidosMed = () => {
                 response.forEach(pedido => {
                     const formattedDate = formatDateString(pedido.data_pedido);
                     console.log(pedido);
-                    containerPedido.innerHTML += '<td>' + pedido.nome_u + '<p class="med-email">' + pedido.email_u + '</p></td><td class="right">' + formattedDate + '</td>';
+                    containerPedido.innerHTML += '<tr class="item"><td>' + pedido.nome_u + '<p class="med-email">' + pedido.email_u + '</p></td><td class="right">' + formattedDate + '</td></td></tr>';
                 })
 
             })

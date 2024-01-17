@@ -44,7 +44,7 @@ const createPedido = async () => {
             if (pedido.length > 0) {
                 alert("Já tem uma solicitação em análise. Vá para as solicitações");
                 window.location.href = './UtenteHistorico.html';
-                return; 
+                return;
             }
 
             if (submissao_n == 'true') {
@@ -70,7 +70,7 @@ const createPedido = async () => {
                     },
                     'Access-Control-Allow-OSrigin': '*'
                 })
-                
+
                 console.log(response)
                 return response
 
